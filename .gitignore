@@ -1,0 +1,17 @@
+.classpath
+.project
+.vertx
+.settings
+**/.settings
+**/.idea
+target/
+**/target
+*.class
+*.jar
+*.log
+*.war
+nbactions.xml
+**/nbproject/
+**/node_modules
+simple-tools-web/data/
+/.metadata/
