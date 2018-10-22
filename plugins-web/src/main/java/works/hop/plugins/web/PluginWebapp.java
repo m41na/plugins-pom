@@ -50,11 +50,18 @@ public class PluginWebapp {
 			ContextHandlerCollection contextHandlers = new ContextHandlerCollection();
 			contextHandlers.setHandlers(new Handler[] { pingHandler });
 			
-			//configure async servlet handler
+			//configure servlet handler
 			ServletContextHandler servletHandler = new ServletContextHandler();
 			servletHandler.setContextPath("/plug/*");
+			
+			//add regular servlet
 			ServletHolder plugHolder = new ServletHolder(context.getBean(PluginServlet.class));
-			servletHandler.addServlet(plugHolder, "/");
+			servletHandler.addServlet(plugHolder, "/reg");
+			
+			//add async servlet
+			ServletHolder asyncHolder = new ServletHolder(context.getBean(PluginServletAsync.class));
+			servletHandler.addServlet(asyncHolder, "/");
+			asyncHolder.setAsyncSupported(true);
 
 			//configure resources handler
 			ResourceHandler resourceHandler = new ResourceHandler();

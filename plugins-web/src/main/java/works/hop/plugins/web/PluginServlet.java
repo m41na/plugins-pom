@@ -60,7 +60,7 @@ public class PluginServlet extends HttpServlet {
 		// write content
 		try {
 			resp.setContentLength(json.length());
-			resp.setContentType("application/json);charset=utf-8");
+			resp.setContentType("application/json");
 			PrintWriter out = resp.getWriter();
 			out.write(json);
 		} catch (Exception e) {
@@ -116,7 +116,7 @@ public class PluginServlet extends HttpServlet {
 		// write content
 		try {
 			resp.setContentLength(json.length());
-			resp.setContentType("application/json);charset=utf-8");
+			resp.setContentType("application/json");
 			PrintWriter out = resp.getWriter();
 			out.write(json);
 		} catch (Exception e) {

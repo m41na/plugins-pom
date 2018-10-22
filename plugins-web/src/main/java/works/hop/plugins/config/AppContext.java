@@ -13,6 +13,7 @@ import works.hop.plugins.service.PluginService;
 import works.hop.plugins.service.PluginServiceImpl;
 import works.hop.plugins.web.PingHandler;
 import works.hop.plugins.web.PluginServlet;
+import works.hop.plugins.web.PluginServletAsync;
 
 @Configuration
 public class AppContext {
@@ -22,9 +23,14 @@ public class AppContext {
 		return new PingHandler(service);
 	}
 	
-	@Bean("pluginServlet")
+	@Bean
 	public HttpServlet pluginServlet(@Autowired PluginService service) {
 		return new PluginServlet(service);
+	}
+	
+	@Bean
+	public HttpServlet pluginServletAsync(@Autowired PluginService service) {
+		return new PluginServletAsync(service);
 	}
 	
 	@Bean
