@@ -47,7 +47,7 @@ public class PlugConfig {
 		return pluggable;
 	}
 
-	public void resolve(Pluggable parent) {
+	public static void resolve(Pluggable parent) {
 		if(parent.getSources().size() > 0) {
 			for(Iterator<Pluggable> iter = parent.getSources().iterator(); iter.hasNext();) {
 				Pluggable athis = iter.next();
@@ -62,7 +62,7 @@ public class PlugConfig {
 		}
 	}
 	
-	public String resolveUrl(Pluggable plug) {
+	public static String resolveUrl(Pluggable plug) {
 		//"file:/home/user/.m2/repository/works/hop/plugins-basic/0.1/plugins-basic-0.1.jar
 		StringBuilder path = new StringBuilder();
 		String type = plug.getType().concat(":");

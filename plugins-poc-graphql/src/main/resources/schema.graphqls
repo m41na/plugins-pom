@@ -1,0 +1,47 @@
+type Link {
+  url: String!
+  description: String!
+}
+
+type Address {
+  street: String, 
+  unit: String, 
+  city: String, 
+  state: String, 
+  zipCode: String
+}
+
+type Profile {
+  id: ID!,
+  firstName: String,
+  lastName: String,
+  aboutMe: String,
+  address: Address
+}
+
+type Account {
+  id: ID!,
+  username: String,
+  password: String,
+  emailAddr: String,
+  profile: Profile
+}
+
+type Query {
+  allLinks: [Link],
+  allAccounts: [Account],
+  accountById(id: Int!): Account,
+  accountByUsername(username: String!): Account
+}
+
+type Mutation {
+  createLink(url: String!, description: String!): Link,
+  createAccount(username: String!, password: String!, emailAddr: String!): Int,
+  updateProfile(id: ID!, firstName: String, lastName: String, aboutMe: String, birthDay: Date),
+  updateAddress(id: ID!, address: Address)
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}

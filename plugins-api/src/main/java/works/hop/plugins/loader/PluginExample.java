@@ -1,11 +1,14 @@
 package works.hop.plugins.loader;
 
+import java.lang.ref.Reference;
+import java.lang.ref.WeakReference;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.util.Scanner;
 
+import works.hop.plugins.api.PlugLifecycle;
 import works.hop.plugins.api.Pluggable;
 import works.hop.plugins.api.Plugin;
-import works.hop.plugins.api.PlugLifecycle;
 import works.hop.plugins.config.PlugConfig;
 
 public class PluginExample implements Runnable {
@@ -19,76 +22,85 @@ public class PluginExample implements Runnable {
 
 	@Override
 	public void run() {
-		String path = PlugConfig.getInstance().resolveUrl(plug);
-		String plugin = plug.getPlugin();
-		try {
-			URL url = new URL(path);
-			URLClassLoader loader = new URLClassLoader(new URL[] { url });
-			Class<?> cl = Class.forName(plugin, true, loader);
-			//create plugin instance
-			Plugin<?> plug = (Plugin<?>) cl.newInstance();
-			PlugLifecycle plc = plug.lifecycle();
-			//load plugin
-			plc.beforeLoad();
+		try (Scanner scan = new Scanner(System.in)) {
+			String path = PlugConfig.resolveUrl(plug);
+			String plugin = plug.getPlugin();
 			try {
-				plug.load(loader);
-				plc.onLoadSuccess();
-			} catch (Exception e) {
-				plc.onLoadError();
-			}
-			//execute plugin
-			plc.beforeExecute();
-			plug.execute("printTasks", null);
-			plc.onExecuteSuccess();
-			try {
+				URL url = new URL(path);
+				Reference<URLClassLoader> loader = new WeakReference<>(new URLClassLoader(new URL[] { url }));
+				Class<?> cl = Class.forName(plugin, true, loader.get());
+				// create plugin instance
+				Plugin<?> plug = (Plugin<?>) cl.newInstance();
+				PlugLifecycle plc = plug.lifecycle();
+				// load plugin
+				plc.beforeLoad();
+				try {
+					plug.load(loader.get());
+					plc.onLoadSuccess();
+				} catch (Exception e) {
+					plc.onLoadError();
+				}
+				// execute plugin
+				plc.beforeExecute();
+				plug.execute("printTasks", null);
 				plc.onExecuteSuccess();
-			} catch (Exception e) {
-				plc.onExecuteError();
-			}
-			System.out.println("Hit <Enter> to proceed");
-			System.in.read();
-			//unload plugin
-			plc.beforeUnload();
-			try {
-				plug.unload();
-				plc.onUnloadSuccess();
-			} catch (Exception e) {
-				plc.onUnloadError();
-			}
-			//close loader
-			loader.close();
+				try {
+					plc.onExecuteSuccess();
+				} catch (Exception e) {
+					plc.onExecuteError();
+				}
+				// unload plugin
+				plc.beforeUnload();
+				try {
+					plug.unload();
+					plc.onUnloadSuccess();
+				} catch (Exception e) {
+					plc.onUnloadError();
+				}
+				// close loader
+				loader.get().close();
 
-			// assuming plugin jar got updated, the changes should be reflect after this
-			loader = new URLClassLoader(new URL[] { url });
-			cl = Class.forName(plugin, true, loader);
-			plug = (Plugin<?>) cl.newInstance();
-			plc = plug.lifecycle();
-			plc.beforeLoad();
-			try {
-				plug.load(loader);
-				plc.onLoadSuccess();
+				System.out.println("Now app will reload continuously");
+				while (true) {
+					Thread.sleep(3000);
+
+					// assuming plugin jar got updated, the changes should be reflect after this
+					loader = new WeakReference<>(new URLClassLoader(new URL[] { url }));
+					cl = Class.forName(plugin, true, loader.get());
+					plug = (Plugin<?>) cl.newInstance();
+					plc = plug.lifecycle();
+					// load plugin
+					plc.beforeLoad();
+					try {
+						plug.load(loader.get());
+						plc.onLoadSuccess();
+					} catch (Exception e) {
+						plc.onLoadError();
+					}
+					// execute plugin
+					plc.beforeExecute();
+					plug.execute("printTasks", null);
+					plc.onExecuteSuccess();
+					try {
+						plc.onExecuteSuccess();
+					} catch (Exception e) {
+						plc.onExecuteError();
+					}
+					System.out.println("Plugin will now unload");
+					// unload plugin
+					plc.beforeUnload();
+					try {
+						plug.unload();
+						plc.onUnloadSuccess();
+					} catch (Exception e) {
+						plc.onUnloadError();
+					}
+					// close loader
+					loader.get().close();
+				}
 			} catch (Exception e) {
-				plc.onLoadError();
+				e.printStackTrace(System.err);
 			}
-			plc.beforeExecute();
-			plug.execute("printTasks", null);
-			plc.onExecuteSuccess();
-			try {
-				plc.onExecuteSuccess();
-			} catch (Exception e) {
-				plc.onExecuteError();
-			}
-			System.out.println("Plugin will now unload");
-			plc.beforeUnload();
-			try {
-				plug.unload();
-				plc.onUnloadSuccess();
-			} catch (Exception e) {
-				plc.onUnloadError();
-			}
-			loader.close();
-		} catch (Exception e) {
-			e.printStackTrace(System.err);
 		}
 	}
 

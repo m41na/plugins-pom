@@ -3,6 +3,11 @@ package works.hop.plugins.api;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class template for loading plugins' json configurations
+ * @author mainas
+ *
+ */
 public class Pluggable {
 
 	private String type;
@@ -10,7 +15,7 @@ public class Pluggable {
 	private String coordinates;
 	private String jarfile;
 	private String plugin;	
-	private List<Feature<?>> features = new ArrayList<>();
+	private List<Feature> features = new ArrayList<>();
 	private List<Pluggable> sources = new ArrayList<>();
 
 	public String getType() {
@@ -53,11 +58,11 @@ public class Pluggable {
 		this.plugin = plugin;
 	}
 
-	public List<Feature<?>> getFeatures() {
+	public List<Feature> getFeatures() {
 		return features;
 	}
 
-	public void setFeatures(List<Feature<?>> operations) {
+	public void setFeatures(List<Feature> operations) {
 		this.features = operations;
 	}
 

@@ -1,0 +1,8 @@
+node_modules
+target
+.settings/
+.project
+.classpath
+*.class
+*.jar
+*.war

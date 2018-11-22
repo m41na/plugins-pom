@@ -1,23 +1,46 @@
 package works.hop.plugins.api;
 
-public class Feature<T> {
+import java.util.ArrayList;
+import java.util.List;
 
-	private String name;	
-	private T accepts;
+public class Feature {
+
+	private String name;
+	private ParamType returns;
+	private final List<ParamType> accepts = new ArrayList<>();
 
 	public String getName() {
 		return name;
 	}
-
+	
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public T getAccepts() {
-		return accepts;
+	public ParamType getReturns() {
+		return returns;
 	}
 
-	public void setAccepts(T accepts) {
-		this.accepts = accepts;
+	public void setReturns(ParamType returns) {
+		this.returns = returns;
+	}
+
+	public List<ParamType> getAccepts() {
+		return accepts;
+	}
+	
+	public void addParam(ParamType arg) {
+		this.accepts.add(arg);
+	}
+
+	public static class ParamType{
+		
+		public final String name;
+		public List<ParamType> attributes = new ArrayList<>();
+
+		public ParamType(String name) {
+			super();
+			this.name = name;
+		}
 	}
 }

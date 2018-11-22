@@ -6,12 +6,12 @@ public class PlugResult<T> {
     private String status;
     private T entity;
     
-    public PlugResult(T entity, String status) {
-    	this(entity, true, status);
+    public PlugResult(T entity) {
+    	this(entity, true, null);
     }
 
-    public PlugResult(String status) {
-    	this(null, false, status);
+    public PlugResult(Boolean error, String status) {
+    	this(null, error, status);
     }
     
     public PlugResult(T entity, Boolean error, String status) {

@@ -1,0 +1,51 @@
+{
+  allLinks{
+	url
+  }
+} 
+
+mutation createLink{
+  createLink(url: "http://localhost:8080/ping", description: "health check"){
+    url
+    description
+  }
+}
+
+--------------
+
+{
+  allAccounts {
+	id
+    username
+    profile {
+      firstName
+      lastName
+    }
+  } 
+}
+
+{
+  accountById(id: 1) {
+    username
+    profile {
+      firstName
+    }
+  }
+}
+
+{
+  accountByUsername(username: "admin") {
+    username
+    profile {
+      firstName
+    }
+  }
+}
+
+mutation createAccount{
+  createAccount(username: "admin", password: "saucy", emailAddr: "admins@mikes.org")
+}
+
+mutation createAccount{
+  createAccount(username: "james", password: "bond", emailAddr: "jamesb@mikes.org")
+}

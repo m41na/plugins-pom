@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data-sources>
+	<data-source id="h2_embedded-16737ae422a-41a95bfaba5b3603" provider="generic" driver="h2_embedded" name="H2 - New Connection" save-password="true" show-system-objects="true" show-util-objects="true" read-only="false">
+		<connection server="" database="" url="jdbc:h2:file:./www/data/poc-graphql;DB_CLOSE_DELAY=-1" user="sa" password="AAVmwQ==" type="dev"/>
+	</data-source>
+	<filters/>
+</data-sources>
