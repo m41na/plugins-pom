@@ -1,5 +1,7 @@
 package works.graphql.service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -47,14 +49,19 @@ public class AccountServiceImpl implements AccountService{
 
 	@Override
 	@Transactional(value=TxType.REQUIRED)
-	public Integer updateProfile(Long id, String firstName, String lastName, String aboutMe) {
+	public Integer updateProfile(Long id, String firstName, String lastName, String aboutMe, String birthDay) {
 		Result<Account> find = dao.findById(id);
 		if(find.error != null) {
 			Profile profile = find.data.profile;
 			profile.firstName = firstName;
 			profile.lastName = lastName;
 			profile.aboutMe = aboutMe;
-			//profile.birthDay = birthDay;
+			try {
+				profile.birthDay = new SimpleDateFormat("yyyy-mm-dd").parse(birthDay);
+			} catch (ParseException e) {
+				//"The birthDay Date is not parsable, so just ignore -> "
+				e.printStackTrace(System.err);
+			}
 			dao.updateAccount(find.data);
 			return 1;
 		}

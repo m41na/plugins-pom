@@ -15,7 +15,7 @@ public interface AccountService {
 
 	Integer createAccount(String username, String password, String emailAddr);
 	
-	Integer updateProfile(Long id, String firstName, String lastName, String aboutMe);
+	Integer updateProfile(Long id, String firstName, String lastName, String aboutMe, String birthDay);
 	
 	Integer updateAddress(Long id, Address address);
 }

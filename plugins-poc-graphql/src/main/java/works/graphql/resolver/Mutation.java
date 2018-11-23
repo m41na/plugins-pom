@@ -28,8 +28,8 @@ public class Mutation implements GraphQLRootResolver {
 		return accountService.createAccount(username, password, emailAddr);
 	}
 	
-	public Integer updateProfile(Long id, String firstName, String lastName, String aboutMe) {
-		return accountService.updateProfile(id, firstName, lastName, aboutMe);
+	public Integer updateProfile(String id, String firstName, String lastName, String aboutMe, String birthDay) {
+		return accountService.updateProfile(Long.valueOf(id), firstName, lastName, aboutMe, birthDay);
 	}
 	
 	public Integer updateAddress(Long id, Address address) {

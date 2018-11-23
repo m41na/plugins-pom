@@ -37,8 +37,7 @@ type Query {
 type Mutation {
   createLink(url: String!, description: String!): Link,
   createAccount(username: String!, password: String!, emailAddr: String!): Int,
-  updateProfile(id: ID!, firstName: String, lastName: String, aboutMe: String, birthDay: Date),
-  updateAddress(id: ID!, address: Address)
+  updateProfile(id: String!, firstName: String, lastName: String, aboutMe: String, birthDay: String): Int
 }
 
 schema {
