@@ -51,8 +51,13 @@ public class AccountServiceImpl implements AccountService{
 	@Transactional(value=TxType.REQUIRED)
 	public Integer updateProfile(Long id, String firstName, String lastName, String aboutMe, String birthDay) {
 		Result<Account> find = dao.findById(id);
-		if(find.error != null) {
-			Profile profile = find.data.profile;
+		if(find.data != null) {
+			Account account = find.data;
+			Profile profile = account.profile;
+			if(profile == null) {
+				profile = new Profile();
+				account.profile = profile;
+			}
 			profile.firstName = firstName;
 			profile.lastName = lastName;
 			profile.aboutMe = aboutMe;
@@ -62,7 +67,7 @@ public class AccountServiceImpl implements AccountService{
 				//"The birthDay Date is not parsable, so just ignore -> "
 				e.printStackTrace(System.err);
 			}
-			dao.updateAccount(find.data);
+			dao.updateAccount(account);
 			return 1;
 		}
 		return 0;

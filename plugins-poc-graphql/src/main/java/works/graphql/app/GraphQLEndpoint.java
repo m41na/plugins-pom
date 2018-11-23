@@ -7,10 +7,8 @@ import com.coxautodev.graphql.tools.SchemaParser;
 import graphql.schema.GraphQLSchema;
 import graphql.servlet.SimpleGraphQLServlet;
 import works.graphql.config.AppContext;
-import works.graphql.dao.LinkRepository;
 import works.graphql.resolver.Mutation;
 import works.graphql.resolver.Query;
-import works.graphql.service.AccountService;
 
 @WebServlet(urlPatterns = "/graphql")
 public class GraphQLEndpoint extends SimpleGraphQLServlet {
@@ -26,12 +24,11 @@ public class GraphQLEndpoint extends SimpleGraphQLServlet {
     	ctx = new AppContext();
     	ctx.init();
     	//get bean
-    	LinkRepository linkRepo = ctx.getBean(null, LinkRepository.class);
-    	AccountService accountService = ctx.getBean(null, AccountService.class);
+    	Query query = ctx.getBean(null, Query.class);
+    	Mutation mutation = ctx.getBean(null, Mutation.class);
         return SchemaParser.newParser()
                 .file("schema.graphqls")
-                .resolvers(new Query(linkRepo, accountService), 
-                		new Mutation(linkRepo, accountService))
+                .resolvers(query, mutation)
                 .build()
                 .makeExecutableSchema();
     }

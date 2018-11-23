@@ -2,22 +2,29 @@ package works.graphql.resolver;
 
 import java.util.List;
 
-import com.coxautodev.graphql.tools.GraphQLRootResolver;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 
 import works.graphql.dao.LinkRepository;
 import works.graphql.entity.Account;
 import works.graphql.model.Link;
 import works.graphql.service.AccountService;
+import works.graphql.service.PublicationService;
 
-public class Query implements GraphQLRootResolver {
+@Component
+public class Query implements GraphQLQueryResolver {
     
     private final LinkRepository linkRepo;
     private final AccountService accountService;
+    private final PublicationService publicationService;
     
-    public Query(LinkRepository linkRepo, AccountService accountService) {
+    public Query(@Autowired LinkRepository linkRepo, @Autowired AccountService accountService, @Autowired PublicationService publicationService) {
     	super();
         this.linkRepo = linkRepo;
         this.accountService = accountService;
+        this.publicationService = publicationService;
     }
     
     public List<Link> allLinks() {

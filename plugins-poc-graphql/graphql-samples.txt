@@ -49,3 +49,11 @@ mutation createAccount{
 mutation createAccount{
   createAccount(username: "james", password: "bond", emailAddr: "jamesb@mikes.org")
 }
+
+mutation updateProfile{
+  updateProfile(id: "1", firstName: "Jesse", lastName: "brown", aboutMe: "Eveyday I'm hustling", birthDay: "1990-10-10")
+}
+
+mutation updateAddress{
+  updateAddress(id: "1", street: "boxer lane", unit: "120", city: "damascus", state: "PE", zipCode: "34234")
+}

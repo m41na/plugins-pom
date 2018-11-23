@@ -76,7 +76,9 @@ public class DbAccountRepo implements AccountRepo {
 	public Result<Integer> updateAccount(Account account) {
 		try {
 			Session session = this.sessionFactory.openSession();
-			session.update(account);
+			Transaction tx = session.beginTransaction();
+			session.saveOrUpdate(account);
+			tx.commit();
 			session.close();
 			return Result.of(1);
 		} catch (Exception e) {

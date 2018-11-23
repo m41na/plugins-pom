@@ -138,9 +138,9 @@
 		<module>plugins-poc-web</module>
 		<module>plugins-poc-users</module>
 		<module>plugins-poc-graphql</module>
-		<module>../plugins-users-service</module>
-		<module>../plugins-blogs-service</module>
-		<module>../plugins-backlog-service</module>
-		<module>../plugins-rest-tools</module>
+		<module>plugins-users-service</module>
+		<module>plugins-blogs-service</module>
+		<module>plugins-backlog-service</module>
+		<module>plugins-rest-tools</module>
 	</modules>
 </project>

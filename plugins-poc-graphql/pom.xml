@@ -48,6 +48,7 @@
 			<version>4.0.0</version>
 		</dependency>
 
+		<!-- spring DI -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -116,7 +117,6 @@
 			<artifactId>activation</artifactId>
 		</dependency>
 
-		<!-- testing -->
 		<!-- spring testing -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -134,6 +134,7 @@
 			</exclusions>
 		</dependency>
 
+		<!-- unit testing -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

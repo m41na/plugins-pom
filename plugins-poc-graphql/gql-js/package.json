@@ -1,0 +1,23 @@
+{
+  "name": "gql-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon",
+    "client": "node ./src/client.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.0.2",
+    "isomorphic-fetch": "^2.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.6"
+  }
+}
