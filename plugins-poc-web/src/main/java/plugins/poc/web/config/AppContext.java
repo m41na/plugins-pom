@@ -12,9 +12,9 @@ import plugins.poc.web.PluginServlet;
 import plugins.poc.web.PluginServletAsync;
 import plugins.poc.web.service.PluginService;
 import plugins.poc.web.service.PluginServiceImpl;
-import works.hop.plugins.api.Pluggable;
-import works.hop.plugins.config.PlugConfig;
-import works.hop.plugins.loader.PluginCentral;
+import com.practicaldime.plugins.api.Pluggable;
+import com.practicaldime.plugins.config.PlugConfig;
+import com.practicaldime.plugins.loader.PluginCentral;
 
 @Configuration
 public class AppContext {

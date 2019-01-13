@@ -6,7 +6,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.jarredweb.works</groupId>
+		<groupId>com.practicaldime.works</groupId>
 		<artifactId>plugins-parent</artifactId>
 		<version>0.1</version>
 	</parent>
@@ -21,7 +21,7 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.jarredweb.works</groupId>
+			<groupId>com.practicaldime.works</groupId>
 			<artifactId>plugins-api</artifactId>
 			<version>${project.version}</version>
 		</dependency>

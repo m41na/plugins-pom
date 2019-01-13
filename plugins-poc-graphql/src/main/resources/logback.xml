@@ -7,7 +7,7 @@
     </layout>
   </appender>
   
-  <logger name="works.graphql" level="TRACE"/>
+  <logger name="com.practicaldime.graphql" level="TRACE"/>
   
 
   <root level="debug">

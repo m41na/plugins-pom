@@ -11,9 +11,9 @@ import com.google.gson.reflect.TypeToken;
 import plugins.poc.users.config.DaoConfig;
 import plugins.poc.users.dao.User;
 import plugins.poc.users.dao.UsersService;
-import works.hop.plugins.api.AbstractPlugin;
-import works.hop.plugins.api.PlugException;
-import works.hop.plugins.api.PlugResult;
+import com.practicaldime.plugins.api.AbstractPlugin;
+import com.practicaldime.plugins.api.PlugException;
+import com.practicaldime.plugins.api.PlugResult;
 
 public class UsersPlugin extends AbstractPlugin<UsersService> {
 

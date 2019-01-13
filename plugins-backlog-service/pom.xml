@@ -6,10 +6,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>com.jarredweb.works</groupId>
+		<groupId>com.practicaldime.works</groupId>
 		<artifactId>plugins-parent</artifactId>
 		<version>0.1</version>
-		<relativePath>../plugins-parent</relativePath>
 	</parent>
 
 	<artifactId>plugins-backlog-service</artifactId>
@@ -24,19 +23,19 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>com.jarredweb.works</groupId>
+			<groupId>com.practicaldime.works</groupId>
 			<artifactId>plugins-api</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.jarredweb.works</groupId>
+			<groupId>com.practicaldime.works</groupId>
 			<artifactId>domain-backlog</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.jarredweb.works</groupId>
+			<groupId>com.practicaldime.works</groupId>
 			<artifactId>common-utils</artifactId>
 			<version>${project.version}</version>
 		</dependency>

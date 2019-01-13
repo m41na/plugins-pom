@@ -2,7 +2,7 @@ package plugins.poc.users.dao;
 
 import java.util.List;
 
-import works.hop.plugins.api.PlugResult;
+import com.practicaldime.plugins.api.PlugResult;
 
 public interface UsersService {
 

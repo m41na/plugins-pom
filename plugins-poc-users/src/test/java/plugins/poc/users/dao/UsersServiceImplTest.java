@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import plugins.poc.users.config.DaoTestConfig;
 import plugins.poc.users.dao.User;
 import plugins.poc.users.dao.UsersService;
-import works.hop.plugins.api.PlugResult;
+import com.practicaldime.plugins.api.PlugResult;
 
 @Transactional
 @RunWith(SpringJUnit4ClassRunner.class)

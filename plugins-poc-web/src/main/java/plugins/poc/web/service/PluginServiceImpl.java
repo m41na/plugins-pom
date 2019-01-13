@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
 
-import works.hop.plugins.api.PlugException;
-import works.hop.plugins.api.PlugResult;
-import works.hop.plugins.api.Pluggable;
-import works.hop.plugins.loader.PluginCentral;
+import com.practicaldime.plugins.api.PlugException;
+import com.practicaldime.plugins.api.PlugResult;
+import com.practicaldime.plugins.api.Pluggable;
+import com.practicaldime.plugins.loader.PluginCentral;
 
 @Service
 public class PluginServiceImpl implements PluginService {

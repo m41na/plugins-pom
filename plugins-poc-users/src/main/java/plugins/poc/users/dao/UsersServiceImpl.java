@@ -15,7 +15,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import works.hop.plugins.api.PlugResult;
+import com.practicaldime.plugins.api.PlugResult;
 
 @Repository
 public class UsersServiceImpl implements UsersService {

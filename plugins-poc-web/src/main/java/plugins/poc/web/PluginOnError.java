@@ -8,7 +8,7 @@ import javax.servlet.AsyncContext;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.WriteListener;
 
-import works.hop.plugins.api.PlugException;
+import com.practicaldime.plugins.api.PlugException;
 
 public class PluginOnError implements WriteListener{
 

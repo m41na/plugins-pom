@@ -2,10 +2,10 @@ package plugins.poc.todos;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import works.hop.plugins.api.PlugException;
-import works.hop.plugins.api.PlugLifecycle;
-import works.hop.plugins.api.PlugResult;
-import works.hop.plugins.api.Plugin;
+import com.practicaldime.plugins.api.PlugException;
+import com.practicaldime.plugins.api.PlugLifecycle;
+import com.practicaldime.plugins.api.PlugResult;
+import com.practicaldime.plugins.api.Plugin;
 
 public class TodoPlugin implements Plugin<TodoService>, PlugLifecycle {
 

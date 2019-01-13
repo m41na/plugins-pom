@@ -1,4 +1,4 @@
-merge into tbl_author (author_id, first_name, last_name, author_bio, birth_year, addr_city, addr_state, street_name, unit_num, zip_code)
+merge into tbl_author (author_id, first_name, last_name, author_bio, birth_day, addr_city, addr_state, street_name, unit_num, zip_code)
 key (author_id)
 VALUES 
 (1, 'james', 'bond', 'gunslinger', TO_DATE(substr('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', ''),

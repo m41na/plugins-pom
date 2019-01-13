@@ -4,7 +4,7 @@
 	"sources": [
 		{
 			"type": "file",
-			"coordinates": "com/jarredweb/works/plugins-poc-todos/0.1",
+			"coordinates": "com/practicaldime/works/plugins-poc-todos/0.1",
 			"jarfile": "plugins-poc-todos-0.1-shaded.jar",
 			"plugin": "plugins.poc.todos.TodoPlugin",
 			"features": [
@@ -16,7 +16,7 @@
 		},
 		{
 			"type": "file",
-			"coordinates": "com/jarredweb/works/plugins-poc-users/0.1",
+			"coordinates": "com/practicaldime/works/plugins-poc-users/0.1",
 			"jarfile": "plugins-poc-users-0.1-shaded.jar",
 			"plugin": "plugins.poc.users.UsersPlugin",
 			"features": [
@@ -47,9 +47,9 @@
 		},
 		{
 			"type": "file",
-			"coordinates": "com/jarredweb/works/plugins-users-service/0.1",
+			"coordinates": "com/practicaldime/works/plugins-users-service/0.1",
 			"jarfile": "plugins-users-service-0.1-shaded.jar",
-			"plugin": "com.jarredweb.plugins.users.StartupPlugin",
+			"plugin": "com.practicaldime.plugins.users.StartupPlugin",
 			"features": [
 				{
 					"name": "initialize",
@@ -69,9 +69,9 @@
 		},
 		{
 			"type": "file",
-			"coordinates": "com/jarredweb/works/plugins-users-service/0.1",
+			"coordinates": "com/practicaldime/works/plugins-users-service/0.1",
 			"jarfile": "plugins-users-service-0.1-shaded.jar",
-			"plugin": "com.jarredweb.plugins.users.UsersPlugin",
+			"plugin": "com.practicaldime.plugins.users.UsersPlugin",
 			"features": [
 				{
 					"name": "createAccount",
@@ -99,9 +99,9 @@
 		},
 		{
 			"type": "file",
-			"coordinates": "com/jarredweb/works/plugins-rest-tools/0.1",
+			"coordinates": "com/practicaldime/works/plugins-rest-tools/0.1",
 			"jarfile": "plugins-rest-tools-0.1-shaded.jar",
-			"plugin": "com.jarredweb.plugins.rest.tools.RestToolsPlugin",
+			"plugin": "com.practicaldime.plugins.rest.tools.RestToolsPlugin",
 			"features": [
 				{
 					"name": "createUser",
@@ -119,9 +119,9 @@
 		},
 		{
 			"type": "file",
-			"coordinates": "com/jarredweb/works/plugins-todos-service/0.1",
+			"coordinates": "com/practicaldime/works/plugins-todos-service/0.1",
 			"jarfile": "plugins-todos-service-0.1-shaded.jar",
-			"plugin": "com.jarredweb.plugins.todos.TodosPlugin",
+			"plugin": "com.practicaldime.plugins.todos.TodosPlugin",
 			"features": [
 				{
 					"name": "createTodoList",
