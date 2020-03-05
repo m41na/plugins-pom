@@ -16,6 +16,7 @@ nbactions.xml
 **/node_modules
 simple-tools-web/data/
 /.metadata/
+*.db
 
 # dependencies
 /node_modules
