@@ -1,19 +1,10 @@
 package com.practicaldime.plugins.blogs.dao;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.function.BiFunction;
-import java.util.function.BinaryOperator;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-import javax.sql.DataSource;
-
+import com.practicaldime.common.entity.blogs.BlogPost;
+import com.practicaldime.common.entity.blogs.Comment;
+import com.practicaldime.common.entity.users.Profile;
+import com.practicaldime.common.util.AResult;
+import com.practicaldime.common.util.SqliteDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.ResultSetExtractor;
@@ -24,11 +15,12 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import com.practicaldime.common.util.AResult;
-import com.practicaldime.common.util.SqliteDate;
-import com.practicaldime.common.entity.blogs.BlogPost;
-import com.practicaldime.common.entity.blogs.Comment;
-import com.practicaldime.common.entity.users.Profile;
+import javax.sql.DataSource;
+import java.util.*;
+import java.util.function.BiFunction;
+import java.util.function.BinaryOperator;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Repository
 public class BlogsDaoImpl implements BlogsDao {

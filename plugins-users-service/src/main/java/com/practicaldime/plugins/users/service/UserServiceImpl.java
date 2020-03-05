@@ -140,7 +140,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
     public AResult<Account> updateAccount(Account account) {
-        long accountId = account.getId();
+        Long accountId = account.getId();
         AResult<Integer> updateStatus = userDao.update(accountId, account.getStatus());
         if (updateStatus.errors.isEmpty()) {
             AResult<Integer> updateRole = userDao.update(accountId, account.getRole());

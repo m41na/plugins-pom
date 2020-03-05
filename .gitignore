@@ -4,6 +4,7 @@
 .settings
 **/.settings
 **/.idea
+*.iml
 target/
 **/target
 *.class
