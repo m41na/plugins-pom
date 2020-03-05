@@ -17,10 +17,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.practicaldime.common.util.AppResult;
-import com.practicaldime.domain.blogs.BlogPost;
-import com.practicaldime.domain.blogs.Comment;
-import com.practicaldime.domain.users.Profile;
+import com.practicaldime.common.util.AResult;
+import com.practicaldime.common.entity.blogs.BlogPost;
+import com.practicaldime.common.entity.blogs.Comment;
+import com.practicaldime.common.entity.users.Profile;
 import com.practicaldime.plugins.blogs.service.BlogsService;
 
 import com.practicaldime.plugins.blogs.config.BlogsServiceTestConfig;
@@ -31,7 +31,7 @@ import com.practicaldime.plugins.blogs.config.BlogsServiceTestConfig;
 @Sql({"/sql/create-tables.sql"})
 @Sql(scripts = "/sql/insert-data.sql", config = @SqlConfig(commentPrefix = "--"))
 public class BlogsServiceImplTest {
-    
+
     @Autowired
     private BlogsService blogsService;
 
@@ -43,41 +43,41 @@ public class BlogsServiceImplTest {
         blog.setAuthor(author);
         blog.setSummary("summary from 'BlogsServiceImplTest::testCreate'");
         blog.setTitle("BlogsServiceImplTest testing");
-        AppResult<BlogPost> created = blogsService.create(blog);
-        assertTrue("Expected no error", created.getError() == null);
+        AResult<BlogPost> created = blogsService.create(blog);
+        assertTrue("Expected no error", created.errors.isEmpty());
     }
 
     @Test
     public void testFind() {
         long blogId = 2;
-        AppResult<BlogPost> blog = blogsService.find(blogId);
-        assertTrue("Expected no error", blog.getError() == null);
-        assertEquals("Expected " + blogId, blogId, blog.getEntity().getId());
+        AResult<BlogPost> blog = blogsService.find(blogId);
+        assertTrue("Expected no error", blog.errors.isEmpty());
+        assertEquals("Expected " + blogId, blogId, blog.data.getId().longValue());
     }
 
     @Test
     public void testFindByTitle() {
         String title = "Math";
-        AppResult<List<BlogPost>> blog = blogsService.findByTitle(title);
-        assertTrue("Expected no error", blog.getError() == null);
-        assertEquals("Expected 3", 3, blog.getEntity().size());
+        AResult<List<BlogPost>> blog = blogsService.findByTitle(title);
+        assertTrue("Expected no error", blog.errors.isEmpty());
+        assertEquals("Expected 3", 3, blog.data.size());
     }
 
     @Test
     public void testFindByAuthor() {
         long author = 1;
-        AppResult<List<BlogPost>> blog = blogsService.findByAuthor(author);
-        assertTrue("Expected no error", blog.getError() == null);
-        assertEquals("Expected 2", 2, blog.getEntity().size());
+        AResult<List<BlogPost>> blog = blogsService.findByAuthor(author);
+        assertTrue("Expected no error", blog.errors.isEmpty());
+        assertEquals("Expected 2", 2, blog.data.size());
     }
 
     @Test
     public void testPublish() {
         long blogId = 2l;
-        boolean publish  =true;
-        AppResult<Integer> published = blogsService.publish(blogId, publish);
-        assertTrue("Expected no error", published.getError() == null);
-        assertEquals("Expected 1", 1, published.getEntity().intValue());
+        boolean publish = true;
+        AResult<Integer> published = blogsService.publish(blogId, publish);
+        assertTrue("Expected no error", published.errors.isEmpty());
+        assertEquals("Expected 1", 1, published.data.intValue());
     }
 
     @Test
@@ -85,63 +85,63 @@ public class BlogsServiceImplTest {
         long blogId = 2l;
         int page = 1;
         String content = "interesting content from testUpdateAddContent";
-        AppResult<Integer> updated = blogsService.update(blogId, page, content);
-        assertTrue("Expected no error", updated.getError() == null);
-        assertEquals("Expected 1", 1, updated.getEntity().intValue());
+        AResult<Integer> updated = blogsService.update(blogId, page, content);
+        assertTrue("Expected no error", updated.errors.isEmpty());
+        assertEquals("Expected 1", 1, updated.data.intValue());
     }
 
     @Test
     public void testUpdateBlogContent() {
         long blogId = 2l;
-        AppResult<BlogPost> existing = blogsService.find(blogId);
-        assertTrue("Expected no error", existing.getError() == null);
-        BlogPost blog = existing.getEntity();
+        AResult<BlogPost> existing = blogsService.find(blogId);
+        assertTrue("Expected no error", existing.errors.isEmpty());
+        BlogPost blog = existing.data;
         String title = "test-title-2";
         String summary = "interesting content from testUpdateBlogContent";
         //set new values
         blog.setTitle(title);
         blog.setSummary(summary);
-        AppResult<Integer> updated = blogsService.update(blog);
-        assertTrue("Expected no error", updated.getError() == null);
-        assertEquals("Expected 1", 1, updated.getEntity().intValue());
+        AResult<Integer> updated = blogsService.update(blog);
+        assertTrue("Expected no error", updated.errors.isEmpty());
+        assertEquals("Expected 1", 1, updated.data.intValue());
         //retrieve updated
-        AppResult<BlogPost> result = blogsService.find(blogId);
-        assertTrue("Expected no error", result.getError() == null);
-        BlogPost post = result.getEntity();
+        AResult<BlogPost> result = blogsService.find(blogId);
+        assertTrue("Expected no error", result.errors.isEmpty());
+        BlogPost post = result.data;
         assertEquals(title, post.getTitle());
         assertEquals(summary, post.getSummary());
     }
-    
+
     @Test
     public void testUpdateBlogTags() {
         long blogId = 1l;
-        AppResult<BlogPost> find = blogsService.find(blogId);
-        assertTrue("Expected no error", find.getError() == null);
-        BlogPost post = find.getEntity();
+        AResult<BlogPost> find = blogsService.find(blogId);
+        assertTrue("Expected no error", find.errors.isEmpty());
+        BlogPost post = find.data;
         List<String> tags = post.getTags();
         String tagVal = tags.stream().collect(Collectors.joining(","));
         System.out.printf("tags found %s%n", tagVal);
         tags.add("testing");
-        AppResult<Integer> updated = blogsService.update(post.getId(), tags.toArray(new String[tags.size()]));
-        assertEquals("Expected 1", 1, updated.getEntity().intValue());
-        List<String> newList = blogsService.find(blogId).getEntity().getTags();
+        AResult<Integer> updated = blogsService.update(post.getId(), tags.toArray(new String[tags.size()]));
+        assertEquals("Expected 1", 1, updated.data.intValue());
+        List<String> newList = blogsService.find(blogId).data.getTags();
         assertEquals("Expecting same size", newList.size() - tags.size(), 0);
     }
-    
+
     @Test
     public void testFetchAvailableags() {
-    	AppResult<Set<String>> fetch = blogsService.fetchTags();
-    	assertTrue("Expected no error", fetch.getError() == null);
-    	Set<String> tags = fetch.getEntity();
-    	assertEquals("Expecting 8", 8, tags.size());
+        AResult<Set<String>> fetch = blogsService.fetchTags();
+        assertTrue("Expected no error", fetch.errors.isEmpty());
+        Set<String> tags = fetch.data;
+        assertEquals("Expecting 8", 8, tags.size());
     }
 
     @Test
     public void testDelete() {
         long blogId = 1l;
-        AppResult<Integer> deleted = blogsService.delete(blogId);
-        assertTrue("Expected no error", deleted.getError() == null);
-        assertEquals("Expected 1", 1, deleted.getEntity().intValue());
+        AResult<Integer> deleted = blogsService.delete(blogId);
+        assertTrue("Expected no error", deleted.errors.isEmpty());
+        assertEquals("Expected 1", 1, deleted.data.intValue());
     }
 
     @Test
@@ -154,22 +154,22 @@ public class BlogsServiceImplTest {
         String content = "BlogsServiceImplTest::testCreateComment";
         comment.setContent(content);
         comment.setParentBlog(blogId);
-        AppResult<Comment> created = blogsService.comment(blogId, comment);
-        assertTrue("Expected no error", created.getError() == null);
-        assertEquals("Expected " + content, content, created.getEntity().getContent());        
+        AResult<Comment> created = blogsService.comment(blogId, comment);
+        assertTrue("Expected no error", created.errors.isEmpty());
+        assertEquals("Expected " + content, content, created.data.getContent());
     }
 
     @Test
     public void testComments() {
         long blogId = 1l;
-        AppResult<List<Comment>> comments = blogsService.comments(blogId);
-        assertEquals("Execting 2", 2, comments.getEntity().size());
+        AResult<List<Comment>> comments = blogsService.comments(blogId);
+        assertEquals("Execting 2", 2, comments.data.size());
     }
 
     @Test
     public void testPublishComment() {
-        AppResult<Integer> published = blogsService.publishComment(1l, 1l, true);
-         assertEquals("Execting 1", 1, published.getEntity().intValue());
+        AResult<Integer> published = blogsService.publishComment(1l, 1l, true);
+        assertEquals("Execting 1", 1, published.data.intValue());
     }
 
     @Test
@@ -177,16 +177,16 @@ public class BlogsServiceImplTest {
         long blogId = 1l;
         long commentId = 2l;
         String content = "updated with 'testUpdateComment'";
-        AppResult<Integer> published = blogsService.updateComment(blogId, commentId, content);
-         assertEquals("Execting 1", 1, published.getEntity().intValue());
+        AResult<Integer> published = blogsService.updateComment(blogId, commentId, content);
+        assertEquals("Execting 1", 1, published.data.intValue());
     }
 
     @Test
     public void testDeleteComment() {
         long blogId = 1;
         long commentId = 1;
-        AppResult<Integer> published = blogsService.deleteComment(blogId, commentId);
-         assertEquals("Execting 1", 1, published.getEntity().intValue());
+        AResult<Integer> published = blogsService.deleteComment(blogId, commentId);
+        assertEquals("Execting 1", 1, published.data.intValue());
     }
-    
+
 }

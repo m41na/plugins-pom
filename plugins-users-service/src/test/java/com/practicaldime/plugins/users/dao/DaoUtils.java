@@ -6,11 +6,11 @@ import java.sql.ResultSetMetaData;
 
 import org.springframework.jdbc.core.ResultSetExtractor;
 
-import com.practicaldime.common.util.AppResult;
-import com.practicaldime.domain.users.AccRole;
-import com.practicaldime.domain.users.AccStatus;
-import com.practicaldime.domain.users.Account;
-import com.practicaldime.domain.users.Profile;
+import com.practicaldime.common.util.AResult;
+import com.practicaldime.common.entity.users.AccRole;
+import com.practicaldime.common.entity.users.AccStatus;
+import com.practicaldime.common.entity.users.Account;
+import com.practicaldime.common.entity.users.Profile;
 import com.practicaldime.plugins.users.dao.UserDao;
 
 public class DaoUtils {
@@ -31,9 +31,9 @@ public class DaoUtils {
         profile.setEmailAddress(DaoUtils.randomAlphaNumeric(10) + "@friendmail.com");
         profile.setFirstName(DaoUtils.randomAlphaNumeric(15));
         profile.setLastName(DaoUtils.randomAlphaNumeric(15));
-        AppResult<Profile> result = dao.register(profile);
-        assertNotNull(result.getEntity());
-        return result.getEntity();
+        AResult<Profile> result = dao.register(profile);
+        assertNotNull(result.data);
+        return result.data;
     }
 
     public static Account generateAndRegisterAccount(UserDao dao) {
@@ -44,9 +44,9 @@ public class DaoUtils {
         account.setProfile(profile);
         account.setRole(AccRole.guest);
         account.setStatus(AccStatus.active);
-        AppResult<Account> result = dao.register(account);
-        assertNotNull(result.getEntity());
-        return result.getEntity();
+        AResult<Account> result = dao.register(account);
+        assertNotNull(result.data);
+        return result.data;
     }
 
     public static <T> ResultSetExtractor<T> resultSetDump() {

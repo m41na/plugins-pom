@@ -17,10 +17,10 @@ import org.springframework.test.context.jdbc.SqlConfig;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
-import com.practicaldime.common.util.AppResult;
-import com.practicaldime.domain.blogs.BlogPost;
-import com.practicaldime.domain.blogs.Comment;
-import com.practicaldime.domain.users.Profile;
+import com.practicaldime.common.util.AResult;
+import com.practicaldime.common.entity.blogs.BlogPost;
+import com.practicaldime.common.entity.blogs.Comment;
+import com.practicaldime.common.entity.users.Profile;
 import com.practicaldime.plugins.blogs.dao.BlogsDao;
 
 import com.practicaldime.plugins.blogs.config.BlogsDaoTestConfig;
@@ -38,20 +38,20 @@ public class BlogsDaoImplTest {
 
     @Test
     public void testFind() {
-        AppResult<BlogPost> list = blogsDao.find(1l);
-        assertEquals("Expecting 1", 1, list.getEntity().getId());
-        assertEquals("Expecting 1", 1, list.getEntity().getAuthor().getId());
+        AResult<BlogPost> list = blogsDao.find(1l);
+        assertEquals("Expecting 1", 1, list.data.getId().longValue());
+        assertEquals("Expecting 1", 1, list.data.getAuthor().getId().longValue());
     }
 
     @Test
     public void testCreate() {
         BlogPost blog = new BlogPost();
         Profile author = new Profile();
-        author.setId(2);
+        author.setId(2l);
         blog.setAuthor(author);
         blog.setTitle("sharks");
         blog.setSummary("testing 'testCreate()'");
-        BlogPost created = blogsDao.create(blog).getEntity();
+        BlogPost created = blogsDao.create(blog).data;
         LOG.info("newly created rest list id is {}", created.getId());
         assertEquals("Expecting 'sharks'", "sharks", created.getTitle());
         assertEquals("Expecting 'Guest'", "Guest", created.getAuthor().getFirstName());
@@ -59,45 +59,45 @@ public class BlogsDaoImplTest {
     
     @Test
     public void testFindRecent() {
-        AppResult<List<BlogPost>> search = blogsDao.findRecent(1, 2);
-        assertTrue("Expected more than one", search.getEntity().size() > 1);
+        AResult<List<BlogPost>> search = blogsDao.findRecent(1, 2);
+        assertTrue("Expected more than one", search.data.size() > 1);
     }
 
     @Test
     public void testFindByTitle() {
         String title = "Math";
-        AppResult<List<BlogPost>> search = blogsDao.findByTitle(title);
-        assertTrue("Expected more than one", search.getEntity().size() > 1);
+        AResult<List<BlogPost>> search = blogsDao.findByTitle(title);
+        assertTrue("Expected more than one", search.data.size() > 1);
     }
 
     @Test
     public void testFndByAuthor() {
         long authorId = 2l;
-        AppResult<List<BlogPost>> search = blogsDao.findByAuthor(authorId);
-        assertTrue("Expected more than one", search.getEntity().size() > 1);
+        AResult<List<BlogPost>> search = blogsDao.findByAuthor(authorId);
+        assertTrue("Expected more than one", search.data.size() > 1);
     }
     
     @Test
     public void testFindByTags() {
-        AppResult<List<BlogPost>> search = blogsDao.findByTags(new String[] {"math","physics"});
-        assertEquals("Expected 2 records", 2, search.getEntity().size());
+        AResult<List<BlogPost>> search = blogsDao.findByTags(new String[] {"math","physics"});
+        assertEquals("Expected 2 records", 2, search.data.size());
     }
     
     @Test
     public void testUpdateTags() {
     	long blogId = 1l;
-    	BlogPost blog = blogsDao.find(blogId).getEntity();
+    	BlogPost blog = blogsDao.find(blogId).data;
     	List<String> tags = blog.getTags();
     	tags.add("brown");
-    	AppResult<Integer> doUpdate = blogsDao.updateTags(blogId, tags.toArray(new String[tags.size()]));
-    	assertEquals("Expecting 1 row updated", 1, doUpdate.getEntity().intValue());
-    	BlogPost updated = blogsDao.find(blogId).getEntity();
+    	AResult<Integer> doUpdate = blogsDao.updateTags(blogId, tags.toArray(new String[tags.size()]));
+    	assertEquals("Expecting 1 row updated", 1, doUpdate.data.intValue());
+    	BlogPost updated = blogsDao.find(blogId).data;
     	assertTrue("Expecting list contains new tag", updated.getTags().contains("brown"));
     }
     
     @Test
     public void testGetTagsList() {
-    	Set<String> tags = blogsDao.tagsList().getEntity();
+    	Set<String> tags = blogsDao.tagsList().data;
     	assertEquals("Expecting 8 different tags", 8, tags.size());
     }
 
@@ -105,37 +105,37 @@ public class BlogsDaoImplTest {
     public void testPublish() {
         long blogId = 2l;
         boolean publish = true;
-        AppResult<Integer> result = blogsDao.publish(blogId, publish);
-        assertEquals("Expecting 1", 1, result.getEntity().intValue());
+        AResult<Integer> result = blogsDao.publish(blogId, publish);
+        assertEquals("Expecting 1", 1, result.data.intValue());
         //fetch published blog
-        AppResult<BlogPost> published = blogsDao.find(blogId);
-        assertEquals("Expecting 'true'", true, published.getEntity().isPublished());
+        AResult<BlogPost> published = blogsDao.find(blogId);
+        assertEquals("Expecting 'true'", true, published.data.isPublished());
     }
 
     @Test
     public void testUpdate() {
         long blogId = 3l;
-        BlogPost blog = blogsDao.find(blogId).getEntity();
+        BlogPost blog = blogsDao.find(blogId).data;
         String newTitle = "what in the world";
         blog.setTitle(newTitle);
-        AppResult<Integer> updated = blogsDao.update(blog);
-        assertEquals("Expecting 1'", 1, updated.getEntity().intValue());
+        AResult<Integer> updated = blogsDao.update(blog);
+        assertEquals("Expecting 1'", 1, updated.data.intValue());
     }
 
     @Test
     public void testUpdateAddContent() {
         long blogId = 3l;
         String content = "this is content from 'testUpdateAddContent'";
-        AppResult<Integer> result = blogsDao.update(blogId, 1, content);
-        assertEquals("Expecting 1", 1, result.getEntity().intValue());
-        AppResult<BlogPost> updated = blogsDao.find(blogId);
-        assertEquals("Expecting similar content", content, updated.getEntity().getContent());
+        AResult<Integer> result = blogsDao.update(blogId, 1, content);
+        assertEquals("Expecting 1", 1, result.data.intValue());
+        AResult<BlogPost> updated = blogsDao.find(blogId);
+        assertEquals("Expecting similar content", content, updated.data.getContent());
     }
 
     @Test
     public void testDelete() {
-        AppResult<Integer> result = blogsDao.delete(2l);
-        assertEquals("Expecting 1", 1, result.getEntity().intValue());
+        AResult<Integer> result = blogsDao.delete(2l);
+        assertEquals("Expecting 1", 1, result.data.intValue());
     }
 
     @Test
@@ -147,14 +147,14 @@ public class BlogsDaoImplTest {
         comment.setAuthor(author);
         comment.setContent("test comment in 'testAddComment'");
         comment.setParentBlog(1l);
-        Comment created = blogsDao.comment(blogId, comment).getEntity();
-        assertEquals("Expecting 3", 3, created.getId());
+        Comment created = blogsDao.comment(blogId, comment).data;
+        assertEquals("Expecting 3", 3, created.getId().longValue());
     }
 
     @Test
     public void testRetrieveComments() {
         long blogId = 1l;
-        List<Comment> comments = blogsDao.comments(blogId).getEntity();
+        List<Comment> comments = blogsDao.comments(blogId).data;
         assertEquals("Expecting 2", 2, comments.size());
         assertEquals("Expecting 'Guest'", "Guest", comments.get(0).getAuthor().getFirstName());
     }
@@ -163,23 +163,23 @@ public class BlogsDaoImplTest {
     public void testPublishComment() {
         long commenId = 2l;
         boolean publish = true;
-        AppResult<Integer> result = blogsDao.publishComment(commenId, publish);
-        assertEquals("Expecting 1", 1, result.getEntity().intValue());
+        AResult<Integer> result = blogsDao.publishComment(commenId, publish);
+        assertEquals("Expecting 1", 1, result.data.intValue());
     }
 
     @Test
     public void testUpdateComment() {
         long commentId = 1l;
         String content = "comment updated from 'testUpdateComment'";
-        AppResult<Integer> updated = blogsDao.updateComment(commentId, content);
-        assertEquals("Expecting 1", 1, updated.getEntity().intValue());
+        AResult<Integer> updated = blogsDao.updateComment(commentId, content);
+        assertEquals("Expecting 1", 1, updated.data.intValue());
     }
 
     @Test
     public void testDeleteComment() {
         long blogId = 1l;
         long commentId = 1l;
-        AppResult<Integer> deleted = blogsDao.deleteComment(blogId, commentId);
-        assertEquals("Expecting 1", 1, deleted.getEntity().intValue());
+        AResult<Integer> deleted = blogsDao.deleteComment(blogId, commentId);
+        assertEquals("Expecting 1", 1, deleted.data.intValue());
     }
 }

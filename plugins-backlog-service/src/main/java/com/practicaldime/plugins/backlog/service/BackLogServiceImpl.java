@@ -3,16 +3,16 @@ package com.practicaldime.plugins.backlog.service;
 import java.util.List;
 import java.util.Map;
 
+import com.practicaldime.common.entity.todos.BackLogItem;
+import com.practicaldime.common.entity.todos.BackLogList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.practicaldime.common.util.AppResult;
+import com.practicaldime.common.util.AResult;
 import com.practicaldime.common.util.CatchExceptions;
 import com.practicaldime.common.util.Validatable;
-import com.practicaldime.domain.backlog.BackLogItem;
-import com.practicaldime.domain.backlog.BackLogList;
 import com.practicaldime.plugins.backlog.dao.BackLogDao;
 
 @Service("BackLogService")
@@ -33,76 +33,76 @@ public class BackLogServiceImpl implements BackLogService {
     }
 
     @Override
-    public AppResult<BackLogList> createBackLogList(BackLogList list) {
+    public AResult<BackLogList> createBackLogList(BackLogList list) {
         return backLogDao.createList(list);
     }
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false, rollbackFor = Exception.class)
-    public AppResult<BackLogList> addBackLogItem(long list, BackLogItem item) {
+    public AResult<BackLogList> addBackLogItem(long list, BackLogItem item) {
         //check if item has id
-        AppResult<Boolean> checkExists = backLogDao.existsInList(list, item.getTask());
-        if(checkExists.getError() == null){
-            Boolean exists = checkExists.getEntity();
+        AResult<Boolean> checkExists = backLogDao.existsInList(list, item.getTask());
+        if(checkExists.errors.isEmpty()){
+            Boolean exists = checkExists.data;
             if(!exists){
                 return backLogDao.addToList(list, item.getTask());
             }
             else{
-                return new AppResult<>(400, "Todo Item already exists in this list");
+                return new AResult<>("Todo Item already exists in this list", 400);
             }
         }
         else{
-            return new AppResult<>(checkExists.getStatus());
+            return new AResult<>(checkExists.errorString(), 200);
         }
     }
 
     @Override
-    public AppResult<BackLogList> updateCompleted(long list, long item) {
+    public AResult<BackLogList> updateCompleted(long list, long item) {
         return backLogDao.updateCompleted(list, item);
     }
 
     @Override
-	public AppResult<BackLogList> updateBackLogItem(Long listId, Long itemId, String name){
+	public AResult<BackLogList> updateBackLogItem(Long listId, Long itemId, String name){
     	return backLogDao.updateItem(listId, itemId, name);
     }
 
     @Override
-    public AppResult<BackLogList> renameBackLogItem(long list, String item, String name) {
+    public AResult<BackLogList> renameBackLogItem(long list, String item, String name) {
         return backLogDao.renameItem(list, item, name);
     }
 
     @Override
-    public AppResult<BackLogList> removeBackLogItem(long list, long item) {
+    public AResult<BackLogList> removeBackLogItem(long list, long item) {
         return backLogDao.dropFromList(list, item);
     }
 
     @Override
-    public AppResult<BackLogList> getBackLogListById(long listId) {
+    public AResult<BackLogList> getBackLogListById(long listId) {
         return backLogDao.findListById(listId);
     }
 
     @Override
-    public AppResult<List<BackLogList>> getAllBackLogListsByOwner(long ownerId) {
+    public AResult<List<BackLogList>> getAllBackLogListsByOwner(long ownerId) {
         return backLogDao.findListsByOwner(ownerId);
     }
 
     @Override
-    public AppResult<Map<String, List<BackLogList>>> getAllBackLogLists(int start, int size) {
+    public AResult<Map<String, List<BackLogList>>> getAllBackLogLists(int start, int size) {
         return backLogDao.findAllLists(start, size);
     }
 
     @Override
-    public AppResult<Integer> renameBackLogList(Long listId, String title) {
+    public AResult<Integer> renameBackLogList(Long listId, String title) {
         return backLogDao.renameBackLogList(listId, title);
     }
 
     @Override
-    public AppResult<Integer> deleteBackLogList(long listId) {
+    public AResult<Integer> deleteBackLogList(long listId) {
         return backLogDao.deleteBackLogList(listId);
     }
 
     @Override
-    public AppResult<Integer> emptyBackLogList(long listId) {
+    public AResult<Integer> emptyBackLogList(long listId) {
         return backLogDao.emptyBackLogList(listId);
     }
 }

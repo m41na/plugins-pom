@@ -27,7 +27,7 @@ create table if not exists tbl_account (
   password text not null,
   account_profile integer not null,
   acc_role text default 'user',
-  acc_status text default 'pending',
+  acc_status text default 'unverified',
   account_created_ts text not null default(datetime('now')),
   foreign key (account_profile) references tbl_profile(profile_id)
 );

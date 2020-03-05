@@ -7,14 +7,14 @@
 
 	<parent>
 		<groupId>com.practicaldime.works</groupId>
-		<artifactId>plugins-parent</artifactId>
+		<artifactId>plugins-pom</artifactId>
 		<version>0.1</version>
 	</parent>
 
 	<artifactId>plugins-users-service</artifactId>
 	<packaging>jar</packaging>
 
-	<name>plugins-startup-service</name>
+	<name>plugins-users-service</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -30,7 +30,7 @@
 
 		<dependency>
 			<groupId>com.practicaldime.works</groupId>
-			<artifactId>domain-users</artifactId>
+			<artifactId>common-entities</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 

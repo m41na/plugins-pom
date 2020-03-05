@@ -1,8 +1,8 @@
 package com.practicaldime.plugins.users;
 
+import com.practicaldime.common.entity.users.Account;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.practicaldime.domain.users.Account;
 import com.practicaldime.plugins.users.config.UsersServiceConfig;
 import com.practicaldime.plugins.users.service.StartupService;
 

@@ -24,11 +24,11 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import com.practicaldime.common.util.AppResult;
+import com.practicaldime.common.util.AResult;
 import com.practicaldime.common.util.SqliteDate;
-import com.practicaldime.domain.blogs.BlogPost;
-import com.practicaldime.domain.blogs.Comment;
-import com.practicaldime.domain.users.Profile;
+import com.practicaldime.common.entity.blogs.BlogPost;
+import com.practicaldime.common.entity.blogs.Comment;
+import com.practicaldime.common.entity.users.Profile;
 
 @Repository
 public class BlogsDaoImpl implements BlogsDao {
@@ -41,7 +41,7 @@ public class BlogsDaoImpl implements BlogsDao {
     }
 
     @Override
-    public AppResult<BlogPost> create(BlogPost blog) {
+    public AResult<BlogPost> create(BlogPost blog) {
         Map<String, Object> params = new HashMap<>();
         params.put("blog_title", blog.getTitle());
         params.put("blog_summary", blog.getSummary());
@@ -54,11 +54,11 @@ public class BlogsDaoImpl implements BlogsDao {
         int res = template.update(sql, new MapSqlParameterSource(params), holder);
         blog.setId(holder.getKey().longValue());
 
-        return (res > 0) ? find(blog.getId()) : new AppResult<>(400, "failed to create new blog post");
+        return (res > 0) ? find(blog.getId()) : new AResult<>("failed to create new blog post", 400);
     }
 
     @Override
-    public AppResult<BlogPost> find(long id) {
+    public AResult<BlogPost> find(long id) {
         Map<String, Object> params = new HashMap<>();
         params.put("blog_id", id);
 
@@ -70,15 +70,15 @@ public class BlogsDaoImpl implements BlogsDao {
 
         try {
             BlogPost blog = template.query(sql, params, blogPostExtractor());
-            return blog != null ? new AppResult<>(blog) : new AppResult<>(404, "could not find blog_post by id");
+            return blog != null ? new AResult<>(blog) : new AResult<>("could not find blog_post by id", 404);
         } catch (DataAccessException e) {
-            return new AppResult<>(500, e.getMessage());
+            return new AResult<>(e.getMessage(), 500);
         }
     }
 
-	@Override
-	public AppResult<List<BlogPost>> findRecent(int start, int size) {
-    	Map<String, Object> params = new HashMap<>();
+    @Override
+    public AResult<List<BlogPost>> findRecent(int start, int size) {
+        Map<String, Object> params = new HashMap<>();
         params.put("offset", start);
         params.put("limit", size);
 
@@ -90,14 +90,14 @@ public class BlogsDaoImpl implements BlogsDao {
 
         try {
             List<BlogPost> blogs = template.query(sql, params, blogsListExtractor());
-            return blogs != null ? new AppResult<>(blogs) : new AppResult<>(404, "could not find blog posts");
+            return blogs != null ? new AResult<>(blogs) : new AResult<>("could not find blog posts", 404);
         } catch (DataAccessException e) {
-            return new AppResult<>(500, e.getMessage());
+            return new AResult<>(e.getMessage(), 500);
         }
-	}
+    }
 
-	@Override
-    public AppResult<List<BlogPost>> findByTitle(String title) {
+    @Override
+    public AResult<List<BlogPost>> findByTitle(String title) {
         Map<String, Object> params = new HashMap<>();
         params.put("blog_title", "%" + title + "%");
 
@@ -109,14 +109,14 @@ public class BlogsDaoImpl implements BlogsDao {
 
         try {
             List<BlogPost> blogs = template.query(sql, params, blogsListExtractor());
-            return blogs != null ? new AppResult<>(blogs) : new AppResult<>(404, "could not find blog post with matching title");
+            return blogs != null ? new AResult<>(blogs) : new AResult<>("could not find blog post with matching title", 404);
         } catch (DataAccessException e) {
-            return new AppResult<>(500, e.getMessage());
+            return new AResult<>(e.getMessage(), 500);
         }
     }
 
     @Override
-    public AppResult<List<BlogPost>> findByAuthor(long authorId) {
+    public AResult<List<BlogPost>> findByAuthor(long authorId) {
         Map<String, Object> params = new HashMap<>();
         params.put("blog_author", authorId);
 
@@ -124,83 +124,83 @@ public class BlogsDaoImpl implements BlogsDao {
                 + "inner join tbl_profile on profile_id=blog_author "
                 + "left join tbl_blog_content on fk_blog_id=blog_id "
                 + "WHERE blog_author = :blog_author "
-                + "order by page_created_ts;" ;
+                + "order by page_created_ts;";
 
         try {
             List<BlogPost> blogs = template.query(sql, params, blogsListExtractor());
-            return blogs != null ? new AppResult<>(blogs) : new AppResult<>(404, "could not find blog posts by author id " + authorId);
+            return blogs != null ? new AResult<>(blogs) : new AResult<>("could not find blog posts by author id " + authorId, 404);
         } catch (DataAccessException e) {
-            return new AppResult<>(500, e.getMessage());
+            return new AResult<>(e.getMessage(), 500);
         }
     }
 
     @Override
-    public AppResult<List<BlogPost>> findByTags(String[] tags){
-    	Map<String, Object> params = new HashMap<>();
-    	StringBuilder where = new StringBuilder("WHERE ");
-    	for(int i = 0; i < tags.length; i++) {
-    		String tagIndex = "tag_" + i + "";
-    		params.put(tagIndex, "%" + tags[i] + "%");
-    		where.append("blog_tags like :").append(tagIndex).append(" ");
-    		if(i + 1 < tags.length) {
-    			where.append("or ");
-    		}
-    	}
+    public AResult<List<BlogPost>> findByTags(String[] tags) {
+        Map<String, Object> params = new HashMap<>();
+        StringBuilder where = new StringBuilder("WHERE ");
+        for (int i = 0; i < tags.length; i++) {
+            String tagIndex = "tag_" + i + "";
+            params.put(tagIndex, "%" + tags[i] + "%");
+            where.append("blog_tags like :").append(tagIndex).append(" ");
+            if (i + 1 < tags.length) {
+                where.append("or ");
+            }
+        }
 
         String sql = "SELECT distinct * FROM tbl_blog_post "
                 + "inner join tbl_profile on profile_id=blog_author "
                 + "left join tbl_blog_content on fk_blog_id=blog_id "
                 + where.toString()
-                + "order by blog_id, page_created_ts;" ;
+                + "order by blog_id, page_created_ts;";
 
         try {
             List<BlogPost> blogs = template.query(sql, params, blogsListExtractor());
-            String tagsRegex = Arrays.stream(tags).map(e->"(" + e + ")").collect(Collectors.joining("|"));
-            return blogs != null ? new AppResult<>(blogs) : new AppResult<>(404, "could not find blog posts by the tags '" + tagsRegex + "'");
+            String tagsRegex = Arrays.stream(tags).map(e -> "(" + e + ")").collect(Collectors.joining("|"));
+            return blogs != null ? new AResult<>(blogs) : new AResult<>("could not find blog posts by the tags '" + tagsRegex + "'", 404);
         } catch (DataAccessException e) {
-            return new AppResult<>(500, e.getMessage());
+            return new AResult<>(e.getMessage(), 500);
         }
     }
-    
+
     @Override
-    public AppResult<Integer> updateTags(long blogId, String[] tags){
-    	Map<String, Object> params = new HashMap<>();
-    	String newTags = Arrays.stream(tags).collect(Collectors.joining(","));
+    public AResult<Integer> updateTags(long blogId, String[] tags) {
+        Map<String, Object> params = new HashMap<>();
+        String newTags = Arrays.stream(tags).collect(Collectors.joining(","));
         params.put("blog_id", blogId);
         params.put("blog_tags", newTags);
 
         String sql = "update tbl_blog_post set blog_tags=:blog_tags where blog_id=:blog_id";
 
         int res = template.update(sql, params);
-        return (res > 0) ? new AppResult<>(res) : new AppResult<>(400, "failed to update blog post tags");
+        return (res > 0) ? new AResult<>(res) : new AResult<>("failed to update blog post tags", 400);
     }
-    
+
     @Override
-    public AppResult<Set<String>> tagsList(){
-    	String sql = "select distinct blog_tags from tbl_blog_post";
+    public AResult<Set<String>> tagsList() {
+        String sql = "select distinct blog_tags from tbl_blog_post";
 
-    	List<String> blogs = template.query(sql, (rs,num)-> rs.getString("blog_tags"));
-    	//reduce(identity, accumulator, combiner)
-        Set<String> tags = blogs.stream().filter(e->e!=null).map(e-> Arrays.asList(e.split(","))).reduce(new HashSet<>(), new BiFunction<Set<String>, List<String>, Set<String>>() {
+        List<String> blogs = template.query(sql, (rs, num) -> rs.getString("blog_tags"));
+        //reduce(identity, accumulator, combiner)
+        Set<String> tags = blogs.stream().filter(e -> e != null).map(e -> Arrays.asList(e.split(","))).reduce(new HashSet<>(), new BiFunction<Set<String>, List<String>, Set<String>>() {
 
-			@Override
-			public Set<String> apply(Set<String> t, List<String> u) {
-				return Stream.concat(t.stream(), u.stream().filter(e->e.trim().length() > 0))
-						.map(e->e.trim().substring(0,1).toUpperCase() + e.trim().substring(1)).collect(Collectors.toSet());
-			}
-		}, new BinaryOperator<Set<String>>() {
+            @Override
+            public Set<String> apply(Set<String> t, List<String> u) {
+                return Stream.concat(t.stream(), u.stream().filter(e -> e.trim().length() > 0))
+                        .map(e -> e.trim().substring(0, 1).toUpperCase() + e.trim().substring(1)).collect(Collectors.toSet());
+            }
+        }, new BinaryOperator<Set<String>>() {
 
-			@Override
-			public Set<String> apply(Set<String> t, Set<String> u) {
-				t.addAll(u);
-				return t;
-			}			
-		});
-        return new AppResult<>(tags);
+            @Override
+            public Set<String> apply(Set<String> t, Set<String> u) {
+                t.addAll(u);
+                return t;
+            }
+        });
+        return new AResult<>(tags);
     }
-    
+
     @Override
-    public AppResult<Integer> publish(long blogId, boolean publish) {
+    public AResult<Integer> publish(long blogId, boolean publish) {
         Map<String, Object> params = new HashMap<>();
         params.put("blog_id", blogId);
         params.put("is_published", publish);
@@ -208,11 +208,11 @@ public class BlogsDaoImpl implements BlogsDao {
         String sql = "update tbl_blog_post set is_published=:is_published where blog_id=:blog_id";
 
         int res = template.update(sql, params);
-        return (res > 0) ? new AppResult<>(res) : new AppResult<>(400, "failed to publish blog post");
+        return (res > 0) ? new AResult<>(res) : new AResult<>("failed to publish blog post", 400);
     }
 
     @Override
-    public AppResult<Integer> update(BlogPost blog) {
+    public AResult<Integer> update(BlogPost blog) {
         Map<String, Object> params = new HashMap<>();
         params.put("blog_id", blog.getId());
         params.put("blog_title", blog.getTitle());
@@ -221,11 +221,11 @@ public class BlogsDaoImpl implements BlogsDao {
         String sql = "update tbl_blog_post set blog_title=:blog_title, blog_summary=:blog_summary where blog_id=:blog_id";
 
         int res = template.update(sql, params);
-        return (res > 0) ? new AppResult<>(res) : new AppResult<>(400, "failed to update blog post");
+        return (res > 0) ? new AResult<>(res) : new AResult<>("failed to update blog post", 400);
     }
 
     @Override
-    public AppResult<Integer> update(long blogId, int page, String content) {
+    public AResult<Integer> update(long blogId, int page, String content) {
         Map<String, Object> params = new HashMap<>();
         params.put("fk_blog_id", blogId);
         params.put("page_created_ts", page);
@@ -234,25 +234,25 @@ public class BlogsDaoImpl implements BlogsDao {
         String sql = "insert or replace into tbl_blog_content (fk_blog_id, page_created_ts, blog_text) values (:fk_blog_id, :page_created_ts, :blog_text) ";
 
         int res = template.update(sql, params);
-        return (res > 0) ? new AppResult<>(res) : new AppResult<>(400, "failed to update/insert blog content");
+        return (res > 0) ? new AResult<>(res) : new AResult<>("failed to update/insert blog content", 400);
     }
 
     @Override
-    public AppResult<Integer> delete(long blogId) {
+    public AResult<Integer> delete(long blogId) {
         Map<String, Object> params = new HashMap<>();
         params.put("fk_blog_id", blogId);
 
         String sql = "delete from tbl_blog_content where fk_blog_id=:fk_blog_id";
 
         int res = template.update(sql, params);
-        return (res > 0) ? new AppResult<>(res) : new AppResult<>(400, "failed to delete blog post");
+        return (res > 0) ? new AResult<>(res) : new AResult<>("failed to delete blog post", 400);
     }
 
     @Override
-    public AppResult<Comment> comment(long blogId, Comment comment) {
+    public AResult<Comment> comment(long blogId, Comment comment) {
         Map<String, Object> params = new HashMap<>();
         params.put("parent_blog", comment.getParentBlog());
-        params.put("parent_comment", comment.getParentComment() > 0? comment.getParentComment() : null);
+        params.put("parent_comment", comment.getParentComment() > 0 ? comment.getParentComment() : null);
         params.put("comment_author", comment.getAuthor().getId());
         params.put("comment_text", comment.getContent());
 
@@ -262,11 +262,11 @@ public class BlogsDaoImpl implements BlogsDao {
         int res = template.update(sql, new MapSqlParameterSource(params), holder);
         comment.setId(holder.getKey().longValue());
 
-        return (res > 0) ? new AppResult<>(comment) : new AppResult<>(400, "failed to create new blog comment");
+        return (res > 0) ? new AResult<>(comment) : new AResult<>("failed to create new blog comment", 400);
     }
 
     @Override
-    public AppResult<List<Comment>> comments(long blogId) {
+    public AResult<List<Comment>> comments(long blogId) {
         Map<String, Object> params = new HashMap<>();
         params.put("parent_blog", blogId);
 
@@ -274,14 +274,14 @@ public class BlogsDaoImpl implements BlogsDao {
 
         try {
             List<Comment> comments = template.query(sql, params, commentsExtractor());
-            return comments != null ? new AppResult<>(comments) : new AppResult<>(404, "could not find any comments for this blog");
+            return comments != null ? new AResult<>(comments) : new AResult<>("could not find any comments for this blog", 404);
         } catch (DataAccessException e) {
-            return new AppResult<>(500, e.getMessage());
+            return new AResult<>(e.getMessage(), 500);
         }
     }
 
     @Override
-    public AppResult<Integer> publishComment(long commenId, boolean publish) {
+    public AResult<Integer> publishComment(long commenId, boolean publish) {
         Map<String, Object> params = new HashMap<>();
         params.put("comment_id", commenId);
         params.put("is_published", publish);
@@ -289,11 +289,11 @@ public class BlogsDaoImpl implements BlogsDao {
         String sql = "update tbl_blog_comment set is_published=:is_published where comment_id=:comment_id";
 
         int res = template.update(sql, params);
-        return (res > 0) ? new AppResult<>(res) : new AppResult<>(400, "failed to publish blog comment");
+        return (res > 0) ? new AResult<>(res) : new AResult<>("failed to publish blog comment", 400);
     }
 
     @Override
-    public AppResult<Integer> updateComment(long commentId, String content) {
+    public AResult<Integer> updateComment(long commentId, String content) {
         Map<String, Object> params = new HashMap<>();
         params.put("comment_id", commentId);
         params.put("comment_text", content);
@@ -301,11 +301,11 @@ public class BlogsDaoImpl implements BlogsDao {
         String sql = "update tbl_blog_comment set comment_text=:comment_text where comment_id=:comment_id";
 
         int res = template.update(sql, params);
-        return (res > 0) ? new AppResult<>(res) : new AppResult<>(400, "failed to update blog comment");
+        return (res > 0) ? new AResult<>(res) : new AResult<>("failed to update blog comment", 400);
     }
 
     @Override
-    public AppResult<Integer> deleteComment(long blogId, long commentId) {
+    public AResult<Integer> deleteComment(long blogId, long commentId) {
         Map<String, Object> params = new HashMap<>();
         params.put("comment_id", commentId);
         params.put("parent_blog", blogId);
@@ -313,7 +313,7 @@ public class BlogsDaoImpl implements BlogsDao {
         String sql = "delete from tbl_blog_comment where comment_id=:comment_id and parent_blog=:parent_blog";
 
         int res = template.update(sql, params);
-        return (res > 0) ? new AppResult<>(res) : new AppResult<>(400, "failed to update blog comment");
+        return (res > 0) ? new AResult<>(res) : new AResult<>("failed to update blog comment", 400);
     }
 
     private RowMapper<BlogPost> blogPostMapper() {
@@ -323,9 +323,9 @@ public class BlogsDaoImpl implements BlogsDao {
             blog.setTitle(rs.getString("blog_title"));
             blog.setSummary(rs.getString("blog_summary"));
             blog.setPublished(rs.getBoolean("is_published"));
-            if(rs.getString("blog_tags") != null) {
-	            List<String> tags = Arrays.stream(rs.getString("blog_tags").split(",")).collect(Collectors.toList());
-	            blog.getTags().addAll(tags);
+            if (rs.getString("blog_tags") != null) {
+                List<String> tags = Arrays.stream(rs.getString("blog_tags").split(",")).collect(Collectors.toList());
+                blog.getTags().addAll(tags);
             }
             blog.setCreatedTs(SqliteDate.fromString(rs.getString("blog_created_ts")));
             //map author

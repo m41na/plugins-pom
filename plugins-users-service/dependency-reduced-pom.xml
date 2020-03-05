@@ -7,7 +7,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>plugins-users-service</artifactId>
-  <name>plugins-startup-service</name>
+  <name>plugins-users-service</name>
   <url>http://maven.apache.org</url>
   <build>
     <plugins>

@@ -9,6 +9,13 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
+import com.practicaldime.common.entity.todos.BackLogItem;
+import com.practicaldime.common.entity.todos.BackLogList;
+import com.practicaldime.common.entity.users.AccRole;
+import com.practicaldime.common.entity.users.AccStatus;
+import com.practicaldime.common.entity.users.Account;
+import com.practicaldime.common.util.AResult;
+import com.practicaldime.common.util.SqliteDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
@@ -17,14 +24,6 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
-
-import com.practicaldime.common.util.AppResult;
-import com.practicaldime.common.util.SqliteDate;
-import com.practicaldime.domain.backlog.BackLogItem;
-import com.practicaldime.domain.backlog.BackLogList;
-import com.practicaldime.domain.users.AccRole;
-import com.practicaldime.domain.users.AccStatus;
-import com.practicaldime.domain.users.Account;
 
 @Repository
 public class BackLogDaoImpl implements BackLogDao {
@@ -37,7 +36,7 @@ public class BackLogDaoImpl implements BackLogDao {
     }
 
     @Override
-    public AppResult<BackLogList> createList(BackLogList list) {
+    public AResult<BackLogList> createList(BackLogList list) {
         Map<String, Object> params = new HashMap<>();
         params.put("list_title", list.getTitle());
         params.put("list_owner", list.getOwner().getId());
@@ -48,22 +47,22 @@ public class BackLogDaoImpl implements BackLogDao {
         int res = template.update(sql, new MapSqlParameterSource(params), holder);
         list.setId(holder.getKey().longValue());
 
-        return (res > 0) ? new AppResult<>(list) : new AppResult<>(ROW_NOT_FOUND, "failed to create new backlog list");
+        return (res > 0) ? new AResult<>(list) : new AResult<>("failed to create new backlog list", ROW_NOT_FOUND);
     }
 
     @Override
-    public AppResult<Boolean> existsInList(Long listId, String item) {
+    public AResult<Boolean> existsInList(Long listId, String item) {
         Map<String, Object> params = new HashMap<>();
         params.put("list_id", listId);
         params.put("item_name", item);
 
         String sql = "select count(item_name) from tbl_backlog_item where item_name=:item_name and fk_list_id=:list_id";
         Boolean exists = template.queryForObject(sql, params, Boolean.class);
-        return new AppResult<>(exists);
+        return new AResult<>(exists);
     }
 
     @Override
-    public AppResult<BackLogList> addToList(Long list, String item) {
+    public AResult<BackLogList> addToList(Long list, String item) {
         Map<String, Object> params = new HashMap<>();
         params.put("fk_list_id", list);
         params.put("item_name", item);
@@ -74,11 +73,11 @@ public class BackLogDaoImpl implements BackLogDao {
         KeyHolder holder = new GeneratedKeyHolder();
         int res = template.update(sql, new MapSqlParameterSource(params), holder);
 
-        return (res > 0) ? findListById(list) : new AppResult<>(ROW_NOT_FOUND, "error while adding item to list");
+        return (res > 0) ? findListById(list) : new AResult<>( "error while adding item to list", ROW_NOT_FOUND);
     }
 
     @Override
-    public AppResult<BackLogList> dropFromList(Long list, Long item) {
+    public AResult<BackLogList> dropFromList(Long list, Long item) {
         Map<String, Object> params = new HashMap<>();
         params.put("list_id", list);
         params.put("item_id", item);
@@ -86,11 +85,11 @@ public class BackLogDaoImpl implements BackLogDao {
         String sql = "delete from tbl_backlog_item where fk_list_id = :list_id and item_id = :item_id";
 
         int res = template.update(sql, params);
-        return (res > 0) ? findListById(list) : new AppResult<>(ROW_NOT_FOUND, "error while dropping item from list");
+        return (res > 0) ? findListById(list) : new AResult<>("error while dropping item from list", ROW_NOT_FOUND);
     }
 
     @Override
-    public AppResult<BackLogList> updateCompleted(Long list, Long item) {
+    public AResult<BackLogList> updateCompleted(Long list, Long item) {
         Map<String, Object> params = new HashMap<>();
         params.put("fk_list_id", list);
         params.put("item_id", item);
@@ -99,24 +98,24 @@ public class BackLogDaoImpl implements BackLogDao {
 
         int res = template.update(sql, params);
 
-        return (res > 0) ? findListById(list) : new AppResult<>(ROW_NOT_FOUND, "error while updating done status of item in list");
+        return (res > 0) ? findListById(list) : new AResult<>("error while updating done status of item in list", ROW_NOT_FOUND);
     }
-    
+
     @Override
-    public AppResult<BackLogList> updateItem(Long list, Long item, String name){
-    	Map<String, Object> params = new HashMap<>();
+    public AResult<BackLogList> updateItem(Long list, Long item, String name) {
+        Map<String, Object> params = new HashMap<>();
         params.put("fk_list_id", list);
         params.put("item_id", item);
         params.put("item_name", name);
 
         String query = "update tbl_backlog_item set item_name=:item_name where fk_list_id = :fk_list_id and item_id = :item_id";
         int rows = template.update(query, params);
-        
-        return (rows > 0) ? findListById(list) : new AppResult<>(ROW_NOT_FOUND, "error while updating item in list");
+
+        return (rows > 0) ? findListById(list) : new AResult<>("error while updating item in list", ROW_NOT_FOUND);
     }
 
     @Override
-    public AppResult<BackLogList> renameItem(Long list, String item, String name) {
+    public AResult<BackLogList> renameItem(Long list, String item, String name) {
         Map<String, Object> params = new HashMap<>();
         params.put("fk_list_id", list);
         params.put("item_name", item);
@@ -126,11 +125,11 @@ public class BackLogDaoImpl implements BackLogDao {
 
         int res = template.update(sql, params);
 
-        return (res > 0) ? findListById(list) : new AppResult<>(ROW_NOT_FOUND, "error while renaming item in list");
+        return (res > 0) ? findListById(list) : new AResult<>("error while renaming item in list", ROW_NOT_FOUND);
     }
 
     @Override
-    public AppResult<BackLogList> findListById(Long listId) {
+    public AResult<BackLogList> findListById(Long listId) {
         Map<String, Object> params = new HashMap<>();
         params.put("list_id", listId);
 
@@ -164,11 +163,11 @@ public class BackLogDaoImpl implements BackLogDao {
             }
             return BackLogList;
         });
-        return list.getId() == 0 ? new AppResult<>(ROW_NOT_FOUND, "No list found") : new AppResult<>(list);
+        return list.getId() == 0 ? new AResult<>("No list found", ROW_NOT_FOUND) : new AResult<>(list);
     }
 
     @Override
-    public AppResult<List<BackLogList>> findListsByOwner(Long ownerId) {
+    public AResult<List<BackLogList>> findListsByOwner(Long ownerId) {
         Map<String, Object> params = new HashMap<>();
         params.put("account_id", ownerId);
 
@@ -178,32 +177,32 @@ public class BackLogDaoImpl implements BackLogDao {
 
         List<BackLogList> listOfBackLogLists = template.query(sql, params, (rs) -> {
             List<BackLogList> result = new ArrayList<>();
-            BackLogList BackLogList = null;
+            BackLogList backlogList = null;
             int rowNum = 0;
             while (rs.next()) {
                 long listId = rs.getLong("list_id");
-                if (BackLogList == null || BackLogList.getId() != listId) {
-                    BackLogList = BackLogListMapper().mapRow(rs, rowNum);
+                if (backlogList == null || backlogList.getId() != listId) {
+                    backlogList = BackLogListMapper().mapRow(rs, rowNum);
                     Account listOwner = accountMapper().mapRow(rs, rowNum);
-                    BackLogList.setOwner(listOwner);
-                    result.add(BackLogList);
+                    backlogList.setOwner(listOwner);
+                    result.add(backlogList);
                 }
-                BackLogItem BackLogItem = BackLogItemMapper().mapRow(rs, ++rowNum);
-                if (BackLogItem.getId() > 0) {
-                    BackLogList.getItems().add(BackLogItem);
+                BackLogItem backlogItem = BackLogItemMapper().mapRow(rs, ++rowNum);
+                if (backlogItem.getId() != null && backlogItem.getId() > 0) {
+                    backlogList.getItems().add(backlogItem);
                 }
             }
             return result;
         });
-        return new AppResult<>(listOfBackLogLists);
+        return new AResult<>(listOfBackLogLists);
     }
 
     @Override
-    public AppResult<Map<String, List<BackLogList>>> findAllLists(int start, int size) {
-    	Map<String, Object> params = new HashMap<>();
+    public AResult<Map<String, List<BackLogList>>> findAllLists(int start, int size) {
+        Map<String, Object> params = new HashMap<>();
         params.put("offset", start);
         params.put("limit", size);
-        
+
         String sql = "SELECT * FROM tbl_backlog_list l "
                 + "inner join tbl_account a on a.account_id = l.list_owner "
                 + "left join tbl_backlog_item t on t.fk_list_id = l.list_id order by l.list_owner, l.list_id "
@@ -212,7 +211,7 @@ public class BackLogDaoImpl implements BackLogDao {
         Map<String, List<BackLogList>> mapOfBackLogList = template.query(sql, params, (ResultSet rs) -> {
             Map<String, List<BackLogList>> result = new HashMap<>();
             List<BackLogList> list = null;
-            BackLogList BackLogList = null;
+            BackLogList backLogList = null;
             Account listOwner = null;
             int rowNum = 0;
             while (rs.next()) {
@@ -224,35 +223,35 @@ public class BackLogDaoImpl implements BackLogDao {
                     result.put(rs.getString("username"), list);
                 }
                 Long listId = rs.getLong("list_id");
-                if (BackLogList == null || BackLogList.getId() != listId) {
-                    BackLogList = BackLogListMapper().mapRow(rs, rowNum);
-                    BackLogList.setOwner(listOwner);
-                    list.add(BackLogList);
+                if (backLogList == null || backLogList.getId() != listId) {
+                    backLogList = BackLogListMapper().mapRow(rs, rowNum);
+                    backLogList.setOwner(listOwner);
+                    list.add(backLogList);
                 }
-                BackLogItem BackLogItem = BackLogItemMapper().mapRow(rs, rowNum++);
-                if (BackLogItem.getId() > 0) {
-                    BackLogList.getItems().add(BackLogItem);
+                BackLogItem backLogItem = BackLogItemMapper().mapRow(rs, rowNum++);
+                if (backLogItem.getId() != null && backLogItem.getId() > 0) {
+                    backLogList.getItems().add(backLogItem);
                 }
             }
             return result;
         });
 
-        return new AppResult<>(mapOfBackLogList);
+        return new AResult<>(mapOfBackLogList);
     }
 
     @Override
-    public AppResult<Integer> renameBackLogList(Long listId, String title) {
+    public AResult<Integer> renameBackLogList(Long listId, String title) {
         Map<String, Object> params = new HashMap<>();
         params.put("list_id", listId);
         params.put("list_title", title);
 
         String query = "update tbl_backlog_list set list_title=:list_title where list_id = :list_id";
         int rows = template.update(query, params);
-        return new AppResult<>(rows);
+        return new AResult<>(rows);
     }
 
     @Override
-    public AppResult<Integer> deleteBackLogList(Long listId) {
+    public AResult<Integer> deleteBackLogList(Long listId) {
         Map<String, Object> params = new HashMap<>();
         params.put("list_id", listId);
 
@@ -262,20 +261,20 @@ public class BackLogDaoImpl implements BackLogDao {
         if (count == 0) {
             String query = "delete from tbl_backlog_list where list_id = :list_id";
             int rows = template.update(query, params);
-            return new AppResult<>(rows);
+            return new AResult<>(rows);
         } else {
-            return new AppResult<>(403, "The list is not empty");
+            return new AResult<>("The list is not empty", 403);
         }
     }
 
     @Override
-    public AppResult<Integer> emptyBackLogList(Long listId) {
+    public AResult<Integer> emptyBackLogList(Long listId) {
         Map<String, Object> params = new HashMap<>();
         params.put("list_id", listId);
 
         String query = "delete from tbl_backlog_item where fk_list_id = :list_id";
         int rows = template.update(query, params);
-        return new AppResult<>(rows);
+        return new AResult<>(rows);
     }
 
     private RowMapper<BackLogList> BackLogListMapper() {

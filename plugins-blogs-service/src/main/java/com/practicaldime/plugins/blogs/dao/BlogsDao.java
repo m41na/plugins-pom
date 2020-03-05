@@ -3,44 +3,44 @@ package com.practicaldime.plugins.blogs.dao;
 import java.util.List;
 import java.util.Set;
 
-import com.practicaldime.common.util.AppResult;
+import com.practicaldime.common.util.AResult;
 import com.practicaldime.common.util.DaoStatus;
-import com.practicaldime.domain.blogs.BlogPost;
-import com.practicaldime.domain.blogs.Comment;
+import com.practicaldime.common.entity.blogs.BlogPost;
+import com.practicaldime.common.entity.blogs.Comment;
 
 public interface BlogsDao extends DaoStatus{
 
-    AppResult<BlogPost> create(BlogPost blog);
+    AResult<BlogPost> create(BlogPost blog);
 
-    AppResult<BlogPost> find(long blogId);
+    AResult<BlogPost> find(long blogId);
 
-	AppResult<List<BlogPost>> findRecent(int start, int size);
+	AResult<List<BlogPost>> findRecent(int start, int size);
 
-    AppResult<List<BlogPost>> findByTitle(String title);
+    AResult<List<BlogPost>> findByTitle(String title);
 
-    AppResult<List<BlogPost>> findByAuthor(long authorId);
+    AResult<List<BlogPost>> findByAuthor(long authorId);
     
-    AppResult<List<BlogPost>> findByTags(String[] tags);
+    AResult<List<BlogPost>> findByTags(String[] tags);
     
-    AppResult<Integer> updateTags(long blogId, String[] tag);
+    AResult<Integer> updateTags(long blogId, String[] tag);
     
-    AppResult<Set<String>> tagsList();
+    AResult<Set<String>> tagsList();
 
-    AppResult<Integer> publish(long blogId, boolean publish);
+    AResult<Integer> publish(long blogId, boolean publish);
 
-    AppResult<Integer> update(BlogPost blog);
+    AResult<Integer> update(BlogPost blog);
 
-    AppResult<Integer> update(long blogId, int page, String content);
+    AResult<Integer> update(long blogId, int page, String content);
 
-    AppResult<Integer> delete(long blogId);
+    AResult<Integer> delete(long blogId);
 
-    AppResult<Comment> comment(long blogId, Comment comment);
+    AResult<Comment> comment(long blogId, Comment comment);
 
-    AppResult<List<Comment>> comments(long blogId);
+    AResult<List<Comment>> comments(long blogId);
 
-    AppResult<Integer> publishComment(long commenId, boolean publish);
+    AResult<Integer> publishComment(long commenId, boolean publish);
 
-    AppResult<Integer> updateComment(long commentId, String content);
+    AResult<Integer> updateComment(long commentId, String content);
 
-    AppResult<Integer> deleteComment(long blogId, long commentId);
+    AResult<Integer> deleteComment(long blogId, long commentId);
 }

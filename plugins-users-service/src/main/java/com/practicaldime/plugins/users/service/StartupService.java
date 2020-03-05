@@ -1,6 +1,6 @@
 package com.practicaldime.plugins.users.service;
 
-import com.practicaldime.domain.users.Account;
+import com.practicaldime.common.entity.users.Account;
 
 public interface StartupService {
     

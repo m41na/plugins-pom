@@ -1,10 +1,10 @@
 package com.practicaldime.plugins.users;
 
+import com.practicaldime.common.entity.users.Account;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.google.gson.Gson;
-import com.practicaldime.common.util.AppResult;
-import com.practicaldime.domain.users.Account;
+import com.practicaldime.common.util.AResult;;
 import com.practicaldime.plugins.users.config.UsersDaoConfig;
 import com.practicaldime.plugins.users.service.UserService;
 
@@ -40,11 +40,11 @@ public class UsersPlugin extends AbstractPlugin<UserService> {
 			Account account = gson.fromJson(payload, Account.class);
 			if (account != null) {
 				try {
-					AppResult<String> created = service.createAccount(account);
-					if (created.getEntity() != null) {
-						return new PlugResult<>(created.getEntity());
+					AResult<String> created = service.createAccount(account);
+					if (created.data != null) {
+						return new PlugResult<>(created.data);
 					} else {
-						return new PlugResult<>(false, created.getError());
+						return new PlugResult<>(false, created.errorString());
 					}
 				} catch (Exception e) {
 					return new PlugResult<>(e.getMessage());
@@ -55,17 +55,17 @@ public class UsersPlugin extends AbstractPlugin<UserService> {
 		}
 		case "getAccount": {
 			try {
-				AppResult<Account> found = null;
+				AResult<Account> found = null;
 				if (payload.matches("^\\d+$")) {
 					Long accountId = Long.valueOf("accountId");
 					found = service.getAccount(accountId);
 				} else {
 					found = service.getAccount(payload);
 				}
-				if (found.getEntity() != null) {
-					return new PlugResult<>(found.getEntity());
+				if (found.data != null) {
+					return new PlugResult<>(found.data);
 				} else {
-					return new PlugResult<>(false, found.getError());
+					return new PlugResult<>(false, found.errorString());
 				}
 			} catch (PlugException e) {
 				return new PlugResult<>(e.getMessage());
@@ -73,11 +73,11 @@ public class UsersPlugin extends AbstractPlugin<UserService> {
 		}
 		case "getAccountByEmail": {
 			try {
-				AppResult<Account> found = service.getAccountByEmail(payload);
-				if (found.getEntity() != null) {
-					return new PlugResult<>(found.getEntity());
+				AResult<Account> found = service.getAccountByEmail(payload);
+				if (found.data != null) {
+					return new PlugResult<>(found.data);
 				} else {
-					return new PlugResult<>(false, found.getError());
+					return new PlugResult<>(false, found.errorString());
 				}
 			} catch (PlugException e) {
 				return new PlugResult<>(e.getMessage());
@@ -87,11 +87,11 @@ public class UsersPlugin extends AbstractPlugin<UserService> {
 			try {
 				if (payload.matches("^\\d+$")) {
 					Long accountId = Long.valueOf("accountId");
-					AppResult<char[]> found = service.fetchPassword(accountId);
-					if (found.getEntity() != null) {
-						return new PlugResult<>(found.getEntity());
+					AResult<char[]> found = service.fetchPassword(accountId);
+					if (found.data != null) {
+						return new PlugResult<>(found.data);
 					} else {
-						return new PlugResult<>(false, found.getError());
+						return new PlugResult<>(false, found.errorString());
 					}
 				} else {
 					return new PlugResult<>(false, "expecting a numeric id value");
@@ -104,11 +104,11 @@ public class UsersPlugin extends AbstractPlugin<UserService> {
 			try {
 				if (payload.matches("^\\d+$")) {
 					Long accountId = Long.valueOf("accountId");
-					AppResult<char[]> found = service.resetPassword(accountId);
-					if (found.getEntity() != null) {
-						return new PlugResult<>(found.getEntity());
+					AResult<char[]> found = service.resetPassword(accountId);
+					if (found.data != null) {
+						return new PlugResult<>(found.data);
 					} else {
-						return new PlugResult<>(false, found.getError());
+						return new PlugResult<>(false, found.errorString());
 					}
 				} else {
 					return new PlugResult<>(false, "expecting a numeric id value");
@@ -121,11 +121,11 @@ public class UsersPlugin extends AbstractPlugin<UserService> {
 			try {
 				if (payload.matches("^\\d+$")) {
 					Long accountId = Long.valueOf("accountId");
-					AppResult<char[]> found = service.resetPassword(accountId);
-					if (found.getEntity() != null) {
-						return new PlugResult<>(found.getEntity());
+					AResult<char[]> found = service.resetPassword(accountId);
+					if (found.data != null) {
+						return new PlugResult<>(found.data);
 					} else {
-						return new PlugResult<>(false, found.getError());
+						return new PlugResult<>(false, found.errorString());
 					}
 				} else {
 					return new PlugResult<>(false, "expecting a numeric id value");
@@ -138,11 +138,11 @@ public class UsersPlugin extends AbstractPlugin<UserService> {
 			try {
 				Account account = gson.fromJson(payload, Account.class);
 				if (account != null) {
-					AppResult<Account> updated = service.updateAccount(account);
-					if (updated.getEntity() != null) {
-						return new PlugResult<>(updated.getEntity());
+					AResult<Account> updated = service.updateAccount(account);
+					if (updated.data != null) {
+						return new PlugResult<>(updated.data);
 					} else {
-						return new PlugResult<>(false, updated.getError());
+						return new PlugResult<>(false, updated.errorString());
 					}
 				} else {
 					return new PlugResult<>(false, "Could not parse account from payload");

@@ -1,5 +1,5 @@
 2018-11-23 02:11:05 database: flush
-org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.get(DbException.java:168)
 	at org.h2.message.DbException.convert(DbException.java:295)
 	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
@@ -112,10 +112,10 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 112 more
-Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
 	at org.h2.mvstore.FileStore.open(FileStore.java:168)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
@@ -129,7 +129,7 @@ Caused by: java.nio.channels.OverlappingFileLockException
 	at org.h2.mvstore.FileStore.open(FileStore.java:165)
 	... 108 more
 2018-11-23 02:14:25 database: flush
-org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.get(DbException.java:168)
 	at org.h2.message.DbException.convert(DbException.java:295)
 	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
@@ -242,10 +242,10 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 112 more
-Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
 	at org.h2.mvstore.FileStore.open(FileStore.java:168)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
@@ -259,7 +259,7 @@ Caused by: java.nio.channels.OverlappingFileLockException
 	at org.h2.mvstore.FileStore.open(FileStore.java:165)
 	... 108 more
 2018-11-23 02:14:29 database: flush
-org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.get(DbException.java:168)
 	at org.h2.message.DbException.convert(DbException.java:295)
 	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
@@ -370,10 +370,10 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 110 more
-Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
 	at org.h2.mvstore.FileStore.open(FileStore.java:168)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
@@ -387,7 +387,7 @@ Caused by: java.nio.channels.OverlappingFileLockException
 	at org.h2.mvstore.FileStore.open(FileStore.java:165)
 	... 106 more
 2018-11-23 02:15:05 database: flush
-org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.get(DbException.java:168)
 	at org.h2.message.DbException.convert(DbException.java:295)
 	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
@@ -504,10 +504,10 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 116 more
-Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
 	at org.h2.mvstore.FileStore.open(FileStore.java:168)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
@@ -521,7 +521,7 @@ Caused by: java.nio.channels.OverlappingFileLockException
 	at org.h2.mvstore.FileStore.open(FileStore.java:165)
 	... 112 more
 2018-11-23 02:15:09 database: flush
-org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.get(DbException.java:168)
 	at org.h2.message.DbException.convert(DbException.java:295)
 	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
@@ -636,10 +636,10 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 114 more
-Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
 	at org.h2.mvstore.FileStore.open(FileStore.java:168)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
@@ -653,7 +653,7 @@ Caused by: java.nio.channels.OverlappingFileLockException
 	at org.h2.mvstore.FileStore.open(FileStore.java:165)
 	... 110 more
 2018-11-23 02:19:52 database: flush
-org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.get(DbException.java:168)
 	at org.h2.message.DbException.convert(DbException.java:295)
 	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
@@ -766,10 +766,10 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 112 more
-Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
 	at org.h2.mvstore.FileStore.open(FileStore.java:168)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
@@ -783,7 +783,7 @@ Caused by: java.nio.channels.OverlappingFileLockException
 	at org.h2.mvstore.FileStore.open(FileStore.java:165)
 	... 108 more
 2018-11-23 02:19:54 database: flush
-org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.get(DbException.java:168)
 	at org.h2.message.DbException.convert(DbException.java:295)
 	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
@@ -894,10 +894,10 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 110 more
-Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
 	at org.h2.mvstore.FileStore.open(FileStore.java:168)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
@@ -911,7 +911,7 @@ Caused by: java.nio.channels.OverlappingFileLockException
 	at org.h2.mvstore.FileStore.open(FileStore.java:165)
 	... 106 more
 2018-11-23 02:29:21 database: flush
-org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.get(DbException.java:168)
 	at org.h2.message.DbException.convert(DbException.java:295)
 	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
@@ -1024,16 +1024,16 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 112 more
-Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
 	at org.h2.mvstore.FileStore.open(FileStore.java:173)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
 	... 107 more
 2018-11-23 02:29:25 database: flush
-org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.get(DbException.java:168)
 	at org.h2.message.DbException.convert(DbException.java:295)
 	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
@@ -1144,16 +1144,16 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 110 more
-Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
 	at org.h2.mvstore.FileStore.open(FileStore.java:173)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
 	... 105 more
 2018-11-23 02:30:39 database: flush
-org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.get(DbException.java:168)
 	at org.h2.message.DbException.convert(DbException.java:295)
 	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
@@ -1266,16 +1266,16 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 112 more
-Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
 	at org.h2.mvstore.FileStore.open(FileStore.java:173)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
 	... 107 more
 2018-11-23 02:30:42 database: flush
-org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.get(DbException.java:168)
 	at org.h2.message.DbException.convert(DbException.java:295)
 	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
@@ -1386,16 +1386,16 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 110 more
-Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
 	at org.h2.mvstore.FileStore.open(FileStore.java:173)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
 	... 105 more
 2018-11-23 02:33:38 database: flush
-org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.get(DbException.java:168)
 	at org.h2.message.DbException.convert(DbException.java:295)
 	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
@@ -1508,10 +1508,10 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 112 more
-Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
 	at org.h2.mvstore.FileStore.open(FileStore.java:168)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
@@ -1525,7 +1525,7 @@ Caused by: java.nio.channels.OverlappingFileLockException
 	at org.h2.mvstore.FileStore.open(FileStore.java:165)
 	... 108 more
 2018-11-23 02:33:40 database: flush
-org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.get(DbException.java:168)
 	at org.h2.message.DbException.convert(DbException.java:295)
 	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
@@ -1636,10 +1636,10 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 110 more
-Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
 	at org.h2.mvstore.FileStore.open(FileStore.java:168)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
@@ -1653,7 +1653,7 @@ Caused by: java.nio.channels.OverlappingFileLockException
 	at org.h2.mvstore.FileStore.open(FileStore.java:165)
 	... 106 more
 2018-11-23 11:35:07 database: flush
-org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.get(DbException.java:168)
 	at org.h2.message.DbException.convert(DbException.java:295)
 	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
@@ -1766,10 +1766,10 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 112 more
-Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
 	at org.h2.mvstore.FileStore.open(FileStore.java:168)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
@@ -1783,7 +1783,7 @@ Caused by: java.nio.channels.OverlappingFileLockException
 	at org.h2.mvstore.FileStore.open(FileStore.java:165)
 	... 108 more
 2018-11-23 11:35:09 database: flush
-org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.get(DbException.java:168)
 	at org.h2.message.DbException.convert(DbException.java:295)
 	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
@@ -1894,10 +1894,10 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 110 more
-Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
 	at org.h2.mvstore.FileStore.open(FileStore.java:168)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
@@ -1911,7 +1911,7 @@ Caused by: java.nio.channels.OverlappingFileLockException
 	at org.h2.mvstore.FileStore.open(FileStore.java:165)
 	... 106 more
 2018-11-23 11:45:14 database: flush
-org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.get(DbException.java:168)
 	at org.h2.message.DbException.convert(DbException.java:295)
 	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
@@ -2024,10 +2024,10 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 112 more
-Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
 	at org.h2.mvstore.FileStore.open(FileStore.java:168)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
@@ -2041,7 +2041,7 @@ Caused by: java.nio.channels.OverlappingFileLockException
 	at org.h2.mvstore.FileStore.open(FileStore.java:165)
 	... 108 more
 2018-11-23 11:45:17 database: flush
-org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.get(DbException.java:168)
 	at org.h2.message.DbException.convert(DbException.java:295)
 	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
@@ -2152,10 +2152,10 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 110 more
-Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
 	at org.h2.mvstore.FileStore.open(FileStore.java:168)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
@@ -2169,7 +2169,7 @@ Caused by: java.nio.channels.OverlappingFileLockException
 	at org.h2.mvstore.FileStore.open(FileStore.java:165)
 	... 106 more
 2018-11-23 12:05:15 database: flush
-org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.get(DbException.java:168)
 	at org.h2.message.DbException.convert(DbException.java:295)
 	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
@@ -2282,10 +2282,10 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 112 more
-Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
 	at org.h2.mvstore.FileStore.open(FileStore.java:168)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
@@ -2299,7 +2299,7 @@ Caused by: java.nio.channels.OverlappingFileLockException
 	at org.h2.mvstore.FileStore.open(FileStore.java:165)
 	... 108 more
 2018-11-23 12:05:17 database: flush
-org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+org.h2.message.DbException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.get(DbException.java:168)
 	at org.h2.message.DbException.convert(DbException.java:295)
 	at org.h2.mvstore.db.MVTableEngine$1.uncaughtException(MVTableEngine.java:95)
@@ -2410,10 +2410,10 @@ org.h2.message.DbException: General error: "java.lang.IllegalStateException: The
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:765)
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:683)
 	at java.base/java.lang.Thread.run(Thread.java:844)
-Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
+Caused by: org.h2.jdbc.JdbcSQLException: General error: "java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]" [50000-196]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 110 more
-Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-parent/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
+Caused by: java.lang.IllegalStateException: The file is locked: nio:/home/mainas/works/plugins-pom/plugins-poc-graphql/data/poc-graphql.mv.db [1.4.196/7]
 	at org.h2.mvstore.DataUtils.newIllegalStateException(DataUtils.java:765)
 	at org.h2.mvstore.FileStore.open(FileStore.java:168)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:347)
@@ -10082,5 +10082,1055 @@ key(chapter_id, fk_ebook_id) [42000-196]
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
 VALUES [42001-196]
 2019-01-13 15:00:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 1, 'A gentle start to ebooks')"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 1, 'A gentle start to ebooks') [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_AUTHOR (AUTHOR_ID, FIRST_NAME, LAST_NAME, AUTHOR_BIO, BIRTH_DAY, ADDR_CITY, ADDR_STATE, STREET_NAME, UNIT_NUM, ZIP_CODE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_author (author_id, first_name, last_name, author_bio, birth_day, addr_city, addr_state, street_name, unit_num, zip_code) [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (AUTHOR_ID) "; SQL statement:
+key (author_id) [42000-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'james', 'bond', 'gunslinger', TO_DATE(SUBSTR('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', ''), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'james', 'bond', 'gunslinger', TO_DATE(substr('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', ''), [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'john', 'bean', 'mountain climber', TO_DATE(SUBSTR('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', '') "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'john', 'bean', 'mountain climber', TO_DATE(substr('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', '') [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_ACCOUNT (ACCOUNT_ID, ACCOUNT_USER, ACCOUNT_PASS, EMAIL_ADDR, ACCOUNT_PROFILE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_account (account_id, account_user, account_pass, email_addr, account_profile) [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (ACCOUNT_ID) "; SQL statement:
+key (account_id) [42000-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'admin', 'secret', 'steve@play.io', 1),"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'admin', 'secret', 'steve@play.io', 1), [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'guest', 'wisdom', 'guestdom@play.io', 2)"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'guest', 'wisdom', 'guestdom@play.io', 2) [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_BLOG (PUB_ID, PUB_TITLE, PUBLISH_DATE, PUB_PREFACE, BLOG_CONTENT, FK_AUTHOR_ID, FK_PARENT_BLOG) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_blog (pub_id, pub_title, publish_date, pub_preface, blog_content, fk_author_id, fk_parent_blog) [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (PUB_ID) "; SQL statement:
+key (pub_id) [42000-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple blog', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'react rocks', 'let""s begin somewhere', 1, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple blog', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'react rocks', 'let"s begin somewhere', 1, null), [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'simple graphs', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'html5 rocks', 'let""s draw a box', 1, 1), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'simple graphs', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'html5 rocks', 'let"s draw a box', 1, 1), [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(3[*], 'writting skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'cursive form', 'it""s not scribbles', 2, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(3, 'writting skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'cursive form', 'it"s not scribbles', 2, null), [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(4[*], 'reading skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'ambient light', 'stay motivated', 2, 3), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(4, 'reading skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'ambient light', 'stay motivated', 2, 3), [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(5[*], 'recall skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'alert mind', 'paying attention to detail', 2, 3) "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(5, 'recall skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'alert mind', 'paying attention to detail', 2, 3) [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_COMMENT (COMMENT_ID, COMMENT_TEXT, COMMENT_DATE, FK_AUTHOR_ID, FK_PARENT_BLOG, FK_PARENT_COMMENT) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_comment (comment_id, comment_text, comment_date, fk_author_id, fk_parent_blog, fk_parent_comment) [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (COMMENT_ID) "; SQL statement:
+key (comment_id) [42000-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple blog is awesome', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 2, 1, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple blog is awesome', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 2, 1, null), [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'much appreciated', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 1, 1, 1) "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'much appreciated', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 1, 1, 1) [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_EBOOK (PUB_ID, PUB_TITLE, PUBLISH_DATE, PUB_PREFACE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_ebook (pub_id, pub_title, publish_date, pub_preface) [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (PUB_ID) "; SQL statement:
+key (pub_id) [42000-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple ebook', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'books are worth a million stories') "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple ebook', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'books are worth a million stories') [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_EBOOK_AUTHOR (AUTHOR_ID, PUB_ID) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_ebook_author (author_id, pub_id) [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*](AUTHOR_ID, PUB_ID) "; SQL statement:
+key(author_id, pub_id) [42000-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 1)"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 1) [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_CHAPTER (CHAPTER_ID, FK_EBOOK_ID, BOOK_CONTENT) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_chapter (chapter_id, fk_ebook_id, book_content) [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*](CHAPTER_ID, FK_EBOOK_ID) "; SQL statement:
+key(chapter_id, fk_ebook_id) [42000-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 20:59:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 1, 'A gentle start to ebooks')"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 1, 'A gentle start to ebooks') [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_AUTHOR (AUTHOR_ID, FIRST_NAME, LAST_NAME, AUTHOR_BIO, BIRTH_DAY, ADDR_CITY, ADDR_STATE, STREET_NAME, UNIT_NUM, ZIP_CODE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_author (author_id, first_name, last_name, author_bio, birth_day, addr_city, addr_state, street_name, unit_num, zip_code) [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (AUTHOR_ID) "; SQL statement:
+key (author_id) [42000-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'james', 'bond', 'gunslinger', TO_DATE(SUBSTR('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', ''), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'james', 'bond', 'gunslinger', TO_DATE(substr('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', ''), [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'john', 'bean', 'mountain climber', TO_DATE(SUBSTR('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', '') "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'john', 'bean', 'mountain climber', TO_DATE(substr('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', '') [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_ACCOUNT (ACCOUNT_ID, ACCOUNT_USER, ACCOUNT_PASS, EMAIL_ADDR, ACCOUNT_PROFILE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_account (account_id, account_user, account_pass, email_addr, account_profile) [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (ACCOUNT_ID) "; SQL statement:
+key (account_id) [42000-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'admin', 'secret', 'steve@play.io', 1),"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'admin', 'secret', 'steve@play.io', 1), [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'guest', 'wisdom', 'guestdom@play.io', 2)"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'guest', 'wisdom', 'guestdom@play.io', 2) [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_BLOG (PUB_ID, PUB_TITLE, PUBLISH_DATE, PUB_PREFACE, BLOG_CONTENT, FK_AUTHOR_ID, FK_PARENT_BLOG) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_blog (pub_id, pub_title, publish_date, pub_preface, blog_content, fk_author_id, fk_parent_blog) [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (PUB_ID) "; SQL statement:
+key (pub_id) [42000-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple blog', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'react rocks', 'let""s begin somewhere', 1, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple blog', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'react rocks', 'let"s begin somewhere', 1, null), [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'simple graphs', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'html5 rocks', 'let""s draw a box', 1, 1), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'simple graphs', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'html5 rocks', 'let"s draw a box', 1, 1), [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(3[*], 'writting skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'cursive form', 'it""s not scribbles', 2, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(3, 'writting skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'cursive form', 'it"s not scribbles', 2, null), [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(4[*], 'reading skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'ambient light', 'stay motivated', 2, 3), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(4, 'reading skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'ambient light', 'stay motivated', 2, 3), [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(5[*], 'recall skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'alert mind', 'paying attention to detail', 2, 3) "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(5, 'recall skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'alert mind', 'paying attention to detail', 2, 3) [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_COMMENT (COMMENT_ID, COMMENT_TEXT, COMMENT_DATE, FK_AUTHOR_ID, FK_PARENT_BLOG, FK_PARENT_COMMENT) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_comment (comment_id, comment_text, comment_date, fk_author_id, fk_parent_blog, fk_parent_comment) [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (COMMENT_ID) "; SQL statement:
+key (comment_id) [42000-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple blog is awesome', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 2, 1, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple blog is awesome', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 2, 1, null), [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'much appreciated', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 1, 1, 1) "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'much appreciated', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 1, 1, 1) [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_EBOOK (PUB_ID, PUB_TITLE, PUBLISH_DATE, PUB_PREFACE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_ebook (pub_id, pub_title, publish_date, pub_preface) [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (PUB_ID) "; SQL statement:
+key (pub_id) [42000-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple ebook', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'books are worth a million stories') "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple ebook', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'books are worth a million stories') [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_EBOOK_AUTHOR (AUTHOR_ID, PUB_ID) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_ebook_author (author_id, pub_id) [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*](AUTHOR_ID, PUB_ID) "; SQL statement:
+key(author_id, pub_id) [42000-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 1)"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 1) [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_CHAPTER (CHAPTER_ID, FK_EBOOK_ID, BOOK_CONTENT) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_chapter (chapter_id, fk_ebook_id, book_content) [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*](CHAPTER_ID, FK_EBOOK_ID) "; SQL statement:
+key(chapter_id, fk_ebook_id) [42000-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 21:02:36 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 1, 'A gentle start to ebooks')"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 1, 'A gentle start to ebooks') [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_AUTHOR (AUTHOR_ID, FIRST_NAME, LAST_NAME, AUTHOR_BIO, BIRTH_DAY, ADDR_CITY, ADDR_STATE, STREET_NAME, UNIT_NUM, ZIP_CODE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_author (author_id, first_name, last_name, author_bio, birth_day, addr_city, addr_state, street_name, unit_num, zip_code) [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (AUTHOR_ID) "; SQL statement:
+key (author_id) [42000-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'james', 'bond', 'gunslinger', TO_DATE(SUBSTR('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', ''), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'james', 'bond', 'gunslinger', TO_DATE(substr('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', ''), [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'john', 'bean', 'mountain climber', TO_DATE(SUBSTR('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', '') "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'john', 'bean', 'mountain climber', TO_DATE(substr('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', '') [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_ACCOUNT (ACCOUNT_ID, ACCOUNT_USER, ACCOUNT_PASS, EMAIL_ADDR, ACCOUNT_PROFILE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_account (account_id, account_user, account_pass, email_addr, account_profile) [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (ACCOUNT_ID) "; SQL statement:
+key (account_id) [42000-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'admin', 'secret', 'steve@play.io', 1),"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'admin', 'secret', 'steve@play.io', 1), [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'guest', 'wisdom', 'guestdom@play.io', 2)"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'guest', 'wisdom', 'guestdom@play.io', 2) [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_BLOG (PUB_ID, PUB_TITLE, PUBLISH_DATE, PUB_PREFACE, BLOG_CONTENT, FK_AUTHOR_ID, FK_PARENT_BLOG) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_blog (pub_id, pub_title, publish_date, pub_preface, blog_content, fk_author_id, fk_parent_blog) [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (PUB_ID) "; SQL statement:
+key (pub_id) [42000-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple blog', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'react rocks', 'let""s begin somewhere', 1, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple blog', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'react rocks', 'let"s begin somewhere', 1, null), [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'simple graphs', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'html5 rocks', 'let""s draw a box', 1, 1), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'simple graphs', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'html5 rocks', 'let"s draw a box', 1, 1), [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(3[*], 'writting skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'cursive form', 'it""s not scribbles', 2, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(3, 'writting skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'cursive form', 'it"s not scribbles', 2, null), [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(4[*], 'reading skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'ambient light', 'stay motivated', 2, 3), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(4, 'reading skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'ambient light', 'stay motivated', 2, 3), [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(5[*], 'recall skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'alert mind', 'paying attention to detail', 2, 3) "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(5, 'recall skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'alert mind', 'paying attention to detail', 2, 3) [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_COMMENT (COMMENT_ID, COMMENT_TEXT, COMMENT_DATE, FK_AUTHOR_ID, FK_PARENT_BLOG, FK_PARENT_COMMENT) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_comment (comment_id, comment_text, comment_date, fk_author_id, fk_parent_blog, fk_parent_comment) [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (COMMENT_ID) "; SQL statement:
+key (comment_id) [42000-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple blog is awesome', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 2, 1, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple blog is awesome', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 2, 1, null), [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'much appreciated', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 1, 1, 1) "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'much appreciated', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 1, 1, 1) [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_EBOOK (PUB_ID, PUB_TITLE, PUBLISH_DATE, PUB_PREFACE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_ebook (pub_id, pub_title, publish_date, pub_preface) [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (PUB_ID) "; SQL statement:
+key (pub_id) [42000-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple ebook', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'books are worth a million stories') "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple ebook', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'books are worth a million stories') [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_EBOOK_AUTHOR (AUTHOR_ID, PUB_ID) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_ebook_author (author_id, pub_id) [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*](AUTHOR_ID, PUB_ID) "; SQL statement:
+key(author_id, pub_id) [42000-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 1)"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 1) [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_CHAPTER (CHAPTER_ID, FK_EBOOK_ID, BOOK_CONTENT) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_chapter (chapter_id, fk_ebook_id, book_content) [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*](CHAPTER_ID, FK_EBOOK_ID) "; SQL statement:
+key(chapter_id, fk_ebook_id) [42000-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 21:05:40 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 1, 'A gentle start to ebooks')"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 1, 'A gentle start to ebooks') [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_AUTHOR (AUTHOR_ID, FIRST_NAME, LAST_NAME, AUTHOR_BIO, BIRTH_DAY, ADDR_CITY, ADDR_STATE, STREET_NAME, UNIT_NUM, ZIP_CODE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_author (author_id, first_name, last_name, author_bio, birth_day, addr_city, addr_state, street_name, unit_num, zip_code) [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (AUTHOR_ID) "; SQL statement:
+key (author_id) [42000-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'james', 'bond', 'gunslinger', TO_DATE(SUBSTR('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', ''), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'james', 'bond', 'gunslinger', TO_DATE(substr('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', ''), [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'john', 'bean', 'mountain climber', TO_DATE(SUBSTR('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', '') "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'john', 'bean', 'mountain climber', TO_DATE(substr('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', '') [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_ACCOUNT (ACCOUNT_ID, ACCOUNT_USER, ACCOUNT_PASS, EMAIL_ADDR, ACCOUNT_PROFILE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_account (account_id, account_user, account_pass, email_addr, account_profile) [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (ACCOUNT_ID) "; SQL statement:
+key (account_id) [42000-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'admin', 'secret', 'steve@play.io', 1),"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'admin', 'secret', 'steve@play.io', 1), [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'guest', 'wisdom', 'guestdom@play.io', 2)"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'guest', 'wisdom', 'guestdom@play.io', 2) [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_BLOG (PUB_ID, PUB_TITLE, PUBLISH_DATE, PUB_PREFACE, BLOG_CONTENT, FK_AUTHOR_ID, FK_PARENT_BLOG) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_blog (pub_id, pub_title, publish_date, pub_preface, blog_content, fk_author_id, fk_parent_blog) [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (PUB_ID) "; SQL statement:
+key (pub_id) [42000-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple blog', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'react rocks', 'let""s begin somewhere', 1, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple blog', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'react rocks', 'let"s begin somewhere', 1, null), [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'simple graphs', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'html5 rocks', 'let""s draw a box', 1, 1), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'simple graphs', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'html5 rocks', 'let"s draw a box', 1, 1), [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(3[*], 'writting skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'cursive form', 'it""s not scribbles', 2, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(3, 'writting skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'cursive form', 'it"s not scribbles', 2, null), [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(4[*], 'reading skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'ambient light', 'stay motivated', 2, 3), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(4, 'reading skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'ambient light', 'stay motivated', 2, 3), [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(5[*], 'recall skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'alert mind', 'paying attention to detail', 2, 3) "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(5, 'recall skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'alert mind', 'paying attention to detail', 2, 3) [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_COMMENT (COMMENT_ID, COMMENT_TEXT, COMMENT_DATE, FK_AUTHOR_ID, FK_PARENT_BLOG, FK_PARENT_COMMENT) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_comment (comment_id, comment_text, comment_date, fk_author_id, fk_parent_blog, fk_parent_comment) [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (COMMENT_ID) "; SQL statement:
+key (comment_id) [42000-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple blog is awesome', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 2, 1, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple blog is awesome', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 2, 1, null), [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'much appreciated', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 1, 1, 1) "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'much appreciated', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 1, 1, 1) [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_EBOOK (PUB_ID, PUB_TITLE, PUBLISH_DATE, PUB_PREFACE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_ebook (pub_id, pub_title, publish_date, pub_preface) [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (PUB_ID) "; SQL statement:
+key (pub_id) [42000-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple ebook', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'books are worth a million stories') "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple ebook', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'books are worth a million stories') [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_EBOOK_AUTHOR (AUTHOR_ID, PUB_ID) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_ebook_author (author_id, pub_id) [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*](AUTHOR_ID, PUB_ID) "; SQL statement:
+key(author_id, pub_id) [42000-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 1)"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 1) [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_CHAPTER (CHAPTER_ID, FK_EBOOK_ID, BOOK_CONTENT) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_chapter (chapter_id, fk_ebook_id, book_content) [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*](CHAPTER_ID, FK_EBOOK_ID) "; SQL statement:
+key(chapter_id, fk_ebook_id) [42000-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 21:21:16 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 1, 'A gentle start to ebooks')"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 1, 'A gentle start to ebooks') [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_AUTHOR (AUTHOR_ID, FIRST_NAME, LAST_NAME, AUTHOR_BIO, BIRTH_DAY, ADDR_CITY, ADDR_STATE, STREET_NAME, UNIT_NUM, ZIP_CODE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_author (author_id, first_name, last_name, author_bio, birth_day, addr_city, addr_state, street_name, unit_num, zip_code) [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (AUTHOR_ID) "; SQL statement:
+key (author_id) [42000-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'james', 'bond', 'gunslinger', TO_DATE(SUBSTR('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', ''), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'james', 'bond', 'gunslinger', TO_DATE(substr('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', ''), [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'john', 'bean', 'mountain climber', TO_DATE(SUBSTR('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', '') "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'john', 'bean', 'mountain climber', TO_DATE(substr('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', '') [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_ACCOUNT (ACCOUNT_ID, ACCOUNT_USER, ACCOUNT_PASS, EMAIL_ADDR, ACCOUNT_PROFILE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_account (account_id, account_user, account_pass, email_addr, account_profile) [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (ACCOUNT_ID) "; SQL statement:
+key (account_id) [42000-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'admin', 'secret', 'steve@play.io', 1),"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'admin', 'secret', 'steve@play.io', 1), [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'guest', 'wisdom', 'guestdom@play.io', 2)"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'guest', 'wisdom', 'guestdom@play.io', 2) [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_BLOG (PUB_ID, PUB_TITLE, PUBLISH_DATE, PUB_PREFACE, BLOG_CONTENT, FK_AUTHOR_ID, FK_PARENT_BLOG) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_blog (pub_id, pub_title, publish_date, pub_preface, blog_content, fk_author_id, fk_parent_blog) [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (PUB_ID) "; SQL statement:
+key (pub_id) [42000-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple blog', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'react rocks', 'let""s begin somewhere', 1, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple blog', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'react rocks', 'let"s begin somewhere', 1, null), [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'simple graphs', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'html5 rocks', 'let""s draw a box', 1, 1), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'simple graphs', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'html5 rocks', 'let"s draw a box', 1, 1), [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(3[*], 'writting skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'cursive form', 'it""s not scribbles', 2, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(3, 'writting skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'cursive form', 'it"s not scribbles', 2, null), [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(4[*], 'reading skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'ambient light', 'stay motivated', 2, 3), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(4, 'reading skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'ambient light', 'stay motivated', 2, 3), [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(5[*], 'recall skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'alert mind', 'paying attention to detail', 2, 3) "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(5, 'recall skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'alert mind', 'paying attention to detail', 2, 3) [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_COMMENT (COMMENT_ID, COMMENT_TEXT, COMMENT_DATE, FK_AUTHOR_ID, FK_PARENT_BLOG, FK_PARENT_COMMENT) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_comment (comment_id, comment_text, comment_date, fk_author_id, fk_parent_blog, fk_parent_comment) [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (COMMENT_ID) "; SQL statement:
+key (comment_id) [42000-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple blog is awesome', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 2, 1, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple blog is awesome', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 2, 1, null), [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'much appreciated', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 1, 1, 1) "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'much appreciated', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 1, 1, 1) [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_EBOOK (PUB_ID, PUB_TITLE, PUBLISH_DATE, PUB_PREFACE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_ebook (pub_id, pub_title, publish_date, pub_preface) [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (PUB_ID) "; SQL statement:
+key (pub_id) [42000-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple ebook', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'books are worth a million stories') "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple ebook', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'books are worth a million stories') [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_EBOOK_AUTHOR (AUTHOR_ID, PUB_ID) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_ebook_author (author_id, pub_id) [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*](AUTHOR_ID, PUB_ID) "; SQL statement:
+key(author_id, pub_id) [42000-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 1)"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 1) [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_CHAPTER (CHAPTER_ID, FK_EBOOK_ID, BOOK_CONTENT) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_chapter (chapter_id, fk_ebook_id, book_content) [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*](CHAPTER_ID, FK_EBOOK_ID) "; SQL statement:
+key(chapter_id, fk_ebook_id) [42000-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 22:50:37 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 1, 'A gentle start to ebooks')"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 1, 'A gentle start to ebooks') [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_AUTHOR (AUTHOR_ID, FIRST_NAME, LAST_NAME, AUTHOR_BIO, BIRTH_DAY, ADDR_CITY, ADDR_STATE, STREET_NAME, UNIT_NUM, ZIP_CODE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_author (author_id, first_name, last_name, author_bio, birth_day, addr_city, addr_state, street_name, unit_num, zip_code) [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (AUTHOR_ID) "; SQL statement:
+key (author_id) [42000-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'james', 'bond', 'gunslinger', TO_DATE(SUBSTR('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', ''), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'james', 'bond', 'gunslinger', TO_DATE(substr('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', ''), [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'john', 'bean', 'mountain climber', TO_DATE(SUBSTR('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', '') "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'john', 'bean', 'mountain climber', TO_DATE(substr('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', '') [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_ACCOUNT (ACCOUNT_ID, ACCOUNT_USER, ACCOUNT_PASS, EMAIL_ADDR, ACCOUNT_PROFILE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_account (account_id, account_user, account_pass, email_addr, account_profile) [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (ACCOUNT_ID) "; SQL statement:
+key (account_id) [42000-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'admin', 'secret', 'steve@play.io', 1),"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'admin', 'secret', 'steve@play.io', 1), [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'guest', 'wisdom', 'guestdom@play.io', 2)"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'guest', 'wisdom', 'guestdom@play.io', 2) [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_BLOG (PUB_ID, PUB_TITLE, PUBLISH_DATE, PUB_PREFACE, BLOG_CONTENT, FK_AUTHOR_ID, FK_PARENT_BLOG) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_blog (pub_id, pub_title, publish_date, pub_preface, blog_content, fk_author_id, fk_parent_blog) [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (PUB_ID) "; SQL statement:
+key (pub_id) [42000-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple blog', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'react rocks', 'let""s begin somewhere', 1, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple blog', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'react rocks', 'let"s begin somewhere', 1, null), [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'simple graphs', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'html5 rocks', 'let""s draw a box', 1, 1), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'simple graphs', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'html5 rocks', 'let"s draw a box', 1, 1), [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(3[*], 'writting skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'cursive form', 'it""s not scribbles', 2, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(3, 'writting skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'cursive form', 'it"s not scribbles', 2, null), [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(4[*], 'reading skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'ambient light', 'stay motivated', 2, 3), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(4, 'reading skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'ambient light', 'stay motivated', 2, 3), [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(5[*], 'recall skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'alert mind', 'paying attention to detail', 2, 3) "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(5, 'recall skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'alert mind', 'paying attention to detail', 2, 3) [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_COMMENT (COMMENT_ID, COMMENT_TEXT, COMMENT_DATE, FK_AUTHOR_ID, FK_PARENT_BLOG, FK_PARENT_COMMENT) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_comment (comment_id, comment_text, comment_date, fk_author_id, fk_parent_blog, fk_parent_comment) [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (COMMENT_ID) "; SQL statement:
+key (comment_id) [42000-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple blog is awesome', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 2, 1, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple blog is awesome', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 2, 1, null), [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'much appreciated', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 1, 1, 1) "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'much appreciated', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 1, 1, 1) [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_EBOOK (PUB_ID, PUB_TITLE, PUBLISH_DATE, PUB_PREFACE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_ebook (pub_id, pub_title, publish_date, pub_preface) [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (PUB_ID) "; SQL statement:
+key (pub_id) [42000-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple ebook', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'books are worth a million stories') "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple ebook', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'books are worth a million stories') [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_EBOOK_AUTHOR (AUTHOR_ID, PUB_ID) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_ebook_author (author_id, pub_id) [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*](AUTHOR_ID, PUB_ID) "; SQL statement:
+key(author_id, pub_id) [42000-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 1)"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 1) [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_CHAPTER (CHAPTER_ID, FK_EBOOK_ID, BOOK_CONTENT) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_chapter (chapter_id, fk_ebook_id, book_content) [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*](CHAPTER_ID, FK_EBOOK_ID) "; SQL statement:
+key(chapter_id, fk_ebook_id) [42000-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 22:54:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 1, 'A gentle start to ebooks')"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 1, 'A gentle start to ebooks') [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_AUTHOR (AUTHOR_ID, FIRST_NAME, LAST_NAME, AUTHOR_BIO, BIRTH_DAY, ADDR_CITY, ADDR_STATE, STREET_NAME, UNIT_NUM, ZIP_CODE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_author (author_id, first_name, last_name, author_bio, birth_day, addr_city, addr_state, street_name, unit_num, zip_code) [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (AUTHOR_ID) "; SQL statement:
+key (author_id) [42000-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'james', 'bond', 'gunslinger', TO_DATE(SUBSTR('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', ''), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'james', 'bond', 'gunslinger', TO_DATE(substr('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', ''), [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'john', 'bean', 'mountain climber', TO_DATE(SUBSTR('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', '') "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'john', 'bean', 'mountain climber', TO_DATE(substr('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', '') [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_ACCOUNT (ACCOUNT_ID, ACCOUNT_USER, ACCOUNT_PASS, EMAIL_ADDR, ACCOUNT_PROFILE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_account (account_id, account_user, account_pass, email_addr, account_profile) [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (ACCOUNT_ID) "; SQL statement:
+key (account_id) [42000-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'admin', 'secret', 'steve@play.io', 1),"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'admin', 'secret', 'steve@play.io', 1), [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'guest', 'wisdom', 'guestdom@play.io', 2)"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'guest', 'wisdom', 'guestdom@play.io', 2) [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_BLOG (PUB_ID, PUB_TITLE, PUBLISH_DATE, PUB_PREFACE, BLOG_CONTENT, FK_AUTHOR_ID, FK_PARENT_BLOG) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_blog (pub_id, pub_title, publish_date, pub_preface, blog_content, fk_author_id, fk_parent_blog) [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (PUB_ID) "; SQL statement:
+key (pub_id) [42000-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple blog', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'react rocks', 'let""s begin somewhere', 1, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple blog', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'react rocks', 'let"s begin somewhere', 1, null), [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'simple graphs', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'html5 rocks', 'let""s draw a box', 1, 1), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'simple graphs', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'html5 rocks', 'let"s draw a box', 1, 1), [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(3[*], 'writting skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'cursive form', 'it""s not scribbles', 2, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(3, 'writting skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'cursive form', 'it"s not scribbles', 2, null), [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(4[*], 'reading skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'ambient light', 'stay motivated', 2, 3), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(4, 'reading skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'ambient light', 'stay motivated', 2, 3), [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(5[*], 'recall skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'alert mind', 'paying attention to detail', 2, 3) "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(5, 'recall skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'alert mind', 'paying attention to detail', 2, 3) [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_COMMENT (COMMENT_ID, COMMENT_TEXT, COMMENT_DATE, FK_AUTHOR_ID, FK_PARENT_BLOG, FK_PARENT_COMMENT) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_comment (comment_id, comment_text, comment_date, fk_author_id, fk_parent_blog, fk_parent_comment) [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (COMMENT_ID) "; SQL statement:
+key (comment_id) [42000-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple blog is awesome', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 2, 1, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple blog is awesome', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 2, 1, null), [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'much appreciated', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 1, 1, 1) "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'much appreciated', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 1, 1, 1) [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_EBOOK (PUB_ID, PUB_TITLE, PUBLISH_DATE, PUB_PREFACE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_ebook (pub_id, pub_title, publish_date, pub_preface) [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (PUB_ID) "; SQL statement:
+key (pub_id) [42000-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple ebook', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'books are worth a million stories') "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple ebook', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'books are worth a million stories') [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_EBOOK_AUTHOR (AUTHOR_ID, PUB_ID) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_ebook_author (author_id, pub_id) [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*](AUTHOR_ID, PUB_ID) "; SQL statement:
+key(author_id, pub_id) [42000-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 1)"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 1) [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_CHAPTER (CHAPTER_ID, FK_EBOOK_ID, BOOK_CONTENT) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_chapter (chapter_id, fk_ebook_id, book_content) [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*](CHAPTER_ID, FK_EBOOK_ID) "; SQL statement:
+key(chapter_id, fk_ebook_id) [42000-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:02:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 1, 'A gentle start to ebooks')"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 1, 'A gentle start to ebooks') [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_AUTHOR (AUTHOR_ID, FIRST_NAME, LAST_NAME, AUTHOR_BIO, BIRTH_DAY, ADDR_CITY, ADDR_STATE, STREET_NAME, UNIT_NUM, ZIP_CODE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_author (author_id, first_name, last_name, author_bio, birth_day, addr_city, addr_state, street_name, unit_num, zip_code) [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (AUTHOR_ID) "; SQL statement:
+key (author_id) [42000-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'james', 'bond', 'gunslinger', TO_DATE(SUBSTR('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', ''), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'james', 'bond', 'gunslinger', TO_DATE(substr('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', ''), [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'john', 'bean', 'mountain climber', TO_DATE(SUBSTR('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', '') "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'john', 'bean', 'mountain climber', TO_DATE(substr('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', '') [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_ACCOUNT (ACCOUNT_ID, ACCOUNT_USER, ACCOUNT_PASS, EMAIL_ADDR, ACCOUNT_PROFILE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_account (account_id, account_user, account_pass, email_addr, account_profile) [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (ACCOUNT_ID) "; SQL statement:
+key (account_id) [42000-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'admin', 'secret', 'steve@play.io', 1),"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'admin', 'secret', 'steve@play.io', 1), [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'guest', 'wisdom', 'guestdom@play.io', 2)"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'guest', 'wisdom', 'guestdom@play.io', 2) [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_BLOG (PUB_ID, PUB_TITLE, PUBLISH_DATE, PUB_PREFACE, BLOG_CONTENT, FK_AUTHOR_ID, FK_PARENT_BLOG) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_blog (pub_id, pub_title, publish_date, pub_preface, blog_content, fk_author_id, fk_parent_blog) [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (PUB_ID) "; SQL statement:
+key (pub_id) [42000-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple blog', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'react rocks', 'let""s begin somewhere', 1, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple blog', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'react rocks', 'let"s begin somewhere', 1, null), [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'simple graphs', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'html5 rocks', 'let""s draw a box', 1, 1), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'simple graphs', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'html5 rocks', 'let"s draw a box', 1, 1), [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(3[*], 'writting skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'cursive form', 'it""s not scribbles', 2, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(3, 'writting skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'cursive form', 'it"s not scribbles', 2, null), [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(4[*], 'reading skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'ambient light', 'stay motivated', 2, 3), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(4, 'reading skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'ambient light', 'stay motivated', 2, 3), [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(5[*], 'recall skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'alert mind', 'paying attention to detail', 2, 3) "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(5, 'recall skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'alert mind', 'paying attention to detail', 2, 3) [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_COMMENT (COMMENT_ID, COMMENT_TEXT, COMMENT_DATE, FK_AUTHOR_ID, FK_PARENT_BLOG, FK_PARENT_COMMENT) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_comment (comment_id, comment_text, comment_date, fk_author_id, fk_parent_blog, fk_parent_comment) [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (COMMENT_ID) "; SQL statement:
+key (comment_id) [42000-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple blog is awesome', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 2, 1, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple blog is awesome', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 2, 1, null), [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'much appreciated', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 1, 1, 1) "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'much appreciated', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 1, 1, 1) [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_EBOOK (PUB_ID, PUB_TITLE, PUBLISH_DATE, PUB_PREFACE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_ebook (pub_id, pub_title, publish_date, pub_preface) [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (PUB_ID) "; SQL statement:
+key (pub_id) [42000-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple ebook', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'books are worth a million stories') "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple ebook', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'books are worth a million stories') [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_EBOOK_AUTHOR (AUTHOR_ID, PUB_ID) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_ebook_author (author_id, pub_id) [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*](AUTHOR_ID, PUB_ID) "; SQL statement:
+key(author_id, pub_id) [42000-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 1)"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 1) [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_CHAPTER (CHAPTER_ID, FK_EBOOK_ID, BOOK_CONTENT) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_chapter (chapter_id, fk_ebook_id, book_content) [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*](CHAPTER_ID, FK_EBOOK_ID) "; SQL statement:
+key(chapter_id, fk_ebook_id) [42000-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:14:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 1, 'A gentle start to ebooks')"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 1, 'A gentle start to ebooks') [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_AUTHOR (AUTHOR_ID, FIRST_NAME, LAST_NAME, AUTHOR_BIO, BIRTH_DAY, ADDR_CITY, ADDR_STATE, STREET_NAME, UNIT_NUM, ZIP_CODE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_author (author_id, first_name, last_name, author_bio, birth_day, addr_city, addr_state, street_name, unit_num, zip_code) [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (AUTHOR_ID) "; SQL statement:
+key (author_id) [42000-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'james', 'bond', 'gunslinger', TO_DATE(SUBSTR('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', ''), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'james', 'bond', 'gunslinger', TO_DATE(substr('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', ''), [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'john', 'bean', 'mountain climber', TO_DATE(SUBSTR('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', '') "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'john', 'bean', 'mountain climber', TO_DATE(substr('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', '') [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_ACCOUNT (ACCOUNT_ID, ACCOUNT_USER, ACCOUNT_PASS, EMAIL_ADDR, ACCOUNT_PROFILE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_account (account_id, account_user, account_pass, email_addr, account_profile) [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (ACCOUNT_ID) "; SQL statement:
+key (account_id) [42000-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'admin', 'secret', 'steve@play.io', 1),"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'admin', 'secret', 'steve@play.io', 1), [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'guest', 'wisdom', 'guestdom@play.io', 2)"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'guest', 'wisdom', 'guestdom@play.io', 2) [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_BLOG (PUB_ID, PUB_TITLE, PUBLISH_DATE, PUB_PREFACE, BLOG_CONTENT, FK_AUTHOR_ID, FK_PARENT_BLOG) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_blog (pub_id, pub_title, publish_date, pub_preface, blog_content, fk_author_id, fk_parent_blog) [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (PUB_ID) "; SQL statement:
+key (pub_id) [42000-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple blog', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'react rocks', 'let""s begin somewhere', 1, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple blog', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'react rocks', 'let"s begin somewhere', 1, null), [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'simple graphs', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'html5 rocks', 'let""s draw a box', 1, 1), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'simple graphs', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'html5 rocks', 'let"s draw a box', 1, 1), [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(3[*], 'writting skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'cursive form', 'it""s not scribbles', 2, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(3, 'writting skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'cursive form', 'it"s not scribbles', 2, null), [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(4[*], 'reading skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'ambient light', 'stay motivated', 2, 3), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(4, 'reading skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'ambient light', 'stay motivated', 2, 3), [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(5[*], 'recall skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'alert mind', 'paying attention to detail', 2, 3) "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(5, 'recall skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'alert mind', 'paying attention to detail', 2, 3) [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_COMMENT (COMMENT_ID, COMMENT_TEXT, COMMENT_DATE, FK_AUTHOR_ID, FK_PARENT_BLOG, FK_PARENT_COMMENT) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_comment (comment_id, comment_text, comment_date, fk_author_id, fk_parent_blog, fk_parent_comment) [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (COMMENT_ID) "; SQL statement:
+key (comment_id) [42000-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple blog is awesome', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 2, 1, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple blog is awesome', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 2, 1, null), [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'much appreciated', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 1, 1, 1) "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'much appreciated', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 1, 1, 1) [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_EBOOK (PUB_ID, PUB_TITLE, PUBLISH_DATE, PUB_PREFACE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_ebook (pub_id, pub_title, publish_date, pub_preface) [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (PUB_ID) "; SQL statement:
+key (pub_id) [42000-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple ebook', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'books are worth a million stories') "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple ebook', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'books are worth a million stories') [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_EBOOK_AUTHOR (AUTHOR_ID, PUB_ID) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_ebook_author (author_id, pub_id) [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*](AUTHOR_ID, PUB_ID) "; SQL statement:
+key(author_id, pub_id) [42000-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 1)"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 1) [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_CHAPTER (CHAPTER_ID, FK_EBOOK_ID, BOOK_CONTENT) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_chapter (chapter_id, fk_ebook_id, book_content) [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*](CHAPTER_ID, FK_EBOOK_ID) "; SQL statement:
+key(chapter_id, fk_ebook_id) [42000-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:20:57 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 1, 'A gentle start to ebooks')"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 1, 'A gentle start to ebooks') [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_AUTHOR (AUTHOR_ID, FIRST_NAME, LAST_NAME, AUTHOR_BIO, BIRTH_DAY, ADDR_CITY, ADDR_STATE, STREET_NAME, UNIT_NUM, ZIP_CODE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_author (author_id, first_name, last_name, author_bio, birth_day, addr_city, addr_state, street_name, unit_num, zip_code) [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (AUTHOR_ID) "; SQL statement:
+key (author_id) [42000-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'james', 'bond', 'gunslinger', TO_DATE(SUBSTR('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', ''), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'james', 'bond', 'gunslinger', TO_DATE(substr('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', ''), [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'john', 'bean', 'mountain climber', TO_DATE(SUBSTR('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', '') "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'john', 'bean', 'mountain climber', TO_DATE(substr('2015-12-12 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), '', '', '', '', '') [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_ACCOUNT (ACCOUNT_ID, ACCOUNT_USER, ACCOUNT_PASS, EMAIL_ADDR, ACCOUNT_PROFILE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_account (account_id, account_user, account_pass, email_addr, account_profile) [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (ACCOUNT_ID) "; SQL statement:
+key (account_id) [42000-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'admin', 'secret', 'steve@play.io', 1),"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'admin', 'secret', 'steve@play.io', 1), [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'guest', 'wisdom', 'guestdom@play.io', 2)"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'guest', 'wisdom', 'guestdom@play.io', 2) [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_BLOG (PUB_ID, PUB_TITLE, PUBLISH_DATE, PUB_PREFACE, BLOG_CONTENT, FK_AUTHOR_ID, FK_PARENT_BLOG) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_blog (pub_id, pub_title, publish_date, pub_preface, blog_content, fk_author_id, fk_parent_blog) [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (PUB_ID) "; SQL statement:
+key (pub_id) [42000-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple blog', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'react rocks', 'let""s begin somewhere', 1, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple blog', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'react rocks', 'let"s begin somewhere', 1, null), [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'simple graphs', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'html5 rocks', 'let""s draw a box', 1, 1), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'simple graphs', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'html5 rocks', 'let"s draw a box', 1, 1), [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(3[*], 'writting skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'cursive form', 'it""s not scribbles', 2, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(3, 'writting skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'cursive form', 'it"s not scribbles', 2, null), [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(4[*], 'reading skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'ambient light', 'stay motivated', 2, 3), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(4, 'reading skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'ambient light', 'stay motivated', 2, 3), [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(5[*], 'recall skills', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'alert mind', 'paying attention to detail', 2, 3) "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(5, 'recall skills', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'alert mind', 'paying attention to detail', 2, 3) [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_COMMENT (COMMENT_ID, COMMENT_TEXT, COMMENT_DATE, FK_AUTHOR_ID, FK_PARENT_BLOG, FK_PARENT_COMMENT) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_comment (comment_id, comment_text, comment_date, fk_author_id, fk_parent_blog, fk_parent_comment) [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (COMMENT_ID) "; SQL statement:
+key (comment_id) [42000-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple blog is awesome', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 2, 1, NULL), "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple blog is awesome', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 2, 1, null), [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(2[*], 'much appreciated', TO_DATE(SUBSTR('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 1, 1, 1) "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(2, 'much appreciated', TO_DATE(substr('2015-10-11 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 1, 1, 1) [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_EBOOK (PUB_ID, PUB_TITLE, PUBLISH_DATE, PUB_PREFACE) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_ebook (pub_id, pub_title, publish_date, pub_preface) [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*] (PUB_ID) "; SQL statement:
+key (pub_id) [42000-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 'simple ebook', TO_DATE(SUBSTR('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'books are worth a million stories') "; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 'simple ebook', TO_DATE(substr('2015-10-10 08:00 A.M.', 1, 10), 'yyyy-MM-DD'), 'books are worth a million stories') [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_EBOOK_AUTHOR (AUTHOR_ID, PUB_ID) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_ebook_author (author_id, pub_id) [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*](AUTHOR_ID, PUB_ID) "; SQL statement:
+key(author_id, pub_id) [42000-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 1)"; expected "(, WITH, SELECT, FROM"; SQL statement:
+(1, 1) [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "MERGE INTO TBL_CHAPTER (CHAPTER_ID, FK_EBOOK_ID, BOOK_CONTENT) [*]"; expected "KEY, VALUES, (, WITH, SELECT, FROM"; SQL statement:
+merge into tbl_chapter (chapter_id, fk_ebook_id, book_content) [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "KEY[*](CHAPTER_ID, FK_EBOOK_ID) "; SQL statement:
+key(chapter_id, fk_ebook_id) [42000-196]
+2020-03-01 23:22:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "VALUES[*]"; expected "(, NOT, EXISTS, INTERSECTS"; SQL statement:
+VALUES [42001-196]
+2020-03-01 23:22:23 jdbc[4]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "(1[*], 1, 'A gentle start to ebooks')"; expected "(, WITH, SELECT, FROM"; SQL statement:
 (1, 1, 'A gentle start to ebooks') [42001-196]

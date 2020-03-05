@@ -25,12 +25,11 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.practicaldime.common.util.AppException;
-import com.practicaldime.common.util.AppResult;
-import com.practicaldime.common.util.ResStatus;
-import com.practicaldime.domain.users.AccRole;
-import com.practicaldime.domain.users.AccStatus;
-import com.practicaldime.domain.users.Account;
-import com.practicaldime.domain.users.Profile;
+import com.practicaldime.common.util.AResult;
+import com.practicaldime.common.entity.users.AccRole;
+import com.practicaldime.common.entity.users.AccStatus;
+import com.practicaldime.common.entity.users.Account;
+import com.practicaldime.common.entity.users.Profile;
 
 @Service("StartupService")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
@@ -45,15 +44,15 @@ public class StartupServiceImpl implements StartupService {
 
     private Properties props = null;
 
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
 
-	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
-	}
+    public void setDataSource(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
-	@Override
+    @Override
     @Transactional(propagation = Propagation.REQUIRED)
     public void initialize() {
         // 1. populate props with initial values
@@ -66,7 +65,7 @@ public class StartupServiceImpl implements StartupService {
             props.load(new FileReader(new File("app-config.properties")));
         } catch (IOException e) {
             LOG.error(e.getMessage());
-            throw new AppException(new ResStatus(1, "could not locate properties file to intialize application", e.getMessage()));
+            throw new AppException(1, "could not locate properties file to initialize application", e);
         }
 
         // 3. check initialized property
@@ -87,9 +86,9 @@ public class StartupServiceImpl implements StartupService {
                 user.setFirstName(props.getProperty("app.admin.firstname"));
                 user.setLastName(props.getProperty("app.admin.lastname"));
 
-                AppResult<Profile> createResult = userService.createProfile(user);
+                AResult<Profile> createResult = userService.createProfile(user);
 
-                user = createResult.getEntity();
+                user = createResult.data;
 
                 account = new Account();
                 account.setProfile(user);
@@ -107,14 +106,14 @@ public class StartupServiceImpl implements StartupService {
                         account.setPassword(password.toCharArray());
                     }
                 }
-                AppResult<String> created = userService.createAccount(account);
+                AResult<String> created = userService.createAccount(account);
 
-                if (created.getEntity() != null) {
+                if (created.data != null) {
                     // 7. update user info
                     account.setRole(AccRole.admin);
                     account.setStatus(AccStatus.active);
-                    AppResult<Account> updated = userService.updateAccount(account);
-                    if (updated.getEntity() == null) {
+                    AResult<Account> updated = userService.updateAccount(account);
+                    if (updated.data == null) {
                         throw new Error("Could not create default admin");
                     }
 
@@ -134,7 +133,7 @@ public class StartupServiceImpl implements StartupService {
 
     @Override
     public Account getUserAccount(String username) {
-        return userService.getAccount(username).getEntity();
+        return userService.getAccount(username).data;
     }
 
     @Override

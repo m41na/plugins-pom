@@ -2,8 +2,8 @@ package com.practicaldime.plugins.api;
 
 public class PlugResult<T> {
 
-	private boolean success;
-    private String status;
+	private boolean status;
+    private String error;
     private T entity;
     
     public PlugResult(T entity) {
@@ -16,8 +16,8 @@ public class PlugResult<T> {
     
     public PlugResult(T entity, Boolean error, String status) {
     	this.entity = entity;
-    	this.success = error;
-    	this.status = status;
+    	this.status = error;
+    	this.error = status;
     }
 
     public T getEntity() {
@@ -28,19 +28,19 @@ public class PlugResult<T> {
 		this.entity = entity;
 	}
 
-	public Boolean getSuccess() {
-		return success;
-	}
-
-	public void setSuccess(Boolean success) {
-		this.success = success;
-	}
-
-	public String getStatus() {
+	public Boolean getStatus() {
 		return status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(Boolean status) {
 		this.status = status;
+	}
+
+	public String getError() {
+		return error;
+	}
+
+	public void setError(String error) {
+		this.error = error;
 	}
 }

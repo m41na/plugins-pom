@@ -84807,7 +84807,7 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! @babel/polyfill */"./node_modules/@babel/polyfill/lib/index.js");
-module.exports = __webpack_require__(/*! /home/mainas/works/plugins-parent/plugins-poc-graphql/www/src/index.js */"./src/index.js");
+module.exports = __webpack_require__(/*! /home/mainas/works/plugins-pom/plugins-poc-graphql/www/src/index.js */"./src/index.js");
 
 
 /***/ })

@@ -15,7 +15,7 @@ public class Poppin {
 		return new Poppin(target);
 	}
 
-	public Poppin func(String method, Class<?>... params) {
+	public Poppin push(String method, Class<?>... params) {
 		try {
 			Method m = stack.peek().getClass().getMethod(method, params);
 			stack.push(m);

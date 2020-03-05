@@ -11,17 +11,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.practicaldime.common.util.AppResult;
+import com.practicaldime.common.util.AResult;
 import com.practicaldime.common.util.CatchExceptions;
 import com.practicaldime.common.util.PasswordUtil;
 import com.practicaldime.common.util.RandomString;
-import com.practicaldime.common.util.ResStatus;
 import com.practicaldime.common.util.UserTokenGen;
 import com.practicaldime.common.util.Validatable;
-import com.practicaldime.domain.users.AccStatus;
-import com.practicaldime.domain.users.Account;
-import com.practicaldime.domain.users.LoginStatus;
-import com.practicaldime.domain.users.Profile;
+import com.practicaldime.common.entity.users.AccStatus;
+import com.practicaldime.common.entity.users.Account;
+import com.practicaldime.common.entity.users.LoginStatus;
+import com.practicaldime.common.entity.users.Profile;
 import com.practicaldime.plugins.users.config.ServiceProperties;
 import com.practicaldime.plugins.users.dao.UserDao;
 
@@ -54,170 +53,170 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED, readOnly = false, rollbackFor = Exception.class)
-    public AppResult<String> createAccount(Account account) {
-        AppResult<Profile> profileResult = userDao.findByEmail(account.getProfile().getEmailAddress());
-        if (profileResult.getError() == null) {
-        	Profile profile = profileResult.getEntity();
-            AppResult<Account> accountResult = userDao.findByUsername(account.getUsername());
-            if (accountResult.getEntity() == null) {
+    public AResult<String> createAccount(Account account) {
+        AResult<Profile> profileResult = userDao.findByEmail(account.getProfile().getEmailAddress());
+        if (profileResult.errors.isEmpty()) {
+        	Profile profile = profileResult.data;
+            AResult<Account> accountResult = userDao.findByUsername(account.getUsername());
+            if (accountResult.data == null) {
                 account.setProfile(profile);
                 account.setPassword(PasswordUtil.hashPassword(account.getPassword()));
                 account.setCreatedTs(new Date());
-                AppResult<Account> newAccount = userDao.register(account);
-                if (newAccount.getError() == null) {
+                AResult<Account> newAccount = userDao.register(account);
+                if (newAccount.errors.isEmpty()) {
                     String activation = UserTokenGen.getInstance().encrypt(account.getProfile().getEmailAddress());
                     System.out.printf("activation '%s' - %s%n", account.getUsername(), activation);
-                    return new AppResult<>(activation);
+                    return new AResult<>(activation);
                 } else {
-                    return new AppResult<>(400, "failed to create new account");
+                    return new AResult<>(400, "failed to create new account");
                 }
             } else {
-                return new AppResult<>(400, "username is already taken");
+                return new AResult<>(400, "username is already taken");
             }            
         } else {
-            return new AppResult<>(404, "there is no profile for this email");
+            return new AResult<>(404, "there is no profile for this email");
         }
     }
 
     @Override
-    public AppResult<Account> getAccount(long accountId) {
-    	AppResult<Account> getAccount = userDao.findAccount(accountId);
-    	if(getAccount.getError() == null) {
-    		Account account = getAccount.getEntity();
+    public AResult<Account> getAccount(long accountId) {
+    	AResult<Account> getAccount = userDao.findAccount(accountId);
+    	if(getAccount.errors.isEmpty()) {
+    		Account account = getAccount.data;
     		account.setPassword(null);
-    		return new AppResult<>(account);
+    		return new AResult<>(account);
     	}
     	return getAccount;
     }
 
     @Override
-    public AppResult<Account> getAccount(String username) {
-    	AppResult<Account> getAccount = userDao.findByUsername(username);
-        if(getAccount.getError() == null) {
-    		Account account = getAccount.getEntity();
+    public AResult<Account> getAccount(String username) {
+    	AResult<Account> getAccount = userDao.findByUsername(username);
+        if(getAccount.errors.isEmpty()) {
+    		Account account = getAccount.data;
     		account.setPassword(null);
-    		return new AppResult<>(account);
+    		return new AResult<>(account);
     	}
     	return getAccount;
     }
 
     @Override
-    public AppResult<Account> getAccountByEmail(String emailAddress) {
-    	AppResult<Account> getAccount = userDao.searchByEmail(emailAddress);
-    	if(getAccount.getError() == null) {
-    		Account account = getAccount.getEntity();
+    public AResult<Account> getAccountByEmail(String emailAddress) {
+    	AResult<Account> getAccount = userDao.searchByEmail(emailAddress);
+    	if(getAccount.errors.isEmpty()) {
+    		Account account = getAccount.data;
     		account.setPassword(null);
-    		return new AppResult<>(account);
+    		return new AResult<>(account);
     	}
     	return getAccount;
     }
 
     @Override
-    public AppResult<Integer> updatePassword(long accountId, char[] password) {
+    public AResult<Integer> updatePassword(long accountId, char[] password) {
         return userDao.update(accountId, password);
     }
     
     @Override
-    public AppResult<char[]> fetchPassword(long accountId){
-    	AppResult<Account> getAccount = userDao.findAccount(accountId);
-    	if(getAccount.getError() == null) {
-    		return new AppResult<>(getAccount.getEntity().getPassword());
+    public AResult<char[]> fetchPassword(long accountId){
+    	AResult<Account> getAccount = userDao.findAccount(accountId);
+    	if(getAccount.errors.isEmpty()) {
+    		return new AResult<>(getAccount.data.getPassword());
     	}
-    	return new AppResult<>(getAccount.getStatus());
+    	return new AResult<>(getAccount.data.getPassword());
     }
 
     @Override
-    public AppResult<char[]> resetPassword(long accountId) {
+    public AResult<char[]> resetPassword(long accountId) {
         String generatedPassword = RandomString.generate();
         char[] newPassword = PasswordUtil.hashPassword(generatedPassword.toCharArray());
-        AppResult<Integer> resetResult = userDao.update(accountId, newPassword);
-        if (resetResult.getEntity() > 0) {
-            return new AppResult<>(newPassword);
+        AResult<Integer> resetResult = userDao.update(accountId, newPassword);
+        if (resetResult.data > 0) {
+            return new AResult<>(newPassword);
         } else {
-            return new AppResult<>(resetResult.getStatus());
+            return new AResult<char[]>(resetResult.errorString(), 500);
         }
     }
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
-    public AppResult<Account> updateAccount(Account account) {
+    public AResult<Account> updateAccount(Account account) {
         long accountId = account.getId();
-        AppResult<Integer> updateStatus = userDao.update(accountId, account.getStatus());
-        if (updateStatus.getError() == null) {
-            AppResult<Integer> updateRole = userDao.update(accountId, account.getRole());
-            if (updateRole.getError() == null) {
-                AppResult<Account> doUpdate = userDao.findAccount(accountId);
-                if (doUpdate.getError() == null) {
-                	if(doUpdate.getError() == null) {
-                		Account updated = doUpdate.getEntity();
+        AResult<Integer> updateStatus = userDao.update(accountId, account.getStatus());
+        if (updateStatus.errors.isEmpty()) {
+            AResult<Integer> updateRole = userDao.update(accountId, account.getRole());
+            if (updateRole.errors.isEmpty()) {
+                AResult<Account> doUpdate = userDao.findAccount(accountId);
+                if (doUpdate.errors.isEmpty()) {
+                	if(doUpdate.errors.isEmpty()) {
+                		Account updated = doUpdate.data;
                 		updated.setPassword(null);
-                		return new AppResult<>(updated);
+                		return new AResult<>(updated);
                 	}
                 	return doUpdate;
                 } else {
-                    return new AppResult<>(doUpdate.getStatus());
+                    return new AResult<>(doUpdate.data);
                 }
             } else {
-                return new AppResult<>(updateRole.getStatus());
+                return new AResult<>(200, null);
             }
         } else {
-            return new AppResult<>(updateStatus.getStatus());
+            return new AResult<>(200, null);
         }
     }
 
     @Override
-    public AppResult<Profile> createProfile(Profile profile) {
-    	AppResult<Profile> profileResult = userDao.findByEmail(profile.getEmailAddress());
-    	if(profileResult.getEntity() == null) {
+    public AResult<Profile> createProfile(Profile profile) {
+    	AResult<Profile> profileResult = userDao.findByEmail(profile.getEmailAddress());
+    	if(profileResult.data == null) {
     		return userDao.register(profile);
     	} else {
-            return new AppResult<>(400, "email is already in use");
+            return new AResult<>("email is already in use", 400);
         }
     }
 
     @Override
-    public AppResult<Profile> getProfile(long profileId) {
+    public AResult<Profile> getProfile(long profileId) {
         return userDao.findProfile(profileId);
     }
 
     @Override
-    public AppResult<Profile> getProfile(String emailAddress) {
+    public AResult<Profile> getProfile(String emailAddress) {
         return userDao.findByEmail(emailAddress);
     }
 
     @Override
-    public AppResult<Profile> updateProfile(Profile profile) {
+    public AResult<Profile> updateProfile(Profile profile) {
         return userDao.update(profile);
     }
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED)
-    public AppResult<LoginStatus> accountLogin(String username, char[] password) {
+    public AResult<LoginStatus> accountLogin(String username, char[] password) {
         try {
-            AppResult<Account> result = userDao.findByUsername(username);
-            if (result.getError() == null) {
-                Account account = result.getEntity();
+            AResult<Account> result = userDao.findByUsername(username);
+            if (result.errors.isEmpty()) {
+                Account account = result.data;
 
                 //check account status
                 String accStatus = account.getStatus().toString();
                 //check if account is deleted            
                 if (AccStatus.deleted.toString().equals(accStatus)) {
                     String loginInfo = "This account is currently inactive. Request a recover link to reactivate the account";
-                    return new AppResult<>(403, loginInfo);
+                    return new AResult<>(loginInfo, 403);
                 }
 
                 if (AccStatus.disabled.toString().equals(accStatus)) {
                     String loginInfo = "This account is currently disabled. Request a restore link to reanable the account";
-                    return new AppResult<>(403, loginInfo);
+                    return new AResult<>(loginInfo, 403);
                 }
 
-                if (AccStatus.pending.toString().equals(accStatus)) {
+                if (AccStatus.unverified.toString().equals(accStatus)) {
                     String loginInfo = "This account is pending activation. Request an activation link if you don't have one already";
-                    return new AppResult<>(403, loginInfo);
+                    return new AResult<>(loginInfo, 403);
                 }
 
                 //fetch login status
-                List<LoginStatus> currentStatus = userDao.fetchLoginStatus(account.getId()).getEntity();
+                List<LoginStatus> currentStatus = userDao.fetchLoginStatus(account.getId()).data;
 
                 //check if locked
                 if (AccStatus.locked.toString().equals(accStatus)) {
@@ -227,10 +226,10 @@ public class UserServiceImpl implements UserService {
                     endLock.add(Calendar.MINUTE, -serviceProperties.getLockoutDuration());
                     if (lockStatus.getLockExpiry().before(new Date())) {
                         String loginInfo = "This account is currently locked untill " + new SimpleDateFormat("hh:mm:ss A 'on' dd MMM yyyy").format(lockStatus.getLockExpiry());
-                        return new AppResult<>(403, loginInfo);
+                        return new AResult<>(loginInfo, 403);
                     } else {
-                        AppResult<Integer> unlock = userDao.update(account.getId(), AccStatus.active);
-                        if (unlock.getError() != null) {
+                        AResult<Integer> unlock = userDao.update(account.getId(), AccStatus.active);
+                        if (!unlock.errors.isEmpty()) {
                             //TODO: Handle this scenario in a different way
                             System.err.println("Login status not successfully unlocked");
                         }
@@ -246,81 +245,81 @@ public class UserServiceImpl implements UserService {
                         : currentStatus.stream().reduce((LoginStatus t, LoginStatus u) -> t.getLoginAttempts() > u.getLoginAttempts() ? t : u).get().getLoginAttempts();
 
                 //attempt to login
-                char[] dbpassword = fetchPassword(account.getId()).getEntity();
+                char[] dbpassword = fetchPassword(account.getId()).data;
                 if (PasswordUtil.verifyPassword(new String(password), dbpassword)) {
                     login.setStatusInfo("login ok");
                     login.setLoginSuccess(new Date());
                     login.setLoginToken(UserTokenGen.getInstance().encrypt(username));
                     login.setStatusCreated(new Date());
                     //clear login statuses
-                    AppResult<Integer> cleared = userDao.clearLoginStatus(account.getId());
-                    if (cleared.getError() != null) {
+                    AResult<Integer> cleared = userDao.clearLoginStatus(account.getId());
+                    if (!cleared.errors.isEmpty()) {
                         //TODO: Handle this scenario in a different way
                         System.err.println("Login status entries not successfully cleared");
                     }
                     //save login info
-                    AppResult<Integer> added = userDao.addLoginStatus(login);
-                    if (added.getError() != null) {
+                    AResult<Integer> added = userDao.addLoginStatus(login);
+                    if (!added.errors.isEmpty()) {
                         //TODO: Handle this scenario in a different way
-                        System.err.println("Login status NOT saved properly - " + added.getStatus());
+                        System.err.println("Login status NOT saved properly - " + added.data);
                     }
-                    return new AppResult<>(login);
+                    return new AResult<>(login);
                 } else {
                     //add login status and increase count for login attempt
                     String reason = "password did not match";
                     login.setStatusInfo(reason);
                     login.setLoginAttempts(loginAttempts + 1);
                     login.setStatusCreated(new Date());
-                    AppResult<Integer> added = userDao.addLoginStatus(login);
-                    if (added.getError() != null) {
+                    AResult<Integer> added = userDao.addLoginStatus(login);
+                    if (!added.errors.isEmpty()) {
                         //TODO: Handle this scenario in a different way
-                        System.err.println("Login status NOT saved properly - " + added.getStatus());
+                        System.err.println("Login status NOT saved properly - " + added.data);
                     }
 
                     //check login attempts
                     if (login.getLoginAttempts() > serviceProperties.getMaxAttempts()) {
                         //lock the account
-                        AppResult<Integer> locked = userDao.update(account.getId(), AccStatus.locked);
-                        if (locked.getError() != null) {
+                        AResult<Integer> locked = userDao.update(account.getId(), AccStatus.locked);
+                        if (!locked.errors.isEmpty()) {
                             //TODO: Handle this scenario in a differnt way
-                            System.err.println("Account status NOT updated properly - " + added.getStatus());
+                            System.err.println("Account status NOT updated properly - " + added.data);
                         }
                     }
-                    return new AppResult<>(403, reason);
+                    return new AResult<>(reason, 403);
                 }
             } else {
-                return new AppResult<>(result.getStatus());
+                return new AResult<>(200,null);
             }
         } catch (NumberFormatException e) {
-            return new AppResult<>(new ResStatus(1, e.getMessage()));
+            return new AResult<>(e.getMessage(), 403);
         }
     }
 
     @Override
-    public AppResult<Integer> verifyAccount(String token) {
+    public AResult<Integer> verifyAccount(String token) {
         String[] decrypted = UserTokenGen.getInstance().decrypt(token);
         long time = Long.valueOf(decrypted[1]);
         //find account to activate
-        AppResult<Account> findAccount = userDao.searchByEmail(decrypted[0]);
-        if (findAccount.getError() == null) {
-            Account account = findAccount.getEntity();
+        AResult<Account> findAccount = userDao.searchByEmail(decrypted[0]);
+        if (findAccount.errors.isEmpty()) {
+            Account account = findAccount.data;
             Date createdTs = account.getCreatedTs();
             long days = Duration.between(createdTs.toInstant(), new Date(time).toInstant()).toDays();
             if (days > 0) {
-                return new AppResult<>(403, "The token does not appear to be valid");
+                return new AResult<>("The token does not appear to be valid", 403);
             }
-            AppResult<Integer> updated = userDao.update(account.getId(), AccStatus.active);
-            return (updated.getEntity() == 1) ? updated : new AppResult<>(updated.getStatus());
+            AResult<Integer> updated = userDao.update(account.getId(), AccStatus.active);
+            return (updated.data == 1) ? updated : new AResult<>(updated.data);
         } else {
-            return new AppResult<>(findAccount.getStatus());
+            return new AResult<>(findAccount.code);
         }
     }
 
     @Override
-    public AppResult<Integer> toggleActivate(long accountId) {
-        AppResult<Account> findAccount = userDao.findAccount(accountId);
-        if (findAccount.getError() == null) {
-            AccStatus status = findAccount.getEntity().getStatus();
+    public AResult<Integer> toggleActivate(long accountId) {
+        AResult<Account> findAccount = userDao.findAccount(accountId);
+        if (findAccount.errors.isEmpty()) {
+            AccStatus status = findAccount.data.getStatus();
             switch (status) {
                 case active: {
                     return userDao.update(accountId, AccStatus.deleted);
@@ -329,36 +328,36 @@ public class UserServiceImpl implements UserService {
                     return userDao.update(accountId, AccStatus.active);
                 }
                 default: {
-                    return new AppResult<>(403, "Cannot toggle status for this account");
+                    return new AResult<>("Cannot toggle status for this account", 403);
                 }
             }
         } else {
-            return new AppResult<>(404, "Cannot locate an account with this id");
+            return new AResult<>("Cannot locate an account with this id", 404);
         }
     }
 
     @Override
-    public AppResult<Integer> recoverAccount(String email, String username, char[] password) {
+    public AResult<Integer> recoverAccount(String email, String username, char[] password) {
         if (email != null) {
-            AppResult<Account> findAccount = userDao.searchByEmail(email);
-            if (findAccount.getError() == null) {
-                return userDao.update(findAccount.getEntity().getId(), PasswordUtil.hashPassword(password));
+            AResult<Account> findAccount = userDao.searchByEmail(email);
+            if (findAccount.errors.isEmpty()) {
+                return userDao.update(findAccount.data.getId(), PasswordUtil.hashPassword(password));
             } else {
-                return new AppResult<>(404, "Cannot locate an account with email address");
+                return new AResult<>("Cannot locate an account with email address", 404);
             }
         } else if (username != null) {
-            AppResult<Account> findAccount = userDao.findByUsername(username);
-            if (findAccount.getError() == null) {
-                return userDao.update(findAccount.getEntity().getId(), PasswordUtil.hashPassword(password));
+            AResult<Account> findAccount = userDao.findByUsername(username);
+            if (findAccount.errors.isEmpty()) {
+                return userDao.update(findAccount.data.getId(), PasswordUtil.hashPassword(password));
             } else {
-                return new AppResult<>(404, "Cannot locate an account with username");
+                return new AResult<>("Cannot locate an account with username", 404);
             }
         }
-        return new AppResult<>(400, "neither email nor username is provided");
+        return new AResult<>("neither email nor username is provided", 400);
     }
 
     @Override
-    public AppResult<Integer> accountLogout(long accountId) {
+    public AResult<Integer> accountLogout(long accountId) {
         return userDao.clearLoginStatus(accountId);
     }
 }

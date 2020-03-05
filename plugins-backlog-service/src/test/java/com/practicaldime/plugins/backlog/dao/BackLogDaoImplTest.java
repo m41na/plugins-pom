@@ -7,6 +7,8 @@ import static org.junit.Assert.assertTrue;
 import java.util.List;
 import java.util.Map;
 
+import com.practicaldime.common.entity.todos.BackLogItem;
+import com.practicaldime.common.entity.todos.BackLogList;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +18,8 @@ import org.springframework.test.context.jdbc.SqlConfig;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
-import com.practicaldime.common.util.AppResult;
-import com.practicaldime.domain.backlog.BackLogItem;
-import com.practicaldime.domain.backlog.BackLogList;
-import com.practicaldime.domain.users.Account;
-import com.practicaldime.plugins.backlog.dao.BackLogDao;
+import com.practicaldime.common.util.AResult;
+import com.practicaldime.common.entity.users.Account;
 
 import com.practicaldime.plugins.backlog.config.BackLogDaoTestConfig;
 
@@ -41,22 +40,22 @@ public class BackLogDaoImplTest {
         BackLogList list = new BackLogList();
         list.setTitle("christman list");
         list.setOwner(owner);
-        AppResult<BackLogList> result = tDao.createList(list);
-        assertEquals("Expecting '5'", 5, result.getEntity().getId());
+        AResult<BackLogList> result = tDao.createList(list);
+        assertEquals("Expecting '5'", 5, result.data.getId().longValue());
     }
 
     @Test
     public void testAddToList() {
-        BackLogList list = tDao.findListById(2l).getEntity();
+        BackLogList list = tDao.findListById(2l).data;
         int initialSize = list.getItems().size();
         int size = 3;
         for (int i = 0; i < size; i++) {
             String item = "name_" + i;
             // add item to list
-            AppResult<BackLogList> res3 = tDao.addToList(list.getId(), item);
+            AResult<BackLogList> res3 = tDao.addToList(list.getId(), item);
             assertNotNull(res3);
         }
-        BackLogList newList = tDao.findListById(2l).getEntity();
+        BackLogList newList = tDao.findListById(2l).data;
         int newSize = newList.getItems().size();
         assertEquals("Expecting increase by value of 'size'", (initialSize + size), newSize);
     }
@@ -64,43 +63,43 @@ public class BackLogDaoImplTest {
     @Test
     public void testDropFromList() {
         //get todo list
-        BackLogList list = tDao.findListById(2l).getEntity();
+        BackLogList list = tDao.findListById(2l).data;
         int itemsInList = list.getItems().size();
 
         //add item
         String item = "testDropFromList";
-        AppResult<BackLogList> addRes = tDao.addToList(list.getId(), item);
-        list = addRes.getEntity();
+        AResult<BackLogList> addRes = tDao.addToList(list.getId(), item);
+        list = addRes.data;
         //assert size is more by 1
         assertEquals("Expected " + (itemsInList + 1), itemsInList + 1, list.getItems().size());
         itemsInList = list.getItems().size();
-        
-        long itemId = list.getItems().stream().filter(e->e.getTask().equals(item)).findFirst().get().getId();
+
+        long itemId = list.getItems().stream().filter(e -> e.getTask().equals(item)).findFirst().get().getId();
 
         //drop item
-        AppResult<BackLogList> dropRes = tDao.dropFromList(list.getId(), itemId);
+        AResult<BackLogList> dropRes = tDao.dropFromList(list.getId(), itemId);
         //get todo list and assert size is less by 1
-        assertEquals("Expected " + (itemsInList - 1), itemsInList - 1, dropRes.getEntity().getItems().size());
+        assertEquals("Expected " + (itemsInList - 1), itemsInList - 1, dropRes.data.getItems().size());
     }
 
     @Test
     public void testMarkAsDone() {
         //get todo list
-        BackLogList list = tDao.findListById(2l).getEntity();
+        BackLogList list = tDao.findListById(2l).data;
 
         //add item
         String item = "testMarkAsDone";
-        AppResult<BackLogList> addResult = tDao.addToList(list.getId(), item);
+        AResult<BackLogList> addResult = tDao.addToList(list.getId(), item);
         //get first item no marked as done
-        BackLogItem targetItem = addResult.getEntity().getItems().stream().filter(entry -> {
+        BackLogItem targetItem = addResult.data.getItems().stream().filter(entry -> {
             return !entry.isDone();
         }).findFirst().get();
         //mark item retrieved as done
         targetItem.setDone(true);
-        AppResult<BackLogList> updatedList = tDao.updateCompleted(list.getId(), targetItem.getId());
+        AResult<BackLogList> updatedList = tDao.updateCompleted(list.getId(), targetItem.getId());
 
         //verify item matching id of 'addedItem' is done
-        updatedList.getEntity().getItems().stream().filter((i) -> (i.getId() == targetItem.getId())).forEachOrdered((i) -> {
+        updatedList.data.getItems().stream().filter((i) -> (i.getId() == targetItem.getId())).forEachOrdered((i) -> {
             assertTrue(i.isDone());
         });
     }
@@ -108,16 +107,16 @@ public class BackLogDaoImplTest {
     @Test
     public void testRenameListItem() {
         //get todo list
-        BackLogList list = tDao.findListById(2l).getEntity();
+        BackLogList list = tDao.findListById(2l).data;
 
         //add item
         String item = "jonny";
         //get first item in list
         BackLogItem targetItem = list.getItems().get(0);
-        AppResult<BackLogList> updatedList = tDao.renameItem(list.getId(), targetItem.getTask(), item);
+        AResult<BackLogList> updatedList = tDao.renameItem(list.getId(), targetItem.getTask(), item);
 
         //verify item was renamed
-        updatedList.getEntity().getItems().stream().filter((i) -> (i.getId() == targetItem.getId())).forEachOrdered((i) -> {
+        updatedList.data.getItems().stream().filter((i) -> (i.getId() == targetItem.getId())).forEachOrdered((i) -> {
             assertEquals("Expecting same name", item, i.getTask());
         });
     }
@@ -125,23 +124,23 @@ public class BackLogDaoImplTest {
     @Test
     public void testFindById() {
         long id = 1;
-        BackLogList list = tDao.findListById(id).getEntity();
+        BackLogList list = tDao.findListById(id).data;
         assertNotNull(list);
     }
 
     @Test
     public void testFindListsByOwner() {
         long accountId = 1;
-        List<BackLogList> list = tDao.findListsByOwner(accountId).getEntity();
+        List<BackLogList> list = tDao.findListsByOwner(accountId).data;
         assertNotNull(list);
         assertEquals("Expecting 3 lists", 3, list.size());
     }
 
     @Test
     public void testFindAllLists() {
-    	int start = 1;
-    	int size = 10;
-        Map<String, List<BackLogList>> lists = tDao.findAllLists(start, size).getEntity();
+        int start = 1;
+        int size = 10;
+        Map<String, List<BackLogList>> lists = tDao.findAllLists(start, size).data;
         assertNotNull(lists);
         assertEquals("Expecting 3 lists", 3, lists.get("admin").size());
     }
@@ -150,9 +149,9 @@ public class BackLogDaoImplTest {
     public void testRenameList() {
         //define new name
         String newTitle = "testRenameList";
-        AppResult<Integer> updatedList = tDao.renameBackLogList(2l, newTitle);
+        AResult<Integer> updatedList = tDao.renameBackLogList(2l, newTitle);
 
         //verify item was renamed
-        assertEquals("Expecting 1", 1, updatedList.getEntity().intValue());
+        assertEquals("Expecting 1", 1, updatedList.data.intValue());
     }
 }
