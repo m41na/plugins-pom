@@ -21,6 +21,6 @@ public class SqliteDate {
     }
 
     public static String toString(Date source) {
-        return source != null? DATE_FORMAT.format(source) : null;
+        return source != null ? DATE_FORMAT.format(source) : null;
     }
 }

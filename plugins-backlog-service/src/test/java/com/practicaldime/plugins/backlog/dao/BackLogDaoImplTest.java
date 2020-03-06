@@ -1,14 +1,10 @@
 package com.practicaldime.plugins.backlog.dao;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
-import java.util.List;
-import java.util.Map;
-
 import com.practicaldime.common.entity.todos.BackLogItem;
 import com.practicaldime.common.entity.todos.BackLogList;
+import com.practicaldime.common.entity.users.Account;
+import com.practicaldime.common.util.AResult;
+import com.practicaldime.plugins.backlog.config.BackLogDaoTestConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,10 +14,10 @@ import org.springframework.test.context.jdbc.SqlConfig;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
-import com.practicaldime.common.util.AResult;
-import com.practicaldime.common.entity.users.Account;
+import java.util.List;
+import java.util.Map;
 
-import com.practicaldime.plugins.backlog.config.BackLogDaoTestConfig;
+import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = BackLogDaoTestConfig.class, loader = AnnotationConfigContextLoader.class)

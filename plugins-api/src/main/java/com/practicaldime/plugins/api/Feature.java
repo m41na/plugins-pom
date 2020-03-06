@@ -5,42 +5,42 @@ import java.util.List;
 
 public class Feature {
 
-	private String name;
-	private ParamType returns;
-	private final List<ParamType> accepts = new ArrayList<>();
+    private final List<ParamType> accepts = new ArrayList<>();
+    private String name;
+    private ParamType returns;
 
-	public String getName() {
-		return name;
-	}
-	
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public ParamType getReturns() {
-		return returns;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setReturns(ParamType returns) {
-		this.returns = returns;
-	}
+    public ParamType getReturns() {
+        return returns;
+    }
 
-	public List<ParamType> getAccepts() {
-		return accepts;
-	}
-	
-	public void addParam(ParamType arg) {
-		this.accepts.add(arg);
-	}
+    public void setReturns(ParamType returns) {
+        this.returns = returns;
+    }
 
-	public static class ParamType{
-		
-		public final String name;
-		public List<ParamType> attributes = new ArrayList<>();
+    public List<ParamType> getAccepts() {
+        return accepts;
+    }
 
-		public ParamType(String name) {
-			super();
-			this.name = name;
-		}
-	}
+    public void addParam(ParamType arg) {
+        this.accepts.add(arg);
+    }
+
+    public static class ParamType {
+
+        public final String name;
+        public List<ParamType> attributes = new ArrayList<>();
+
+        public ParamType(String name) {
+            super();
+            this.name = name;
+        }
+    }
 }

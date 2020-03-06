@@ -1,5 +1,21 @@
 package com.practicaldime.plugins.users.service;
 
+import com.practicaldime.common.entity.users.AccRole;
+import com.practicaldime.common.entity.users.AccStatus;
+import com.practicaldime.common.entity.users.Account;
+import com.practicaldime.common.entity.users.Profile;
+import com.practicaldime.common.util.AResult;
+import com.practicaldime.common.util.AppException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.sql.DataSource;
 import java.io.Console;
 import java.io.File;
 import java.io.FileReader;
@@ -12,24 +28,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 import java.util.Scanner;
-
-import javax.sql.DataSource;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
-
-import com.practicaldime.common.util.AppException;
-import com.practicaldime.common.util.AResult;
-import com.practicaldime.common.entity.users.AccRole;
-import com.practicaldime.common.entity.users.AccStatus;
-import com.practicaldime.common.entity.users.Account;
-import com.practicaldime.common.entity.users.Profile;
 
 @Service("StartupService")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)

@@ -1,19 +1,18 @@
 package com.practicaldime.plugins.backlog.service;
 
-import java.util.List;
-import java.util.Map;
-
 import com.practicaldime.common.entity.todos.BackLogItem;
 import com.practicaldime.common.entity.todos.BackLogList;
+import com.practicaldime.common.util.AResult;
+import com.practicaldime.common.util.CatchExceptions;
+import com.practicaldime.common.util.Validatable;
+import com.practicaldime.plugins.backlog.dao.BackLogDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.practicaldime.common.util.AResult;
-import com.practicaldime.common.util.CatchExceptions;
-import com.practicaldime.common.util.Validatable;
-import com.practicaldime.plugins.backlog.dao.BackLogDao;
+import java.util.List;
+import java.util.Map;
 
 @Service("BackLogService")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
@@ -42,16 +41,14 @@ public class BackLogServiceImpl implements BackLogService {
     public AResult<BackLogList> addBackLogItem(long list, BackLogItem item) {
         //check if item has id
         AResult<Boolean> checkExists = backLogDao.existsInList(list, item.getTask());
-        if(checkExists.errors.isEmpty()){
+        if (checkExists.errors.isEmpty()) {
             Boolean exists = checkExists.data;
-            if(!exists){
+            if (!exists) {
                 return backLogDao.addToList(list, item.getTask());
-            }
-            else{
+            } else {
                 return new AResult<>("Todo Item already exists in this list", 400);
             }
-        }
-        else{
+        } else {
             return new AResult<>(checkExists.errorString(), 200);
         }
     }
@@ -62,8 +59,8 @@ public class BackLogServiceImpl implements BackLogService {
     }
 
     @Override
-	public AResult<BackLogList> updateBackLogItem(Long listId, Long itemId, String name){
-    	return backLogDao.updateItem(listId, itemId, name);
+    public AResult<BackLogList> updateBackLogItem(Long listId, Long itemId, String name) {
+        return backLogDao.updateItem(listId, itemId, name);
     }
 
     @Override

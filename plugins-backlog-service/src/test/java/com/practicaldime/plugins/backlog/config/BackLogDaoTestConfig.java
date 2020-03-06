@@ -1,9 +1,7 @@
 package com.practicaldime.plugins.backlog.config;
 
-import java.io.File;
-
-import javax.sql.DataSource;
-
+import com.practicaldime.plugins.backlog.dao.BackLogDao;
+import com.practicaldime.plugins.backlog.dao.BackLogDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,8 +11,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.sqlite.SQLiteConfig;
 import org.sqlite.javax.SQLiteConnectionPoolDataSource;
 
-import com.practicaldime.plugins.backlog.dao.BackLogDao;
-import com.practicaldime.plugins.backlog.dao.BackLogDaoImpl;
+import javax.sql.DataSource;
+import java.io.File;
 
 @Configuration
 @EnableTransactionManagement

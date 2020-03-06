@@ -15,13 +15,13 @@ public interface UserService {
     AResult<Account> getAccount(String username);
 
     AResult<Account> getAccountByEmail(String email);
-    
+
     AResult<char[]> fetchPassword(long accountId);
 
     AResult<char[]> resetPassword(long accountId);
-    
+
     AResult<Integer> updatePassword(long accountId, char[] password);
-    
+
     AResult<Account> updateAccount(Account account);
 
     //profile functionality
@@ -32,15 +32,15 @@ public interface UserService {
     AResult<Profile> getProfile(String emailAddress);
 
     AResult<Profile> updateProfile(Profile profile);
-    
+
     //login functionality
     AResult<LoginStatus> accountLogin(String username, char[] password);
 
     AResult<Integer> verifyAccount(String token);
-    
+
     AResult<Integer> toggleActivate(long accountId);
-    
+
     AResult<Integer> recoverAccount(String email, String username, char[] password);
-    
+
     AResult<Integer> accountLogout(long accountId);
 }

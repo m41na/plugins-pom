@@ -8,5 +8,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @EnableAspectJAutoProxy
-@ComponentScan(basePackages= {"com.practicaldime.plugins.blogs"})
-public class BlogsServiceConfig {}
+@ComponentScan(basePackages = {"com.practicaldime.plugins.blogs"})
+public class BlogsServiceConfig {
+}

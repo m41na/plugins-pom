@@ -1,5 +1,10 @@
 package com.practicaldime.plugins.backlog.config;
 
+import com.practicaldime.common.util.PasswordCheck;
+import com.practicaldime.common.util.PasswordStrength;
+import com.practicaldime.plugins.backlog.dao.BackLogDao;
+import com.practicaldime.plugins.backlog.service.BackLogService;
+import com.practicaldime.plugins.backlog.service.BackLogServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,12 +12,6 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import com.practicaldime.common.util.PasswordCheck;
-import com.practicaldime.common.util.PasswordStrength;
-import com.practicaldime.plugins.backlog.dao.BackLogDao;
-import com.practicaldime.plugins.backlog.service.BackLogService;
-import com.practicaldime.plugins.backlog.service.BackLogServiceImpl;
 
 @Configuration
 @EnableTransactionManagement
@@ -24,15 +23,15 @@ public class BackLogServiceTestConfig {
     public static PropertySourcesPlaceholderConfigurer propertiesResolver() {
         return new PropertySourcesPlaceholderConfigurer();
     }
-    
+
     @Bean
     public PasswordCheck passwordCheck() {
-    	return new PasswordStrength();
+        return new PasswordStrength();
     }
 
     @Bean
     public BackLogService getTodoService(@Autowired BackLogDao backLogDao) {
-    	BackLogServiceImpl service = new BackLogServiceImpl();
+        BackLogServiceImpl service = new BackLogServiceImpl();
         service.setTodoDao(backLogDao);
         return service;
     }

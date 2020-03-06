@@ -8,7 +8,7 @@ public class ServiceProperties {
 
     public static final String MAX_LOGIN_ATTEMPTS = "${app.login.max.attempts}";
     public static final String LOCKOUT_DURATION = "${app.login.lock.duration}";
-    
+
     private Integer maxAttempts;
     private Integer lockoutDuration;
 

@@ -10,7 +10,7 @@ import java.util.Map;
 public interface BackLogDao extends DaoStatus {
 
     AResult<BackLogList> createList(BackLogList list);
-    
+
     AResult<Boolean> existsInList(Long listId, String item);
 
     AResult<BackLogList> addToList(Long listId, String item);
@@ -19,7 +19,7 @@ public interface BackLogDao extends DaoStatus {
 
     AResult<BackLogList> updateCompleted(Long listId, Long item);
 
-	AResult<BackLogList> updateItem(Long list, Long item, String name);
+    AResult<BackLogList> updateItem(Long list, Long item, String name);
 
     AResult<BackLogList> renameItem(Long list, String item, String name);
 

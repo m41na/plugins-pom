@@ -1,13 +1,8 @@
 package com.practicaldime.plugins.users.dao;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.util.Date;
-import java.util.List;
-
+import com.practicaldime.common.entity.users.*;
+import com.practicaldime.common.util.AResult;
+import com.practicaldime.plugins.users.config.UsersDaoTestConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,15 +13,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.practicaldime.common.util.AResult;
-import com.practicaldime.common.entity.users.AccRole;
-import com.practicaldime.common.entity.users.AccStatus;
-import com.practicaldime.common.entity.users.Account;
-import com.practicaldime.common.entity.users.LoginStatus;
-import com.practicaldime.common.entity.users.Profile;
-import com.practicaldime.plugins.users.dao.UserDao;
+import java.util.Date;
+import java.util.List;
 
-import com.practicaldime.plugins.users.config.UsersDaoTestConfig;
+import static org.junit.Assert.*;
 
 @Transactional
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -187,14 +177,14 @@ public class UserDaoImplTest {
         profile = dao.findByEmail(generated.getEmailAddress());
         assertEquals(null, profile.data);
     }
-    
+
     @Test
     public void testFetchLoginStatus() {
         AResult<List<LoginStatus>> logins = dao.fetchLoginStatus(1l);
         int expecting = 2;
         assertEquals(String.format("Extecting '%d' as list size", expecting), expecting, logins.data.size());
     }
-    
+
     @Test
     public void testAddLoginStatus() {
         LoginStatus login = new LoginStatus();
@@ -206,9 +196,9 @@ public class UserDaoImplTest {
         login.setStatusInfo("moving forward");
         AResult<Integer> created = dao.addLoginStatus(login);
         int expecting = 1;
-        assertEquals(String.format("Extecting '%d' as number of rows added", expecting), expecting,  created.data.intValue());
+        assertEquals(String.format("Extecting '%d' as number of rows added", expecting), expecting, created.data.intValue());
     }
-    
+
     @Test
     public void testClearLoginStatus() {
         AResult<Integer> rows = dao.clearLoginStatus(1l);

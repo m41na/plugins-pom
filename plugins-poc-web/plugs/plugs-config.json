@@ -4,8 +4,8 @@
 	"sources": [
 		{
 			"type": "file",
-			"coordinates": "com/practicaldime/works/plugins-poc-todos/0.1",
-			"jarfile": "plugins-poc-todos-0.1-shaded.jar",
+			"coordinates": "com/practicaldime/works/plugins-todos-service/0.1",
+			"jarfile": "plugins-todos-service-0.1-shaded.jar",
 			"plugin": "plugins.poc.todos.TodoPlugin",
 			"features": [
 				{
@@ -121,7 +121,7 @@
 			"type": "file",
 			"coordinates": "com/practicaldime/works/plugins-todos-service/0.1",
 			"jarfile": "plugins-todos-service-0.1-shaded.jar",
-			"plugin": "com.practicaldime.plugins.todos.TodosPlugin",
+			"plugin": "com.practicaldime.plugins.todos.TodoPlugin",
 			"features": [
 				{
 					"name": "createTodoList",

@@ -1,11 +1,10 @@
 package com.practicaldime.plugins.blogs.dao;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import java.util.List;
-import java.util.Set;
-
+import com.practicaldime.common.entity.blogs.BlogPost;
+import com.practicaldime.common.entity.blogs.Comment;
+import com.practicaldime.common.entity.users.Profile;
+import com.practicaldime.common.util.AResult;
+import com.practicaldime.plugins.blogs.config.BlogsDaoTestConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -17,13 +16,11 @@ import org.springframework.test.context.jdbc.SqlConfig;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
-import com.practicaldime.common.util.AResult;
-import com.practicaldime.common.entity.blogs.BlogPost;
-import com.practicaldime.common.entity.blogs.Comment;
-import com.practicaldime.common.entity.users.Profile;
-import com.practicaldime.plugins.blogs.dao.BlogsDao;
+import java.util.List;
+import java.util.Set;
 
-import com.practicaldime.plugins.blogs.config.BlogsDaoTestConfig;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = BlogsDaoTestConfig.class, loader = AnnotationConfigContextLoader.class)
@@ -56,7 +53,7 @@ public class BlogsDaoImplTest {
         assertEquals("Expecting 'sharks'", "sharks", created.getTitle());
         assertEquals("Expecting 'Guest'", "Guest", created.getAuthor().getFirstName());
     }
-    
+
     @Test
     public void testFindRecent() {
         AResult<List<BlogPost>> search = blogsDao.findRecent(1, 2);
@@ -76,29 +73,29 @@ public class BlogsDaoImplTest {
         AResult<List<BlogPost>> search = blogsDao.findByAuthor(authorId);
         assertTrue("Expected more than one", search.data.size() > 1);
     }
-    
+
     @Test
     public void testFindByTags() {
-        AResult<List<BlogPost>> search = blogsDao.findByTags(new String[] {"math","physics"});
+        AResult<List<BlogPost>> search = blogsDao.findByTags(new String[]{"math", "physics"});
         assertEquals("Expected 2 records", 2, search.data.size());
     }
-    
+
     @Test
     public void testUpdateTags() {
-    	long blogId = 1l;
-    	BlogPost blog = blogsDao.find(blogId).data;
-    	List<String> tags = blog.getTags();
-    	tags.add("brown");
-    	AResult<Integer> doUpdate = blogsDao.updateTags(blogId, tags.toArray(new String[tags.size()]));
-    	assertEquals("Expecting 1 row updated", 1, doUpdate.data.intValue());
-    	BlogPost updated = blogsDao.find(blogId).data;
-    	assertTrue("Expecting list contains new tag", updated.getTags().contains("brown"));
+        long blogId = 1l;
+        BlogPost blog = blogsDao.find(blogId).data;
+        List<String> tags = blog.getTags();
+        tags.add("brown");
+        AResult<Integer> doUpdate = blogsDao.updateTags(blogId, tags.toArray(new String[tags.size()]));
+        assertEquals("Expecting 1 row updated", 1, doUpdate.data.intValue());
+        BlogPost updated = blogsDao.find(blogId).data;
+        assertTrue("Expecting list contains new tag", updated.getTags().contains("brown"));
     }
-    
+
     @Test
     public void testGetTagsList() {
-    	Set<String> tags = blogsDao.tagsList().data;
-    	assertEquals("Expecting 8 different tags", 8, tags.size());
+        Set<String> tags = blogsDao.tagsList().data;
+        assertEquals("Expecting 8 different tags", 8, tags.size());
     }
 
     @Test

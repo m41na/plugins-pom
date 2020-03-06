@@ -1,14 +1,5 @@
 package com.practicaldime.plugins.backlog.dao;
 
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.sql.DataSource;
-
 import com.practicaldime.common.entity.todos.BackLogItem;
 import com.practicaldime.common.entity.todos.BackLogList;
 import com.practicaldime.common.entity.users.AccRole;
@@ -24,6 +15,14 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
+
+import javax.sql.DataSource;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Repository
 public class BackLogDaoImpl implements BackLogDao {
@@ -73,7 +72,7 @@ public class BackLogDaoImpl implements BackLogDao {
         KeyHolder holder = new GeneratedKeyHolder();
         int res = template.update(sql, new MapSqlParameterSource(params), holder);
 
-        return (res > 0) ? findListById(list) : new AResult<>( "error while adding item to list", ROW_NOT_FOUND);
+        return (res > 0) ? findListById(list) : new AResult<>("error while adding item to list", ROW_NOT_FOUND);
     }
 
     @Override

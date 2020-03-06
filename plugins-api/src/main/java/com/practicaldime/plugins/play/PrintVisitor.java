@@ -1,50 +1,45 @@
 package com.practicaldime.plugins.play;
 
-import org.objectweb.asm.AnnotationVisitor;
-import org.objectweb.asm.Attribute;
-import org.objectweb.asm.ClassVisitor;
-import org.objectweb.asm.FieldVisitor;
-import org.objectweb.asm.MethodVisitor;
-import org.objectweb.asm.Opcodes;
+import org.objectweb.asm.*;
 
 public class PrintVisitor extends ClassVisitor {
-	
-	public PrintVisitor() {
-		super(Opcodes.ASM6);
-	}
 
-	public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
-		System.out.println(name + " extends " + superName + " {");
-	}
+    public PrintVisitor() {
+        super(Opcodes.ASM6);
+    }
 
-	public void visitSource(String source, String debug) {
-	}
+    public void visit(int version, int access, String name, String signature, String superName, String[] interfaces) {
+        System.out.println(name + " extends " + superName + " {");
+    }
 
-	public void visitOuterClass(String owner, String name, String desc) {
-	}
+    public void visitSource(String source, String debug) {
+    }
 
-	public AnnotationVisitor visitAnnotation(String desc, boolean visible) {
+    public void visitOuterClass(String owner, String name, String desc) {
+    }
 
-		return null;
-	}
+    public AnnotationVisitor visitAnnotation(String desc, boolean visible) {
 
-	public void visitAttribute(Attribute attr) {
-	}
+        return null;
+    }
 
-	public void visitInnerClass(String name, String outerName, String innerName, int access) {
-	}
+    public void visitAttribute(Attribute attr) {
+    }
 
-	public FieldVisitor visitField(int access, String name, String desc, String signature, Object value) {
-		System.out.println(" " + desc + " " + name);
-		return null;
-	}
+    public void visitInnerClass(String name, String outerName, String innerName, int access) {
+    }
 
-	public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
-		System.out.println(" " + name + desc);
-		return null;
-	}
+    public FieldVisitor visitField(int access, String name, String desc, String signature, Object value) {
+        System.out.println(" " + desc + " " + name);
+        return null;
+    }
 
-	public void visitEnd() {
-		System.out.println("}");
-	}
+    public MethodVisitor visitMethod(int access, String name, String desc, String signature, String[] exceptions) {
+        System.out.println(" " + name + desc);
+        return null;
+    }
+
+    public void visitEnd() {
+        System.out.println("}");
+    }
 }

@@ -1,9 +1,5 @@
 package plugins.poc.users.config;
 
-import java.io.File;
-
-import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,9 +8,11 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.sqlite.SQLiteConfig;
 import org.sqlite.javax.SQLiteConnectionPoolDataSource;
-
 import plugins.poc.users.dao.UsersService;
 import plugins.poc.users.dao.UsersServiceImpl;
+
+import javax.sql.DataSource;
+import java.io.File;
 
 @Configuration
 @EnableTransactionManagement

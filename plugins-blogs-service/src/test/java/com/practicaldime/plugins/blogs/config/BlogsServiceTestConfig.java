@@ -1,5 +1,10 @@
 package com.practicaldime.plugins.blogs.config;
 
+import com.practicaldime.common.util.PasswordCheck;
+import com.practicaldime.common.util.PasswordStrength;
+import com.practicaldime.plugins.blogs.dao.BlogsDao;
+import com.practicaldime.plugins.blogs.service.BlogsService;
+import com.practicaldime.plugins.blogs.service.BlogsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,12 +12,6 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import com.practicaldime.common.util.PasswordCheck;
-import com.practicaldime.common.util.PasswordStrength;
-import com.practicaldime.plugins.blogs.dao.BlogsDao;
-import com.practicaldime.plugins.blogs.service.BlogsService;
-import com.practicaldime.plugins.blogs.service.BlogsServiceImpl;
 
 @Configuration
 @EnableTransactionManagement
@@ -24,10 +23,10 @@ public class BlogsServiceTestConfig {
     public static PropertySourcesPlaceholderConfigurer propertiesResolver() {
         return new PropertySourcesPlaceholderConfigurer();
     }
-    
+
     @Bean
     public PasswordCheck passwordCheck() {
-    	return new PasswordStrength();
+        return new PasswordStrength();
     }
 
     @Bean

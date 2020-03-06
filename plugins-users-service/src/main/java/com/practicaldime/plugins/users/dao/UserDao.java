@@ -1,12 +1,12 @@
 package com.practicaldime.plugins.users.dao;
 
-import java.util.List;
-
 import com.practicaldime.common.entity.users.*;
 import com.practicaldime.common.util.AResult;
 import com.practicaldime.common.util.DaoStatus;
 
-public interface UserDao extends DaoStatus{
+import java.util.List;
+
+public interface UserDao extends DaoStatus {
 
     AResult<List<Account>> retrieveAccounts(int start, int size);
 
@@ -19,9 +19,9 @@ public interface UserDao extends DaoStatus{
     AResult<Account> register(Account account);
 
     AResult<Integer> update(long accountId, char[] password);
-    
+
     AResult<Integer> update(long accountId, AccStatus status);
-    
+
     AResult<Integer> update(long accountId, AccRole role);
 
     AResult<Integer> deleteAccount(Long id);
@@ -39,6 +39,6 @@ public interface UserDao extends DaoStatus{
     AResult<List<LoginStatus>> fetchLoginStatus(long accountId);
 
     AResult<Integer> addLoginStatus(LoginStatus status);
-    
+
     AResult<Integer> clearLoginStatus(long accountId);
 }

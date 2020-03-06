@@ -8,5 +8,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Configuration
 @EnableTransactionManagement
 @EnableAspectJAutoProxy
-@ComponentScan(basePackages= {"com.practicaldime.plugins.backlog"})
-public class BackLogServiceConfig {}
+@ComponentScan(basePackages = {"com.practicaldime.plugins.backlog"})
+public class BackLogServiceConfig {
+}

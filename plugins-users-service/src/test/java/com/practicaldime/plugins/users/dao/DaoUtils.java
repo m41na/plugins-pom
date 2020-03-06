@@ -1,17 +1,15 @@
 package com.practicaldime.plugins.users.dao;
 
-import static org.junit.Assert.assertNotNull;
-
-import java.sql.ResultSetMetaData;
-
-import org.springframework.jdbc.core.ResultSetExtractor;
-
-import com.practicaldime.common.util.AResult;
 import com.practicaldime.common.entity.users.AccRole;
 import com.practicaldime.common.entity.users.AccStatus;
 import com.practicaldime.common.entity.users.Account;
 import com.practicaldime.common.entity.users.Profile;
-import com.practicaldime.plugins.users.dao.UserDao;
+import com.practicaldime.common.util.AResult;
+import org.springframework.jdbc.core.ResultSetExtractor;
+
+import java.sql.ResultSetMetaData;
+
+import static org.junit.Assert.assertNotNull;
 
 public class DaoUtils {
 

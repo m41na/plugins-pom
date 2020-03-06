@@ -1,28 +1,22 @@
 package com.practicaldime.plugins.users.service;
 
-import java.text.SimpleDateFormat;
-import java.time.Duration;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-
+import com.practicaldime.common.entity.users.AccStatus;
+import com.practicaldime.common.entity.users.Account;
+import com.practicaldime.common.entity.users.LoginStatus;
+import com.practicaldime.common.entity.users.Profile;
+import com.practicaldime.common.util.*;
+import com.practicaldime.plugins.users.config.ServiceProperties;
+import com.practicaldime.plugins.users.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.practicaldime.common.util.AResult;
-import com.practicaldime.common.util.CatchExceptions;
-import com.practicaldime.common.util.PasswordUtil;
-import com.practicaldime.common.util.RandomString;
-import com.practicaldime.common.util.UserTokenGen;
-import com.practicaldime.common.util.Validatable;
-import com.practicaldime.common.entity.users.AccStatus;
-import com.practicaldime.common.entity.users.Account;
-import com.practicaldime.common.entity.users.LoginStatus;
-import com.practicaldime.common.entity.users.Profile;
-import com.practicaldime.plugins.users.config.ServiceProperties;
-import com.practicaldime.plugins.users.dao.UserDao;
+import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 @Service("UserService")
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
@@ -43,12 +37,12 @@ public class UserServiceImpl implements UserService {
         this.userDao = userDao;
     }
 
-    public void setServiceProperties(ServiceProperties serviceProperties) {
-        this.serviceProperties = serviceProperties;
-    }
-
     public ServiceProperties getServiceProperties() {
         return serviceProperties;
+    }
+
+    public void setServiceProperties(ServiceProperties serviceProperties) {
+        this.serviceProperties = serviceProperties;
     }
 
     @Override
@@ -56,7 +50,7 @@ public class UserServiceImpl implements UserService {
     public AResult<String> createAccount(Account account) {
         AResult<Profile> profileResult = userDao.findByEmail(account.getProfile().getEmailAddress());
         if (profileResult.errors.isEmpty()) {
-        	Profile profile = profileResult.data;
+            Profile profile = profileResult.data;
             AResult<Account> accountResult = userDao.findByUsername(account.getUsername());
             if (accountResult.data == null) {
                 account.setProfile(profile);
@@ -72,7 +66,7 @@ public class UserServiceImpl implements UserService {
                 }
             } else {
                 return new AResult<>(400, "username is already taken");
-            }            
+            }
         } else {
             return new AResult<>(404, "there is no profile for this email");
         }
@@ -80,49 +74,49 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public AResult<Account> getAccount(long accountId) {
-    	AResult<Account> getAccount = userDao.findAccount(accountId);
-    	if(getAccount.errors.isEmpty()) {
-    		Account account = getAccount.data;
-    		account.setPassword(null);
-    		return new AResult<>(account);
-    	}
-    	return getAccount;
+        AResult<Account> getAccount = userDao.findAccount(accountId);
+        if (getAccount.errors.isEmpty()) {
+            Account account = getAccount.data;
+            account.setPassword(null);
+            return new AResult<>(account);
+        }
+        return getAccount;
     }
 
     @Override
     public AResult<Account> getAccount(String username) {
-    	AResult<Account> getAccount = userDao.findByUsername(username);
-        if(getAccount.errors.isEmpty()) {
-    		Account account = getAccount.data;
-    		account.setPassword(null);
-    		return new AResult<>(account);
-    	}
-    	return getAccount;
+        AResult<Account> getAccount = userDao.findByUsername(username);
+        if (getAccount.errors.isEmpty()) {
+            Account account = getAccount.data;
+            account.setPassword(null);
+            return new AResult<>(account);
+        }
+        return getAccount;
     }
 
     @Override
     public AResult<Account> getAccountByEmail(String emailAddress) {
-    	AResult<Account> getAccount = userDao.searchByEmail(emailAddress);
-    	if(getAccount.errors.isEmpty()) {
-    		Account account = getAccount.data;
-    		account.setPassword(null);
-    		return new AResult<>(account);
-    	}
-    	return getAccount;
+        AResult<Account> getAccount = userDao.searchByEmail(emailAddress);
+        if (getAccount.errors.isEmpty()) {
+            Account account = getAccount.data;
+            account.setPassword(null);
+            return new AResult<>(account);
+        }
+        return getAccount;
     }
 
     @Override
     public AResult<Integer> updatePassword(long accountId, char[] password) {
         return userDao.update(accountId, password);
     }
-    
+
     @Override
-    public AResult<char[]> fetchPassword(long accountId){
-    	AResult<Account> getAccount = userDao.findAccount(accountId);
-    	if(getAccount.errors.isEmpty()) {
-    		return new AResult<>(getAccount.data.getPassword());
-    	}
-    	return new AResult<>(getAccount.data.getPassword());
+    public AResult<char[]> fetchPassword(long accountId) {
+        AResult<Account> getAccount = userDao.findAccount(accountId);
+        if (getAccount.errors.isEmpty()) {
+            return new AResult<>(getAccount.data.getPassword());
+        }
+        return new AResult<>(getAccount.data.getPassword());
     }
 
     @Override
@@ -147,12 +141,12 @@ public class UserServiceImpl implements UserService {
             if (updateRole.errors.isEmpty()) {
                 AResult<Account> doUpdate = userDao.findAccount(accountId);
                 if (doUpdate.errors.isEmpty()) {
-                	if(doUpdate.errors.isEmpty()) {
-                		Account updated = doUpdate.data;
-                		updated.setPassword(null);
-                		return new AResult<>(updated);
-                	}
-                	return doUpdate;
+                    if (doUpdate.errors.isEmpty()) {
+                        Account updated = doUpdate.data;
+                        updated.setPassword(null);
+                        return new AResult<>(updated);
+                    }
+                    return doUpdate;
                 } else {
                     return new AResult<>(doUpdate.data);
                 }
@@ -166,10 +160,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public AResult<Profile> createProfile(Profile profile) {
-    	AResult<Profile> profileResult = userDao.findByEmail(profile.getEmailAddress());
-    	if(profileResult.data == null) {
-    		return userDao.register(profile);
-    	} else {
+        AResult<Profile> profileResult = userDao.findByEmail(profile.getEmailAddress());
+        if (profileResult.data == null) {
+            return userDao.register(profile);
+        } else {
             return new AResult<>("email is already in use", 400);
         }
     }
@@ -288,7 +282,7 @@ public class UserServiceImpl implements UserService {
                     return new AResult<>(reason, 403);
                 }
             } else {
-                return new AResult<>(200,null);
+                return new AResult<>(200, null);
             }
         } catch (NumberFormatException e) {
             return new AResult<>(e.getMessage(), 403);

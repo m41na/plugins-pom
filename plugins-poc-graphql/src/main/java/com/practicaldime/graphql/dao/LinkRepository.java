@@ -1,13 +1,13 @@
 package com.practicaldime.graphql.dao;
 
+import com.practicaldime.graphql.model.Link;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import com.practicaldime.graphql.model.Link;
-
 public class LinkRepository {
 
-	private final List<Link> links;
+    private final List<Link> links;
 
     public LinkRepository() {
         links = new ArrayList<>();
@@ -19,7 +19,7 @@ public class LinkRepository {
     public List<Link> getAllLinks() {
         return links;
     }
-    
+
     public void saveLink(Link link) {
         links.add(link);
     }

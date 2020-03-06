@@ -1,11 +1,10 @@
 package com.practicaldime.plugins.users.service;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-
+import com.practicaldime.common.entity.users.*;
+import com.practicaldime.common.util.AResult;
+import com.practicaldime.common.util.UserTokenGen;
+import com.practicaldime.plugins.users.config.UsersDaoTestConfig;
+import com.practicaldime.plugins.users.config.UsersServiceTestConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,17 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.practicaldime.common.util.AResult;
-import com.practicaldime.common.util.UserTokenGen;
-import com.practicaldime.common.entity.users.AccRole;
-import com.practicaldime.common.entity.users.AccStatus;
-import com.practicaldime.common.entity.users.Account;
-import com.practicaldime.common.entity.users.LoginStatus;
-import com.practicaldime.common.entity.users.Profile;
-import com.practicaldime.plugins.users.service.UserService;
-
-import com.practicaldime.plugins.users.config.UsersDaoTestConfig;
-import com.practicaldime.plugins.users.config.UsersServiceTestConfig;
+import static org.junit.Assert.*;
 
 @Transactional
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -35,9 +24,9 @@ import com.practicaldime.plugins.users.config.UsersServiceTestConfig;
 @Sql(scripts = "/sql/insert-data.sql", config = @SqlConfig(commentPrefix = "--"))
 public class UserServiceImplTest {
 
+    private final int maxLogin = 3;
     @Autowired
     private UserService service;
-    private final int maxLogin = 3;
 
     @Test
     public void testCreateAccount() {

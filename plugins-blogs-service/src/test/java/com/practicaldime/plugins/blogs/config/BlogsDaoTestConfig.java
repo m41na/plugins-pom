@@ -1,9 +1,7 @@
 package com.practicaldime.plugins.blogs.config;
 
-import java.io.File;
-
-import javax.sql.DataSource;
-
+import com.practicaldime.plugins.blogs.dao.BlogsDao;
+import com.practicaldime.plugins.blogs.dao.BlogsDaoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,8 +11,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.sqlite.SQLiteConfig;
 import org.sqlite.javax.SQLiteConnectionPoolDataSource;
 
-import com.practicaldime.plugins.blogs.dao.BlogsDao;
-import com.practicaldime.plugins.blogs.dao.BlogsDaoImpl;
+import javax.sql.DataSource;
+import java.io.File;
 
 @Configuration
 @EnableTransactionManagement

@@ -1,11 +1,9 @@
 package com.practicaldime.plugins.backlog.service;
 
-import static org.junit.Assert.assertEquals;
-
-import java.util.List;
-
 import com.practicaldime.common.entity.todos.BackLogItem;
 import com.practicaldime.common.entity.todos.BackLogList;
+import com.practicaldime.common.util.AResult;
+import com.practicaldime.plugins.backlog.config.BackLogServiceTestConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +14,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.practicaldime.common.util.AResult;
+import java.util.List;
 
-import com.practicaldime.plugins.backlog.config.BackLogServiceTestConfig;
+import static org.junit.Assert.assertEquals;
 
 @Transactional
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -34,7 +32,7 @@ public class BackLogServiceImplTest {
     public void testAddBackLogItem() {
         BackLogList list = service.getBackLogListById(1).data;
         int listSize = list.getItems().size();
-        
+
         AResult<BackLogList> addResult = service.addBackLogItem(list.getId(), new BackLogItem("testAddBackLogItem"));
         assertEquals("Expecting " + (listSize + 1), listSize + 1, addResult.data.getItems().size());
     }
@@ -72,7 +70,7 @@ public class BackLogServiceImplTest {
         // get first item in list
         BackLogItem todo = list.getItems().get(0);
         AResult<BackLogList> doneResult = service.renameBackLogItem(list.getId(), todo.getTask(), item);
-        assertEquals("Expecting  1 item", 1, doneResult.data.getItems().stream().filter(e->e.getTask().equals(item)).count());
+        assertEquals("Expecting  1 item", 1, doneResult.data.getItems().stream().filter(e -> e.getTask().equals(item)).count());
     }
 
     @Test
@@ -91,7 +89,7 @@ public class BackLogServiceImplTest {
     public void testRenameBackLogList() {
         BackLogList list = service.getBackLogListById(1).data;
         String title = "fancyList";
-        AResult<Integer> doneResult = service.renameBackLogList(list.getId(),  title);
+        AResult<Integer> doneResult = service.renameBackLogList(list.getId(), title);
         assertEquals("Expecting  1 item", 1, doneResult.data.intValue());
     }
 }

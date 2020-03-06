@@ -4,16 +4,16 @@ import java.util.Date;
 
 public class Link {
 
-	private final Long id;
-	private final String url;
+    private final Long id;
+    private final String url;
     private final String description;
 
     public Link(String url, String description) {
-    	this.id = new Date().getTime();
+        this.id = new Date().getTime();
         this.url = url;
         this.description = description;
     }
-    
+
     public Link(Long id, String url, String description) {
         this.id = id;
         this.url = url;
@@ -21,10 +21,10 @@ public class Link {
     }
 
     public Long getId() {
-		return id;
-	}
+        return id;
+    }
 
-	public String getUrl() {
+    public String getUrl() {
         return url;
     }
 

@@ -1,12 +1,10 @@
 package com.practicaldime.plugins.blogs.service;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
-
+import com.practicaldime.common.entity.blogs.BlogPost;
+import com.practicaldime.common.entity.blogs.Comment;
+import com.practicaldime.common.entity.users.Profile;
+import com.practicaldime.common.util.AResult;
+import com.practicaldime.plugins.blogs.config.BlogsServiceTestConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +15,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.practicaldime.common.util.AResult;
-import com.practicaldime.common.entity.blogs.BlogPost;
-import com.practicaldime.common.entity.blogs.Comment;
-import com.practicaldime.common.entity.users.Profile;
-import com.practicaldime.plugins.blogs.service.BlogsService;
+import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
-import com.practicaldime.plugins.blogs.config.BlogsServiceTestConfig;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @Transactional
 @RunWith(SpringJUnit4ClassRunner.class)
