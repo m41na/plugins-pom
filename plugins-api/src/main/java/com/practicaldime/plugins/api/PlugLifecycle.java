@@ -8,15 +8,19 @@ public interface PlugLifecycle {
 
     void onLoadError(Throwable throwable);
 
+    void onLoadComplete();
+
     void beforeExecute();
 
     void onExecuteSuccess();
 
     void onExecuteError(Throwable throwable);
 
+    void onExecuteComplete();
+
     void beforeUnload();
 
-    void onUnloadSuccess();
-
     void onUnloadError(Throwable throwable);
+
+    void onUnloadSuccess();
 }

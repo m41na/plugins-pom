@@ -8,7 +8,7 @@ import java.util.List;
  *
  * @author mainas
  */
-public class Pluggable {
+public class PlugDefinition {
 
     private String type;
     private String repository;
@@ -16,7 +16,7 @@ public class Pluggable {
     private String jarfile;
     private String plugin;
     private List<Feature> features = new ArrayList<>();
-    private List<Pluggable> sources = new ArrayList<>();
+    private List<PlugDefinition> definitions = new ArrayList<>();
 
     public String getType() {
         return type;
@@ -66,11 +66,11 @@ public class Pluggable {
         this.features = operations;
     }
 
-    public List<Pluggable> getSources() {
-        return sources;
+    public List<PlugDefinition> getDefinitions() {
+        return definitions;
     }
 
-    public void setSources(List<Pluggable> sources) {
-        this.sources = sources;
+    public void setDefinitions(List<PlugDefinition> definitions) {
+        this.definitions = definitions;
     }
 }

@@ -16,10 +16,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
-import java.io.Console;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -57,11 +54,17 @@ public class StartupServiceImpl implements StartupService {
         props = new Properties();
 
         // 2. read values from config files
-        try {
-            props.load(this.getClass().getResourceAsStream("/config/app-default.properties"));
-            // load overriding properties
-            props.load(new FileReader(new File("app-config.properties")));
-        } catch (IOException e) {
+        String defaultConfigFile = "/config/app-default.properties";
+        try(InputStream stream = this.getClass().getResourceAsStream(defaultConfigFile)) {
+            if(stream != null) {
+                props.load(stream);
+                // load overriding properties
+                props.load(new FileReader(new File("app-config.properties")));
+            }
+            else{
+                LOG.warn("Could not locate the file specified at [" + defaultConfigFile + "]");
+            }
+        } catch (IOException | NullPointerException e) {
             LOG.error(e.getMessage());
             throw new AppException(1, "could not locate properties file to initialize application", e);
         }

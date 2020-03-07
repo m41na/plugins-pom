@@ -52,12 +52,12 @@ public abstract class AbstractPlugin<T> implements Plugin<T>, PlugLifecycle {
 
     @Override
     public void load(ClassLoader loader) {
-        throw new PlugException("No implementation is provided yet.");
+        onLoadSuccess();
     }
 
     @Override
     public void unload() {
-        throw new PlugException("No implementation is provided yet.");
+        onUnloadSuccess();
     }
 
     @Override
@@ -82,6 +82,11 @@ public abstract class AbstractPlugin<T> implements Plugin<T>, PlugLifecycle {
     }
 
     @Override
+    public void onLoadComplete() {
+        System.out.printf("executing %s%n", "onLoadComplete");
+    }
+
+    @Override
     public void beforeExecute() {
         System.out.printf("executing %s%n", "beforeExecute");
     }
@@ -94,6 +99,11 @@ public abstract class AbstractPlugin<T> implements Plugin<T>, PlugLifecycle {
     @Override
     public void onExecuteError(Throwable throwable) {
         System.out.printf("%s error: %s%n", "onExecuteError", throwable.getMessage());
+    }
+
+    @Override
+    public void onExecuteComplete() {
+        System.out.printf("executing %s%n", "onExecuteComplete");
     }
 
     @Override

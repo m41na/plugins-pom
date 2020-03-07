@@ -17,6 +17,11 @@ public class StartupPlugin extends AbstractPlugin<StartupService> {
     }
 
     @Override
+    public StartupService target() {
+        return this.service;
+    }
+
+    @Override
     public void load(ClassLoader loader) {
         context = new AnnotationConfigApplicationContext();
         context.setClassLoader(loader);

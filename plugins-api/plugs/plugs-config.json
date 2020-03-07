@@ -1,7 +1,7 @@
 {
 	"type": "jar",
 	"repository": "~/.m2/repository/",
-	"sources": [
+	"definitions": [
 		{
 			"type": "file",
 			"coordinates": "com/practicaldime/works/plugins-poc-users/0.1",

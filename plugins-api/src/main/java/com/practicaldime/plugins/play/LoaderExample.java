@@ -1,6 +1,6 @@
 package com.practicaldime.plugins.play;
 
-import com.practicaldime.plugins.api.Pluggable;
+import com.practicaldime.plugins.api.PlugDefinition;
 import com.practicaldime.plugins.config.PlugConfig;
 import com.practicaldime.plugins.loader.PluginCentral;
 
@@ -56,7 +56,7 @@ public class LoaderExample extends ClassLoader {
     }
 
     public Class<?> loadClass(String name) throws ClassNotFoundException {
-        Pluggable found = PluginCentral.findPlugByPlugin(name);
+        PlugDefinition found = PluginCentral.findPlugByPluginName(name);
         if (found != null) {
             try {
                 String jarUrl = PlugConfig.resolveUrl(found);

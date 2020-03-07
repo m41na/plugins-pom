@@ -1,7 +1,7 @@
 package com.practicaldime.plugins.loader;
 
 import com.practicaldime.plugins.api.PlugLifecycle;
-import com.practicaldime.plugins.api.Pluggable;
+import com.practicaldime.plugins.api.PlugDefinition;
 import com.practicaldime.plugins.api.Plugin;
 import com.practicaldime.plugins.config.PlugConfig;
 
@@ -12,16 +12,16 @@ import java.net.URLClassLoader;
 
 public class PluginExample implements Runnable {
 
-    private final Pluggable plug;
+    private final PlugDefinition plug;
 
-    public PluginExample(Pluggable plug) {
+    public PluginExample(PlugDefinition plug) {
         super();
         this.plug = plug;
     }
 
     public static void main(String[] args) throws InterruptedException {
-        Pluggable plug = PlugConfig.getInstance().loadConfig();
-        Runnable task = new PluginExample(plug.getSources().get(0));
+        PlugDefinition plug = PlugConfig.getInstance().loadConfig();
+        Runnable task = new PluginExample(plug.getDefinitions().get(0));
         Thread thread = new Thread(task);
         thread.start();
         thread.join();

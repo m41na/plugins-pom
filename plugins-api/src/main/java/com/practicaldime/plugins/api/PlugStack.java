@@ -3,21 +3,28 @@ package com.practicaldime.plugins.api;
 import java.lang.reflect.Method;
 import java.util.Stack;
 
-public class Poppin {
+public class PlugStack {
 
     private Stack<Object> stack = new Stack<>();
 
-    public Poppin(Object target) {
+    private PlugStack(Object target) {
         this.stack.push(target);
     }
 
-    public static Poppin use(Object target) {
-        return new Poppin(target);
+    public static PlugStack use(Object target) {
+        return new PlugStack(target);
     }
 
-    public Poppin push(String method, Class<?>... params) {
+    public PlugStack push(Object obj){
+        this.stack.push(obj);
+        return this;
+    }
+
+    public PlugStack push(String method, Class<?>... params) {
         try {
-            Method m = stack.peek().getClass().getMethod(method, params);
+            Method m = params != null?
+                    stack.peek().getClass().getMethod(method, params) :
+                    stack.peek().getClass().getMethod(method);
             stack.push(m);
             return this;
         } catch (ReflectiveOperationException e) {
@@ -25,7 +32,7 @@ public class Poppin {
         }
     }
 
-    public Poppin call(Object... args) {
+    public PlugStack call(Object... args) {
         try {
             Method method = (Method) stack.pop();
             Object result = method.invoke(stack.pop(), args);

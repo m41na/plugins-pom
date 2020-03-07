@@ -18,17 +18,17 @@ public class PluginCentral {
 
     private final Map<String, Plugin<?>> plugins = new HashMap<>();
     private final Map<String, URLClassLoader> loaders = new HashMap<>();
-    private final List<Pluggable> sources;
+    private final List<PlugDefinition> definitions;
 
-    public PluginCentral(List<Pluggable> sources) {
+    public PluginCentral(List<PlugDefinition> definitions) {
         super();
-        this.sources = sources;
+        this.definitions = definitions;
         this.init();
     }
 
-    public static Pluggable findPlugByPlugin(String plugin) {
-        Pluggable config = PlugConfig.getInstance().loadConfig();
-        for (Pluggable source : config.getSources()) {
+    public static PlugDefinition findPlugByPluginName(String plugin) {
+        PlugDefinition config = PlugConfig.getInstance().loadConfig();
+        for (PlugDefinition source : config.getDefinitions()) {
             if (source.getPlugin().equals(plugin)) {
                 return source;
             }
@@ -36,10 +36,10 @@ public class PluginCentral {
         return null;
     }
 
-    public static Pluggable findPlugByJarname(String jarname) {
-        Pluggable config = PlugConfig.getInstance().loadConfig();
-        for (Pluggable source : config.getSources()) {
-            if (source.getJarfile().equals(jarname)) {
+    public static PlugDefinition findPlugByJarName(String jarName) {
+        PlugDefinition config = PlugConfig.getInstance().loadConfig();
+        for (PlugDefinition source : config.getDefinitions()) {
+            if (source.getJarfile().equals(jarName)) {
                 return source;
             }
         }
@@ -47,24 +47,24 @@ public class PluginCentral {
     }
 
     public static void main(String[] args) throws ReflectiveOperationException {
-        Pluggable config = PlugConfig.getInstance().loadConfig();
-        PluginCentral reloader = new PluginCentral(config.getSources());
+        PlugDefinition config = PlugConfig.getInstance().loadConfig();
+        PluginCentral loader = new PluginCentral(config.getDefinitions());
 
         String plugin = "com.practicaldime.plugins.users.StartupPlugin";
         String feature = "initialize";
-        reloader.loadPlugin(plugin);
-        reloader.discoverFeatures(plugin);
-        reloader.runPlugin(plugin, feature, null);
-        reloader.reloadPlugin(plugin);
-        reloader.discoverFeatures(plugin);
-        reloader.runPlugin(plugin, feature, null);
-        reloader.unloadPlugin(plugin);
+        loader.loadPlugin(plugin);
+        loader.discoverFeatures(plugin);
+        loader.runPlugin(plugin, feature, null);
+        loader.reloadPlugin(plugin);
+        loader.discoverFeatures(plugin);
+        loader.runPlugin(plugin, feature, null);
+        loader.unloadPlugin(plugin);
     }
 
     private void init() {
-        if (sources != null) {
-            for (Iterator<Pluggable> iter = this.sources.iterator(); iter.hasNext(); ) {
-                Pluggable plug = iter.next();
+        if (definitions != null) {
+            for (Iterator<PlugDefinition> iter = this.definitions.iterator(); iter.hasNext(); ) {
+                PlugDefinition plug = iter.next();
                 String path = PlugConfig.resolveUrl(plug);
                 String name = plug.getPlugin();
                 // load plugin
@@ -91,10 +91,10 @@ public class PluginCentral {
 
     public void loadPlugin(String plugin) {
         // identify plugin
-        Pluggable pluggable = findPlugByPlugin(plugin);
-        if (pluggable != null) {
-            String path = PlugConfig.resolveUrl(pluggable);
-            String name = pluggable.getPlugin();
+        PlugDefinition plugDefinition = findPlugByPluginName(plugin);
+        if (plugDefinition != null) {
+            String path = PlugConfig.resolveUrl(plugDefinition);
+            String name = plugDefinition.getPlugin();
             // get cached plugin instance
             String pluginKey = path + "@" + name;
             Plugin<?> plug = plugins.get(pluginKey);
@@ -108,6 +108,8 @@ public class PluginCentral {
                     plc.onLoadSuccess();
                 } catch (Exception e) {
                     plc.onLoadError(e);
+                } finally {
+                    plc.onLoadComplete();
                 }
             } else {
                 throw new PlugException("Plugin with name '" + plugin + "' not defined");
@@ -119,10 +121,10 @@ public class PluginCentral {
 
     public PlugResult<?> runPlugin(String plugin, String feature, String payload) {
         // identify plugin
-        Pluggable pluggable = findPlugByPlugin(plugin);
-        if (pluggable != null) {
-            String path = PlugConfig.resolveUrl(pluggable);
-            String name = pluggable.getPlugin();
+        PlugDefinition plugDefinition = findPlugByPluginName(plugin);
+        if (plugDefinition != null) {
+            String path = PlugConfig.resolveUrl(plugDefinition);
+            String name = plugDefinition.getPlugin();
             // get cached plugin instance
             String pluginKey = path + "@" + name;
             Plugin<?> plug = plugins.get(pluginKey);
@@ -138,6 +140,9 @@ public class PluginCentral {
                     plc.onExecuteError(e);
                     return new PlugResult<>(e.getMessage());
                 }
+                finally{
+                    plc.onExecuteComplete();
+                }
             } else {
                 throw new PlugException("Plugin with name '" + plugin + "' not loaded");
             }
@@ -148,10 +153,10 @@ public class PluginCentral {
 
     public Object invokePlugin(String plugin, String feature, Class<?>[] params, Object[] args) {
         // identify plugin
-        Pluggable pluggable = findPlugByPlugin(plugin);
-        if (pluggable != null) {
-            String path = PlugConfig.resolveUrl(pluggable);
-            String name = pluggable.getPlugin();
+        PlugDefinition plugDefinition = findPlugByPluginName(plugin);
+        if (plugDefinition != null) {
+            String path = PlugConfig.resolveUrl(plugDefinition);
+            String name = plugDefinition.getPlugin();
             // get cached plugin instance
             String pluginKey = path + "@" + name;
             Plugin<?> plug = plugins.get(pluginKey);
@@ -177,10 +182,10 @@ public class PluginCentral {
 
     public void reloadPlugin(String plugin) {
         // identify plugin
-        Pluggable pluggable = findPlugByPlugin(plugin);
-        if (pluggable != null) {
-            String path = PlugConfig.resolveUrl(pluggable);
-            String name = pluggable.getPlugin();
+        PlugDefinition plugDefinition = findPlugByPluginName(plugin);
+        if (plugDefinition != null) {
+            String path = PlugConfig.resolveUrl(plugDefinition);
+            String name = plugDefinition.getPlugin();
             // get cached plugin instance
             String pluginKey = path + "@" + name;
             Plugin<?> plug = plugins.remove(pluginKey);
@@ -228,10 +233,10 @@ public class PluginCentral {
 
     public void unloadPlugin(String plugin) {
         // identify plugin
-        Pluggable pluggable = findPlugByPlugin(plugin);
-        if (pluggable != null) {
-            String path = PlugConfig.resolveUrl(pluggable);
-            String name = pluggable.getPlugin();
+        PlugDefinition plugDefinition = findPlugByPluginName(plugin);
+        if (plugDefinition != null) {
+            String path = PlugConfig.resolveUrl(plugDefinition);
+            String name = plugDefinition.getPlugin();
             // get cached plugin instance
             String pluginKey = path + "@" + name;
             Plugin<?> plug = plugins.remove(pluginKey);
@@ -261,15 +266,15 @@ public class PluginCentral {
     public byte[] loadPluginBytes(String plugin) {
         try {
             // identify plugin
-            Pluggable pluggable = findPlugByPlugin(plugin);
-            String path = PlugConfig.resolveUrl(pluggable);
-            String name = pluggable.getPlugin();
+            PlugDefinition plugDefinition = findPlugByPluginName(plugin);
+            String path = PlugConfig.resolveUrl(plugDefinition);
+            String name = plugDefinition.getPlugin();
             // get cached plugin instance
             String pluginKey = path + "@" + name;
             Plugin<?> plug = plugins.get(pluginKey);
             if (plug != null) {
                 // read bytes
-                ClassReader cr = new ClassReader(pluggable.getPlugin());
+                ClassReader cr = new ClassReader(plugDefinition.getPlugin());
                 ClassWriter cw = new ClassWriter(cr, 0);
                 // cv forwards all events to cw
                 ClassVisitor cv = new ClassVisitor(Opcodes.ASM6) {
@@ -287,9 +292,9 @@ public class PluginCentral {
     public Object getInstance(String plugin, String bean) {
         try {
             // identify plugin
-            Pluggable pluggable = findPlugByPlugin(plugin);
-            String path = PlugConfig.resolveUrl(pluggable);
-            String name = pluggable.getPlugin();
+            PlugDefinition plugDefinition = findPlugByPluginName(plugin);
+            String path = PlugConfig.resolveUrl(plugDefinition);
+            String name = plugDefinition.getPlugin();
             // get cached plugin instance
             String pluginKey = path + "@" + name;
             Plugin<?> plug = plugins.get(pluginKey);
@@ -305,9 +310,9 @@ public class PluginCentral {
     public Object loadPluginProxy(String plugin) {
         try {
             // identify plugin
-            Pluggable pluggable = findPlugByPlugin(plugin);
-            String path = PlugConfig.resolveUrl(pluggable);
-            String name = pluggable.getPlugin();
+            PlugDefinition plugDefinition = findPlugByPluginName(plugin);
+            String path = PlugConfig.resolveUrl(plugDefinition);
+            String name = plugDefinition.getPlugin();
             // get cached plugin instance
             String pluginKey = path + "@" + name;
             URLClassLoader loader = loaders.get(path);
@@ -327,9 +332,9 @@ public class PluginCentral {
     public void discoverFeatures(String plugin) {
         try {
             // identify plugin
-            Pluggable pluggable = findPlugByPlugin(plugin);
-            String path = PlugConfig.resolveUrl(pluggable);
-            String name = pluggable.getPlugin();
+            PlugDefinition plugDefinition = findPlugByPluginName(plugin);
+            String path = PlugConfig.resolveUrl(plugDefinition);
+            String name = plugDefinition.getPlugin();
             // get cached plugin instance
             String pluginKey = path + "@" + name;
             Plugin<?> plug = plugins.get(pluginKey);

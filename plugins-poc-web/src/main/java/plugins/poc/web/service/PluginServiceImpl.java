@@ -3,7 +3,7 @@ package plugins.poc.web.service;
 import com.google.gson.Gson;
 import com.practicaldime.plugins.api.PlugException;
 import com.practicaldime.plugins.api.PlugResult;
-import com.practicaldime.plugins.api.Pluggable;
+import com.practicaldime.plugins.api.PlugDefinition;
 import com.practicaldime.plugins.loader.PluginCentral;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,17 +17,17 @@ public class PluginServiceImpl implements PluginService {
     @Autowired
     private PluginCentral controls;
     @Autowired
-    private Pluggable plugins;
+    private PlugDefinition plugins;
 
     @Override
     public boolean isAvailable(String name) {
-        return plugins.getSources().stream().anyMatch(t -> t.getPlugin().equals(name));
+        return plugins.getDefinitions().stream().anyMatch(t -> t.getPlugin().equals(name));
     }
 
     @Override
     public List<String> plugsAvailable() {
         Gson gson = new Gson();
-        return plugins.getSources().stream().map(e -> gson.toJson(e)).collect(Collectors.toList());
+        return plugins.getDefinitions().stream().map(e -> gson.toJson(e)).collect(Collectors.toList());
     }
 
     @Override

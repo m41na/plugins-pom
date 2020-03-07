@@ -1,7 +1,7 @@
 package com.practicaldime.plugins.config;
 
 import com.google.gson.Gson;
-import com.practicaldime.plugins.api.Pluggable;
+import com.practicaldime.plugins.api.PlugDefinition;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -17,7 +17,7 @@ public class PlugConfig {
     private static final Path PLUGINS_DIR_PATH = Paths.get(System.getProperty("user.dir"), PLUGINS_DIR_NAME).resolve(CONFIG_FILE_NAME);
     private static final Path HOME_DIR = Paths.get(System.getProperty("user.home"));
     private static PlugConfig instance;
-    private Pluggable pluggable;
+    private PlugDefinition plugDefinition;
 
     private PlugConfig() {
         //singleton - hide constructor
@@ -32,10 +32,10 @@ public class PlugConfig {
         return instance;
     }
 
-    public static void resolve(Pluggable parent) {
-        if (parent.getSources().size() > 0) {
-            for (Iterator<Pluggable> iter = parent.getSources().iterator(); iter.hasNext(); ) {
-                Pluggable athis = iter.next();
+    public static void resolve(PlugDefinition parent) {
+        if (parent.getDefinitions().size() > 0) {
+            for (Iterator<PlugDefinition> iter = parent.getDefinitions().iterator(); iter.hasNext(); ) {
+                PlugDefinition athis = iter.next();
                 if (athis.getType() == null) {
                     athis.setType(parent.getType());
                 }
@@ -47,7 +47,7 @@ public class PlugConfig {
         }
     }
 
-    public static String resolveUrl(Pluggable plug) {
+    public static String resolveUrl(PlugDefinition plug) {
         //"file:/home/user/.m2/repository/works/hop/plugins-basic/0.1/plugins-basic-0.1.jar
         StringBuilder path = new StringBuilder();
         String type = plug.getType().concat(":/");
@@ -59,21 +59,21 @@ public class PlugConfig {
     }
 
     public static void main(String[] args) {
-        Pluggable config = PlugConfig.getInstance().loadConfig();
-        System.out.println(new Gson().toJson(config, Pluggable.class));
+        PlugDefinition config = PlugConfig.getInstance().loadConfig();
+        System.out.println(new Gson().toJson(config, PlugDefinition.class));
     }
 
-    public Pluggable loadConfig() {
-        if (pluggable == null) {
+    public PlugDefinition loadConfig() {
+        if (plugDefinition == null) {
             try (BufferedReader reader = new BufferedReader(new FileReader(PLUGINS_DIR_PATH.toFile()))) {
-                Pluggable config = new Gson().fromJson(reader, Pluggable.class);
+                PlugDefinition config = new Gson().fromJson(reader, PlugDefinition.class);
                 resolve(config);
-                this.pluggable = config;
+                this.plugDefinition = config;
             } catch (IOException e) {
                 e.printStackTrace(System.err);
                 return null;
             }
         }
-        return pluggable;
+        return plugDefinition;
     }
 }

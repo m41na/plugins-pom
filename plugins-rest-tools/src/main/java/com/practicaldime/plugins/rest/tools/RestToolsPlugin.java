@@ -1,15 +1,18 @@
 package com.practicaldime.plugins.rest.tools;
 
+import com.practicaldime.plugins.api.AbstractPlugin;
 import com.practicaldime.plugins.api.PlugException;
 import com.practicaldime.plugins.api.PlugLifecycle;
 import com.practicaldime.plugins.api.PlugResult;
-import com.practicaldime.plugins.api.Plugin;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class RestToolsPlugin implements Plugin<RestToolsService>, PlugLifecycle {
+public class RestToolsPlugin extends AbstractPlugin<RestToolsService> {
 
     private AnnotationConfigApplicationContext context;
-    private RestToolsService app;
+
+    public RestToolsPlugin() {
+        super(RestToolsService.class);
+    }
 
     @Override
     public PlugLifecycle lifecycle() {
@@ -17,13 +20,8 @@ public class RestToolsPlugin implements Plugin<RestToolsService>, PlugLifecycle 
     }
 
     @Override
-    public void features(ClassLoader loader) {
-        System.out.printf("use this to discover %s plugin features%n", RestToolsPlugin.class.getName());
-    }
-
-    @Override
     public RestToolsService target() {
-        return this.app;
+        return this.service;
     }
 
     @Override
@@ -33,13 +31,13 @@ public class RestToolsPlugin implements Plugin<RestToolsService>, PlugLifecycle 
         context.register(RestToolsConfig.class);
         context.refresh();
         System.out.println("plugin loaded");
-        this.app = context.getBean("app", RestToolsService.class);
+        this.service = context.getBean("app", RestToolsService.class);
     }
 
     @Override
     public Object invoke(String feature, Class<?>[] params, Object[] args) throws ReflectiveOperationException {
         System.out.println("plugin executing");
-        return RestToolsService.class.getMethod(feature, params).invoke(app, args);
+        return RestToolsService.class.getMethod(feature, params).invoke(service, args);
     }
 
     @Override
@@ -49,12 +47,12 @@ public class RestToolsPlugin implements Plugin<RestToolsService>, PlugLifecycle 
 
     @Override
     public PlugResult<?> execute(String feature, String payload) {
-        if (app != null) {
+        if (service != null) {
             System.out.println("plugin executing");
             switch (feature) {
                 case "printTasks":
                     try {
-                        app.printTasks();
+                        service.printTasks();
                         return new PlugResult<>(0, true, "success");
                     } catch (PlugException e) {
                         return new PlugResult<>(e.getMessage());
@@ -72,50 +70,5 @@ public class RestToolsPlugin implements Plugin<RestToolsService>, PlugLifecycle 
         context.close();
         System.out.println("plugin unloaded");
         context = null;
-    }
-
-    @Override
-    public void beforeLoad() {
-        System.out.printf("executing %s%n", "beforeLoad");
-    }
-
-    @Override
-    public void onLoadSuccess() {
-        System.out.printf("executing %s%n", "onLoadSuccess");
-    }
-
-    @Override
-    public void onLoadError(Throwable e) {
-        System.out.printf("%s error: %s%n", "onLoadError", e.getMessage());
-    }
-
-    @Override
-    public void beforeExecute() {
-        System.out.printf("executing %s%n", "beforeExecute");
-    }
-
-    @Override
-    public void onExecuteSuccess() {
-        System.out.printf("executing %s%n", "onExecuteSuccess");
-    }
-
-    @Override
-    public void onExecuteError(Throwable e) {
-        System.out.printf("%s error: %s%n", "onExecuteError", e.getMessage());
-    }
-
-    @Override
-    public void beforeUnload() {
-        System.out.printf("executing %s%n", "beforeUnload");
-    }
-
-    @Override
-    public void onUnloadSuccess() {
-        System.out.printf("executing %s%n", "onUnloadSuccess");
-    }
-
-    @Override
-    public void onUnloadError(Throwable e) {
-        System.out.printf("%s error: %s%n", "onUnloadError", e.getMessage());
     }
 }

@@ -1,6 +1,6 @@
 package plugins.poc.web.config;
 
-import com.practicaldime.plugins.api.Pluggable;
+import com.practicaldime.plugins.api.PlugDefinition;
 import com.practicaldime.plugins.config.PlugConfig;
 import com.practicaldime.plugins.loader.PluginCentral;
 import org.eclipse.jetty.server.handler.AbstractHandler;
@@ -39,12 +39,12 @@ public class AppContext {
     }
 
     @Bean
-    public Pluggable pluggable() {
+    public PlugDefinition pluggable() {
         return PlugConfig.getInstance().loadConfig();
     }
 
     @Bean
-    public PluginCentral pluginCentral(@Autowired Pluggable plugs) {
-        return new PluginCentral(plugs.getSources());
+    public PluginCentral pluginCentral(@Autowired PlugDefinition plugs) {
+        return new PluginCentral(plugs.getDefinitions());
     }
 }
